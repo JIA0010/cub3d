@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 17:13:37 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/23 14:17:08 by yhirai            #+#    #+#             */
+/*   Updated: 2023/06/02 14:03:34 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include <unistd.h>
+#include <stddef.h>
+#include "libft.h"
 
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_data	*data;
+	size_t	count;
 
-	data = init();
-	parser(data);
-	return (0);
+	if (s == NULL)
+		return ;
+	count = ft_strlen(s);
+	write(fd, s, count);
 }
+
+// int	main(void)
+// {
+// 	char	*s;
+// 	int	fd;
+// 	fd = 1;
+// 	s = "abcdefg";
+// 	ft_putstr_fd(s, fd);
+// }

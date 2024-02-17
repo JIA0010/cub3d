@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 17:13:37 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/23 14:15:36 by yhirai            #+#    #+#             */
+/*   Updated: 2023/05/26 16:22:56 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include <unistd.h>
+#include <stddef.h>
 
-int	main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_data	*data;
-
-	data = init();
-	parser(data);
-	return (0);
+	write(fd, &c, 1);
 }

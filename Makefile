@@ -1,17 +1,26 @@
 NAME		= cub3d
 SRC_PATH	= srcs/
+INIT_PATH	= init/
+ERROR_PATH	= error/
 PARSER_PATH	= parser/
 RAY_PATH	= ray/
 OBJ_PATH	= objs/
+LIBFT_PATH	= Libft/
 INCLUDES	= includes/
 SRC_FILES	= main.c
-PARSER_FILES= 
+INIT_FILES	= init.c init_parser.c
+ERROR_FILES	= error_init.c
+PARSER_FILES= parser.c
 RAY_FILES	= 
+LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o)
 SRCS		= $(addprefix $(SRC_PATH), $(SRC_FILES))
-OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
+INITS		= $(addprefix $(SRC_PATH), $(INIT_PATH), $(INIT_FILES))
+ERRORS		= $(addprefix $(SRC_PATH), $(ERROR_PATH), $(ERROR_FILES))
 PARSERS		= $(addprefix $(SRC_PATH), $(PARSER_PATH), $(PARSER_FILES))
 RAYS		= $(addprefix $(SRC_PATH), $(RAY_PATH), $(RAY_FILES))
+OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
+LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS += -fsanitize=address -fno-omit-frame-pointer
@@ -32,10 +41,22 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 	@ echo ""
 	@ mkdir -p ./objs/
+	@ $(MAKE) -C $(LIBFT_PATH)
+	@ cp $(LIBFT) $(NAME)
 	@ $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
+	@ mkdir -p $(@D)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(OBJ_PATH)%.o:$(INIT_PATH)%.c $(INCLUDES)
+	@ mkdir -p $(@D)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(OBJ_PATH)%.o:$(ERROR_PATH)%.c $(INCLUDES)
 	@ mkdir -p $(@D)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
@@ -51,10 +72,12 @@ $(OBJ_PATH)%.o:$(RAY_PATH)%.c $(INCLUDES)
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 clean:
+	@ $(MAKE) clean -C $(LIBFT_PATH)
 	@ $(RM) -r ./objs/
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files.$(RESET)\n"
 
 fclean:
+	@ $(MAKE) fclean -C $(LIBFT_PATH)
 	@ $(RM) $(NAME)
 	@ $(RM) -r ./objs/
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files and $(NAME).$(RESET)\n"

@@ -1,9 +1,9 @@
 NAME		= cub3d
 SRC_PATH	= srcs/
-INIT_PATH	= init/
-ERROR_PATH	= error/
-PARSER_PATH	= parser/
-RAY_PATH	= ray/
+INIT_PATH	= srcs/init/
+ERROR_PATH	= srcs/error/
+PARSER_PATH	= srcs/parser/
+RAY_PATH	= srcs/ray/
 OBJ_PATH	= objs/
 LIBFT_PATH	= Libft/
 INCLUDES	= includes/
@@ -13,12 +13,13 @@ ERROR_FILES	= error_init.c
 PARSER_FILES= parser.c
 RAY_FILES	= 
 LIBFT_FILE	= libft.a
-OBJ_FILES	= $(SRC_FILES:%.c=%.o)
+OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
+				$(PARSER_FILES:%.c=%.o) $(RAY_FILES:%.c=%.o)
 SRCS		= $(addprefix $(SRC_PATH), $(SRC_FILES))
-INITS		= $(addprefix $(SRC_PATH), $(INIT_PATH), $(INIT_FILES))
-ERRORS		= $(addprefix $(SRC_PATH), $(ERROR_PATH), $(ERROR_FILES))
-PARSERS		= $(addprefix $(SRC_PATH), $(PARSER_PATH), $(PARSER_FILES))
-RAYS		= $(addprefix $(SRC_PATH), $(RAY_PATH), $(RAY_FILES))
+INITS		= $(addprefix $(INIT_PATH), $(INIT_FILES))
+ERRORS		= $(addprefix $(ERROR_PATH), $(ERROR_FILES))
+PARSERS		= $(addprefix $(PARSER_PATH), $(PARSER_FILES))
+RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror

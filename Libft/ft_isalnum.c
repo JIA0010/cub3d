@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 17:12:23 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/16 16:52:17 by yhirai            #+#    #+#             */
+/*   Updated: 2023/05/29 19:34:50 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include <stdio.h>
+#include <ctype.h>
+#include <stddef.h>
+#include "libft.h"
 
-# include "cub3d.h"
+int	ft_isalnum(int c)
+{
+	if (ft_isalpha(c) == 1)
+		return (1);
+	else if (ft_isdigit(c) == 1)
+		return (1);
+	else
+		return (0);
+}
 
-void	parser(t_data *data);
+// int	main(void)
+// {
+// 	char	c;
 
-#endif
+// 	c = 'a';
+// 	printf("   %d\n", isalnum(c));
+// 	printf("ft %d\n", ft_isalnum(c));
+// 	return (0);
+// }

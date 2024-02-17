@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 17:12:23 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/23 14:16:18 by yhirai            #+#    #+#             */
+/*   Updated: 2023/05/26 16:22:59 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include <unistd.h>
+#include <stddef.h>
+#include "libft.h"
 
-# include "cub3d.h"
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
 
-void	parser(t_data *data);
+// int	main(void)
+// {
+// 	char	*s;
+// 	int		fd;
 
-#endif
+// 	*s = "asdfgh";
+// 	fd = 1;
+// 	ft_putendl_fd(s, fd);
+// 	return (0);
+// }

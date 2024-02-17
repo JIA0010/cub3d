@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 17:12:23 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/16 16:11:07 by yhirai            #+#    #+#             */
+/*   Updated: 2023/05/29 19:20:09 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include <stdio.h>
+#include <ctype.h>
+#include <stddef.h>
+#include "libft.h"
 
-# include "cub3d.h"
+int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
+}
 
-void	parser(t_data *data);
+// int	main(void)
+// {
+// 	char	c;
 
-#endif
+// 	c = '1';
+// 	printf("   %d\n", isdigit(c));
+// 	printf("ft %d\n", ft_isdigit(c));
+// 	return (0);
+// }

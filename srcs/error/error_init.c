@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 16:12:48 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/17 16:18:17 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/17 16:26:34 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/error.h"
 
-int	main(void)
+t_data	*error_init(void)
 {
-	t_data	*data;
+	printf("srcs/init/init.c : malloc_error\n");
+	return (NULL);
+}
 
-	data = init();
-	parser(data);
-	return (0);
+void	error_init_parser(void)
+{
+	printf("srcs/init/init_parser.c : malloc_error\n");
+	return (NULL);
 }

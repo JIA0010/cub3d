@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 16:12:48 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/17 16:27:31 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-int	main(void)
+# include "cub3d.h"
+
+typedef struct s_parser
 {
-	t_data	*data;
+	char	**map;
+}	t_parser;
 
-	data = init();
-	parser(data);
-	return (0);
-}
+void	parser(t_data *data);
+
+#endif

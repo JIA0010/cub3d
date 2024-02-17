@@ -1,17 +1,23 @@
 NAME		= cub3d
 SRC_PATH	= srcs/
+INIT_PATH	= init/
+ERROR_PATH	= error/
 PARSER_PATH	= parser/
 RAY_PATH	= ray/
 OBJ_PATH	= objs/
 INCLUDES	= includes/
 SRC_FILES	= main.c
-PARSER_FILES= 
+INIT_FILES	= init.c init_parser.c
+ERROR_FILES	= error_init.c
+PARSER_FILES= parser.c
 RAY_FILES	= 
 OBJ_FILES	= $(SRC_FILES:%.c=%.o)
 SRCS		= $(addprefix $(SRC_PATH), $(SRC_FILES))
-OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
+INITS		= $(addprefix $(SRC_PATH), $(INIT_PATH), $(INIT_FILES))
+ERRORS		= $(addprefix $(SRC_PATH), $(ERROR_PATH), $(ERROR_FILES))
 PARSERS		= $(addprefix $(SRC_PATH), $(PARSER_PATH), $(PARSER_FILES))
 RAYS		= $(addprefix $(SRC_PATH), $(RAY_PATH), $(RAY_FILES))
+OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 CFLAGS		= -Wall -Wextra -Werror
 ifdef DEBUG
 	CFLAGS += -fsanitize=address -fno-omit-frame-pointer
@@ -36,6 +42,16 @@ $(NAME):	$(OBJS)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
+	@ mkdir -p $(@D)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(OBJ_PATH)%.o:$(INIT_PATH)%.c $(INCLUDES)
+	@ mkdir -p $(@D)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(OBJ_PATH)%.o:$(ERROR_PATH)%.c $(INCLUDES)
 	@ mkdir -p $(@D)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"

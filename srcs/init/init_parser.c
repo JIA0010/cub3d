@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 16:12:48 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/17 16:22:46 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/17 16:26:50 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/init.h"
 
-int	main(void)
+void	init_parser(t_data *data)
 {
-	t_data	*data;
-
-	data = init();
-	parser(data);
-	return (0);
+	data->parser = (t_parser *)malloc(sizeof(parser));
+	if (data->parser == NULL)
+		return (error_init_parser());
 }

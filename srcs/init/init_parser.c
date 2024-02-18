@@ -6,15 +6,16 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:22:46 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/17 16:26:50 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/18 15:18:33 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/init.h"
 
-void	init_parser(t_data *data)
+bool	init_parser(t_data *data)
 {
-	data->parser = (t_parser *)malloc(sizeof(parser));
+	data->parser = (t_parser *)malloc(sizeof(t_parser));
 	if (data->parser == NULL)
-		return (error_init_parser());
+		return (false);
+	return (true);
 }

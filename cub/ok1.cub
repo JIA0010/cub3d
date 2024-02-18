@@ -1,10 +1,10 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./textures/creeper.xpm
+SO ./textures/creeper.xpm
+WE ./textures/creeper.xpm
+EA ./textures/creeper.xpm
 
 F 220,100,0
-C 225,30,0
+C 255,30,0
 
 11111111111111111111111111111
 10000000001100000000000000001

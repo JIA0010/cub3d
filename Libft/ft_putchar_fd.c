@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Created: 2023/05/23 14:15:36 by yhirai            #+#    #+#             */
+/*   Updated: 2023/05/26 16:22:56 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/error.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include <unistd.h>
+#include <stddef.h>
 
-int	main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_data	*data;
-
-	if (check_error_arg(argc, argv) == false)
-		return (false);
-	data = init();
-	if (data == NULL)
-		return (false);
-	if (parser(data, argv[1]) == false)
-		return (false);
-	ft_free(data);
-	return (true);
+	write(fd, &c, 1);
 }

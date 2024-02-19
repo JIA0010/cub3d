@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/17 16:22:46 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/18 15:18:33 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/error.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include "../../includes/init.h"
 
-int	main(int argc, char **argv)
+bool	init_parser(t_data *data)
 {
-	t_data	*data;
-
-	if (check_error_arg(argc, argv) == false)
+	data->parser = (t_parser *)malloc(sizeof(t_parser));
+	if (data->parser == NULL)
 		return (false);
-	data = init();
-	if (data == NULL)
-		return (false);
-	if (parser(data, argv[1]) == false)
-		return (false);
-	ft_free(data);
 	return (true);
 }

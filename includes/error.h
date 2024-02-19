@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/18 18:16:39 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/error.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#ifndef ERROR_H
+# define ERROR_H
 
-int	main(int argc, char **argv)
-{
-	t_data	*data;
+# include "cub3d.h"
 
-	if (check_error_arg(argc, argv) == false)
-		return (false);
-	data = init();
-	if (data == NULL)
-		return (false);
-	if (parser(data, argv[1]) == false)
-		return (false);
-	ft_free(data);
-	return (true);
-}
+bool	check_error_arg(int argc, char **argv);
+bool	check_argv(char **argv);
+bool	error_argc(void);
+bool	error_argv(void);
+t_data	*error_init(void);
+bool	error_init_parser(void);
+bool	error_parser_all(void);
+bool	error_parser_path(void);
+
+#endif

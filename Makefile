@@ -7,10 +7,10 @@ RAY_PATH	= srcs/ray/
 OBJ_PATH	= objs/
 LIBFT_PATH	= Libft/
 INCLUDES	= includes/
-SRC_FILES	= main.c
+SRC_FILES	= main.c ft_free.c
 INIT_FILES	= init.c init_parser.c
-ERROR_FILES	= error_init.c
-PARSER_FILES= parser.c
+ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c
+PARSER_FILES= parser.c path.c floor_rgb.c ceiling_rgb.c map.c
 RAY_FILES	= 
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
@@ -41,51 +41,51 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 	@ echo ""
-	@ mkdir -p ./objs/
+	@ mkdir -p $(OBJ_PATH)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
-	@ $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
-	@ mkdir -p $(@D)
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 $(OBJ_PATH)%.o:$(INIT_PATH)%.c $(INCLUDES)
-	@ mkdir -p $(@D)
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 $(OBJ_PATH)%.o:$(ERROR_PATH)%.c $(INCLUDES)
-	@ mkdir -p $(@D)
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 $(OBJ_PATH)%.o:$(PARSER_PATH)%.c $(INCLUDES)
-	@ mkdir -p $(@D)
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 $(OBJ_PATH)%.o:$(RAY_PATH)%.c $(INCLUDES)
-	@ mkdir -p $(@D)
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 clean:
 	@ $(MAKE) clean -C $(LIBFT_PATH)
-	@ $(RM) -r ./objs/
+	@ $(RM) -r $(OBJ_PATH)
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files.$(RESET)\n"
 
 fclean:
 	@ $(MAKE) fclean -C $(LIBFT_PATH)
 	@ $(RM) $(NAME)
-	@ $(RM) -r ./objs/
+	@ $(RM) -r $(OBJ_PATH)
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files and $(NAME).$(RESET)\n"
 
 re:			fclean all
 
-debug:
+debug:		fclean
 	@ make DEBUG=1
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re debug

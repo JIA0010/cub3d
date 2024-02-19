@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/18 14:51:37 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/18 15:52:37 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/error.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include "../../includes/error.h"
 
-int	main(int argc, char **argv)
+bool	error_argc(void)
 {
-	t_data	*data;
+	printf("Please enter 2 arguments\n    Ex: ./cub3d cub/ok1.cub\n");
+	return (false);
+}
 
-	if (check_error_arg(argc, argv) == false)
-		return (false);
-	data = init();
-	if (data == NULL)
-		return (false);
-	if (parser(data, argv[1]) == false)
-		return (false);
-	ft_free(data);
-	return (true);
+bool	error_argv(void)
+{
+	printf("invalid arguments\n    Ex: ./cub3d cub/ok1.cub\n");
+	return (false);
 }

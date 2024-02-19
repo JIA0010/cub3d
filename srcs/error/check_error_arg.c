@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_error_arg.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/18 15:30:17 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/18 16:51:17 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/error.h"
-#include "../includes/init.h"
-#include "../includes/parser.h"
+#include "../../includes/error.h"
 
-int	main(int argc, char **argv)
+bool	check_error_arg(int argc, char **argv)
 {
-	t_data	*data;
+	if (argc != 2)
+		return (error_argc());
+	if (check_argv(argv) == false)
+		return (error_argv());
+	return (true);
+}
 
-	if (check_error_arg(argc, argv) == false)
+bool	check_argv(char **argv)
+{
+	int		fd;
+	size_t	len;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
 		return (false);
-	data = init();
-	if (data == NULL)
+	close(fd);
+	len = ft_strlen(argv[1]);
+	if (argv[1][len - 4] != '.' || argv[1][len - 3] != 'c' ||
+		argv[1][len - 2] != 'u' || argv[1][len - 1] != 'b')
 		return (false);
-	if (parser(data, argv[1]) == false)
-		return (false);
-	ft_free(data);
 	return (true);
 }

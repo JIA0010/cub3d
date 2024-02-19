@@ -24,25 +24,24 @@ RESET		= \033[0m
 
 all:		$(NAME)
 
-$(NAME)	: $(OBJS)
+$(NAME):	$(OBJS)
 	@ echo ""
-	@ mkdir -p ./objs/
+	@ mkdir -p $(OBJ_PATH)
 	@ ar rc $(NAME) $(OBJS)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
-$(OBJS)	: $(SRC_FILES) $(INCLUDES)
-	@ mkdir -p $(@D)
+$(OBJ_PATH)%.o:%.c
+	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 clean:
-	@ $(RM) -r ./objs/
+	@ $(RM) -r $(OBJ_PATH)
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files.$(RESET)\n"
 
 fclean:
 	@ $(RM) $(NAME)
-	@ $(RM) -r ./objs/
-	@ $(RM) $(OBJ_FILES)
+	@ $(RM) -r $(OBJ_PATH)
 	@ printf "$(REMOVE) $(RED)$(NAME) : Remove object files and $(NAME).$(RESET)\n"
 
 re:			fclean all

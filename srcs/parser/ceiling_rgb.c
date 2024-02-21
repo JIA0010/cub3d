@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_rgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 19:18:20 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/19 17:39:11 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ bool	ceiling_r(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_r = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_r < 0 && 255 < data->parser->ceiling_r)
-		return (false);
+	// if (data->parser->ceiling_r < 0 && 255 < data->parser->ceiling_r)
+	// 	return (false);
 	*index = j;
 	return (true);
 }
@@ -78,8 +78,8 @@ bool	ceiling_g(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_g = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_g < 0 && 255 < data->parser->ceiling_g)
-		return (false);
+	// if (data->parser->ceiling_g < 0 && 255 < data->parser->ceiling_g)
+	// 	return (false);
 	*index = j;
 	return (true);
 }
@@ -103,8 +103,8 @@ bool	ceiling_b(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_b = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_b < 0 && 255 < data->parser->ceiling_b)
-		return (false);
+	// if (data->parser->ceiling_b < 0 && 255 < data->parser->ceiling_b)
+	// 	return (false);
 	*index = j;
 	return (true);
 }

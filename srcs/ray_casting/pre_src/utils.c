@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/21 15:05:58 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/21 19:48:25 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	error(char *str)
 	exit(1);
 }
 
-void	map_hight_and_width(char **argv, t_map *data)
+void	map_hight_and_width(char **argv, t_ray *data)
 {
 	int		fd;
 	char	*line;

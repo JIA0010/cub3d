@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:30:17 by yhirai            #+#    #+#             */
-/*   Updated: 2023/09/19 19:01:56 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/19 17:40:15 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	strlen_src = ft_strlen(src);
 	if (dstsize == 0)
 		return (ft_strlen(src));
-	if (dstsize == 0 && dst == '\0')
+	if (dstsize == 0 && dst == NULL)
 		return (strlen_src);
 	if (dstsize <= strnlen_dest)
 		return (dstsize + strlen_src);

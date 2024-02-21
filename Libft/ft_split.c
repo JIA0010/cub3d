@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:47:51 by yhirai            #+#    #+#             */
-/*   Updated: 2023/06/01 15:38:27 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/19 17:39:54 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_free(char **all_strings)
 	int	i;
 
 	i = 0;
-	while (all_strings[i] != '\0')
+	while (all_strings[i] != NULL)
 	{
 		free(all_strings[i]);
 		i++;

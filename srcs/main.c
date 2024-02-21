@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 16:55:07 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/21 13:18:14 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ int	main(int argc, char **argv)
 		return (false);
 	ft_free(data);
 	return (true);
+}
+
+__attribute__((destructor))
+static void	destructor(void)
+{
+	system("leaks -q cub3d");
 }

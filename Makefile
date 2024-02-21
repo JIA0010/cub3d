@@ -10,7 +10,7 @@ INCLUDES	= includes/
 SRC_FILES	= main.c ft_free.c
 INIT_FILES	= init.c init_parser.c
 ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c
-PARSER_FILES= parser.c path.c floor_rgb.c ceiling_rgb.c map.c
+PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c
 RAY_FILES	= 
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \

@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 13:10:26 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/21 13:14:24 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 bool	parser(t_data *data, char *file)
 {
-	size_t	x;
-	size_t	z;
+	// size_t	x;
+	// size_t	z;
 
 	if (init_parser(data) == false)
 		return (error_init_parser());

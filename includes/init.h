@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 15:19:02 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:35:54 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 t_data	*init(void);
 bool	init_parser(t_data *data);
+bool	init_map(t_data *data, char *line);
 
 #endif

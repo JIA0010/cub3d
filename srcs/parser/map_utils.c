@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 16:09:47 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 15:08:12 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/21 13:35:16 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/21 13:42:34 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/init.h"
-#include "../../includes/error.h"
+#include "../../includes/parser.h"
 
-t_data	*init(void)
+size_t	map_x_len(char *line)
 {
-	t_data	*data;
+	size_t	i;
 
-	data = (t_data *)malloc(sizeof(t_data));
-	if (data == NULL)
-		return (error_init());
-	return (data);
+	i = 0;
+	while (line[i] != '\0' && line[i] != '\n')
+		i++;
+	return (i);
+}
+
+size_t	map_z_len(char *line)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = 0;
+	while (line[i] != '\0')
+	{
+		len++;
+		i++;
+		while (line[i] != '\0' && line[i] != '\n')
+			i++;
+	}
+	return (len);
 }

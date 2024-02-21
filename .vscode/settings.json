@@ -1,5 +1,11 @@
 {
 	"files.associations": {
-		"parser.h": "c"
+		"parser.h": "c",
+		"array": "c",
+		"iterator": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c",
+		"define_ray.h": "c"
 	}
 }

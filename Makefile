@@ -3,14 +3,18 @@ SRC_PATH	= srcs/
 INIT_PATH	= srcs/init/
 ERROR_PATH	= srcs/error/
 PARSER_PATH	= srcs/parser/
+PLAYER_PATH	= srcs/player/
 RAY_PATH	= srcs/ray/
 OBJ_PATH	= objs/
 LIBFT_PATH	= Libft/
 INCLUDES	= includes/
 SRC_FILES	= main.c ft_free.c
-INIT_FILES	= init.c init_parser.c
-ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c
-PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c
+INIT_FILES	= init.c init_parser.c init_player.c
+ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c \
+				error_map.c error_map_floodfill.c error_player.c
+PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c \
+				player_pos.c
+PLAYER_FILES= player_pos.c
 RAY_FILES	= 
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
@@ -19,12 +23,19 @@ SRCS		= $(addprefix $(SRC_PATH), $(SRC_FILES))
 INITS		= $(addprefix $(INIT_PATH), $(INIT_FILES))
 ERRORS		= $(addprefix $(ERROR_PATH), $(ERROR_FILES))
 PARSERS		= $(addprefix $(PARSER_PATH), $(PARSER_FILES))
+PLAYERS		= $(addprefix $(PLAYER_PATH), $(PLAYER_FILES))
 RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror
+MLX			= $(MLX_MMS)
+MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
+MLX_MMS		= -lm libmlx.dylib
+ifdef OPENGL
+	MLX		= $(MLX_OpenGL)
+endif
 ifdef DEBUG
-	CFLAGS += -fsanitize=address -fno-omit-frame-pointer
+	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer
 endif
 
 ##------------color-----------##
@@ -44,7 +55,7 @@ $(NAME):	$(OBJS)
 	@ mkdir -p $(OBJ_PATH)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
-	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
@@ -63,6 +74,11 @@ $(OBJ_PATH)%.o:$(ERROR_PATH)%.c $(INCLUDES)
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 $(OBJ_PATH)%.o:$(PARSER_PATH)%.c $(INCLUDES)
+	@ mkdir -p $(OBJ_PATH)
+	@ $(CC) $(CFLAGS) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(OBJ_PATH)%.o:$(PLAYER_PATH)%.c $(INCLUDES)
 	@ mkdir -p $(OBJ_PATH)
 	@ $(CC) $(CFLAGS) -c $< -o $@
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
@@ -87,5 +103,8 @@ re:			fclean all
 
 debug:		fclean
 	@ make DEBUG=1
+
+42:
+	@ make OPENGL=1
 
 .PHONY:		all clean fclean re debug

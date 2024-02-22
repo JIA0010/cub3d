@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_rgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/19 17:39:11 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 16:29:19 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,13 @@ bool	ceiling_r(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_r = ft_atoi(str);
 	free(str);
+<<<<<<< HEAD
 	// if (data->parser->ceiling_r < 0 && 255 < data->parser->ceiling_r)
 	// 	return (false);
+=======
+	if (data->parser->ceiling_r < 0 || 255 < data->parser->ceiling_r)
+		return (false);
+>>>>>>> 85254ba25b4568af775a467ebff52d1426d242e9
 	*index = j;
 	return (true);
 }
@@ -78,8 +83,8 @@ bool	ceiling_g(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_g = ft_atoi(str);
 	free(str);
-	// if (data->parser->ceiling_g < 0 && 255 < data->parser->ceiling_g)
-	// 	return (false);
+	if (data->parser->ceiling_g < 0 || 255 < data->parser->ceiling_g)
+		return (false);
 	*index = j;
 	return (true);
 }
@@ -103,8 +108,8 @@ bool	ceiling_b(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_b = ft_atoi(str);
 	free(str);
-	// if (data->parser->ceiling_b < 0 && 255 < data->parser->ceiling_b)
-	// 	return (false);
+	if (data->parser->ceiling_b < 0 || 255 < data->parser->ceiling_b)
+		return (false);
 	*index = j;
 	return (true);
 }

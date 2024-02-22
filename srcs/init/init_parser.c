@@ -6,14 +6,12 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:22:46 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 12:54:53 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/21 14:51:06 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/init.h"
-
-static size_t	map_x_len(char *line);
-static size_t	map_z_len(char *line);
+#include "../../includes/parser.h"
 
 bool	init_parser(t_data *data)
 {
@@ -43,31 +41,4 @@ bool	init_map(t_data *data, char *line)
 		x++;
 	}
 	return (true);
-}
-
-static size_t	map_x_len(char *line)
-{
-	size_t	i;
-
-	i = 0;
-	while (line[i] != '\0' && line[i] != '\n')
-		i++;
-	return (i);
-}
-
-static size_t	map_z_len(char *line)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	while (line[i] != '\0')
-	{
-		len++;
-		i++;
-		while (line[i] != '\0' && line[i] != '\n')
-			i++;
-	}
-	return (len);
 }

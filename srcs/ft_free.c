@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:48:27 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 13:18:55 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/21 15:15:57 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	ft_free(t_data *data)
 	}
 	free(data->parser->map);
 	free(data->parser);
+	free(data->player_pos);
 	free(data);
 }

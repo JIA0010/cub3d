@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   error_map_floodfill.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 16:09:47 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 15:08:12 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/21 15:13:04 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/init.h"
 #include "../../includes/error.h"
 
-t_data	*init(void)
+void	floodfill(void)
 {
-	t_data	*data;
 
-	data = (t_data *)malloc(sizeof(t_data));
-	if (data == NULL)
-		return (error_init());
-	return (data);
 }

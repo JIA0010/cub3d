@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/19 17:38:42 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 16:29:30 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ bool	floor_r(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_r = ft_atoi(str);
 	free(str);
-	// if (data->parser->floor_r < 0 && 255 < data->parser->floor_r)
-	// 	return (false);
+	if (data->parser->floor_r < 0 || 255 < data->parser->floor_r)
+		return (false);
 	*index = j;
 	return (true);
 }
@@ -78,8 +78,8 @@ bool	floor_g(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_g = ft_atoi(str);
 	free(str);
-	// if (data->parser->floor_g < 0 && 255 < data->parser->floor_g)
-	// 	return (false);
+	if (data->parser->floor_g < 0 || 255 < data->parser->floor_g)
+		return (false);
 	*index = j;
 	return (true);
 }
@@ -103,8 +103,8 @@ bool	floor_b(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_b = ft_atoi(str);
 	free(str);
-	// if (data->parser->floor_b < 0 && 255 < data->parser->floor_b)
-	// 	return (false);
+	if (data->parser->floor_b < 0 || 255 < data->parser->floor_b)
+		return (false);
 	*index = j;
 	return (true);
 }

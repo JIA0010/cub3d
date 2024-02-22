@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"parser.h": "c",
+<<<<<<< HEAD
 		"array": "c",
 		"iterator": "c",
 		"string": "c",
@@ -15,5 +16,8 @@
 		"limits.h": "c",
 		"math.h": "c",
 		"stdbool.h": "c"
+=======
+		"init.h": "c"
+>>>>>>> 85254ba25b4568af775a467ebff52d1426d242e9
 	}
 }

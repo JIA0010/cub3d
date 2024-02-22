@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   error_player.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 16:09:47 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 15:08:12 by yhirai           ###   ########.fr       */
+/*   Created: 2024/02/22 14:06:52 by yhirai            #+#    #+#             */
+/*   Updated: 2024/02/22 14:07:26 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/init.h"
 #include "../../includes/error.h"
 
-t_data	*init(void)
+bool	error_player(void)
 {
-	t_data	*data;
-
-	data = (t_data *)malloc(sizeof(t_data));
-	if (data == NULL)
-		return (error_init());
-	return (data);
+	printf("No player\n");
+	return (false);
 }

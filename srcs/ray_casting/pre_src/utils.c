@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/21 19:48:25 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 10:39:38 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	map_hight_and_width(char **argv, t_ray *data)
 		error("file can't open");
 	line = get_next_line(fd);
 	data->map_width = ft_strnlen(line);
-	printf("map_width: %d\n", data->map_width);
 	free(line);
 	height_len = 1;
 	while (1)

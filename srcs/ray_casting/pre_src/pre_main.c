@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pre_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:56:31 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/21 19:48:14 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 10:39:21 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init(t_ray *ray)
 {
-	printf("hello\n");
 	ray->pos_x = 22;
 	ray->pos_y = 12;
 	ray->dir_x = -1;

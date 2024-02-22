@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   import.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/21 20:03:28 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 11:06:58 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ void	start_game(t_ray *data)
 	data->window = mlx_new_window(data->graphics_context, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (!data->window)
 		error("Failed to create window");
-	place_images_in_game(data);
-	create_map(&data);
-	hook(&data);
+	// place_images_in_game(data);
+	// create_map(data);
+	// ray_casting(data);
+	// hook(&data);
 	mlx_loop(data->graphics_context);
 }

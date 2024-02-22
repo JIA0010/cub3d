@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/21 20:03:19 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/22 10:53:40 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 # define P_IMG_GOAL "./textures/goal.xpm"
 # define P_IMG_ITEM "./textures/item.xpm"
 
-
 # define mapWidth 24
 # define mapHeight 24
 # define screenWidth 640
@@ -39,6 +38,24 @@
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
+
+//keycode
+# define X_ESC 65307
+# define X_UP 65362
+# define X_DOWN 65364
+# define X_RIGHT 65363
+# define X_LEFT 65361
+
+//imac keycode
+# define ESC 53
+# define UP 126
+# define DOWN 125
+# define RIGHT 124
+# define LEFT 123
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
 typedef struct s_ray
 {
@@ -59,8 +76,6 @@ typedef struct s_ray
 
 	//------------------------------------------
 
-
-	
 	void	*graphics_context;
 	void	*window;
 
@@ -83,9 +98,19 @@ typedef struct s_ray
 	int		is_ray_facing_right;
 	int		is_ray_facing_left;
 	int		wall_hit_content;
+
+	//------------------------------------------
+	void	*img;
+	char	*addr;
+	int		pixel;
+	int		len;
+	int		end;
+
+	//------------------------------------------
+	int		p_x;
+	int		p_y;
+
 }			t_ray;
-
-
 
 void		map_hight_and_width(char **argv, t_ray *data);
 void		import_map(char **argv, t_ray *map);
@@ -94,5 +119,7 @@ size_t		ft_strnlen(const char *str);
 void		make_mapx_memory(t_ray *data);
 void		set_null(t_ray *data);
 void		start_game(t_ray *data);
+void		hook(t_ray *data);
+int			create_map(t_ray *data);
 
 #endif

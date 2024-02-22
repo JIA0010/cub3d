@@ -49,7 +49,7 @@ $(NAME):	$(OBJS)
 	@ mkdir -p $(OBJ_PATH)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
-	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm libmlx.dylib -o $(NAME)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)

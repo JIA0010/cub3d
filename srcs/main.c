@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:12:13 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 15:01:22 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "../includes/player.h"
 
 static void	test(t_data *data);
+static void	test_mlx(void);
 
 int	main(int argc, char **argv)
 {
@@ -33,7 +34,17 @@ int	main(int argc, char **argv)
 		return (false);
 	test(data);
 	ft_free(data);
+	test_mlx();
 	return (true);
+}
+
+static void	test_mlx(void)
+{
+	void	*mlx;
+
+	mlx = mlx_init();
+	mlx_new_window(mlx, 500, 500, "test");
+	mlx_loop(mlx);
 }
 
 static void	test(t_data *data)

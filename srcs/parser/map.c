@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 14:57:12 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 14:52:58 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,8 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z);
 
 bool	map(t_data *data)
 {
-	size_t	x;
-	size_t	z;
 	char	*line;
-	size_t	i;
 
-	i = 0;
-	x = 0;
-	z = 0;
 	line = map_line(data);
 	if (init_map(data, line) == false)
 		return (false);

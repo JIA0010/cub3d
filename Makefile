@@ -28,8 +28,14 @@ RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror
+MLX			= $(MLX_MMS)
+MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
+MLX_MMS		= -lm libmlx.dylib
+ifdef OPENGL
+	MLX		= $(MLX_OpenGL)
+endif
 ifdef DEBUG
-	CFLAGS += -fsanitize=address -fno-omit-frame-pointer
+	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer
 endif
 
 ##------------color-----------##
@@ -49,7 +55,7 @@ $(NAME):	$(OBJS)
 	@ mkdir -p $(OBJ_PATH)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
-	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm libmlx.dylib -o $(NAME)
+	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
@@ -97,5 +103,8 @@ re:			fclean all
 
 debug:		fclean
 	@ make DEBUG=1
+
+42:
+	@ make OPENGL=1
 
 .PHONY:		all clean fclean re debug

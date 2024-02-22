@@ -6,12 +6,13 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 15:13:38 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 14:08:27 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/player.h"
 #include "../../includes/init.h"
+#include "../../includes/error.h"
 
 static bool	set_player_pos(t_data *data);
 
@@ -20,7 +21,7 @@ bool	player_pos(t_data *data)
 	if (init_player(data) == false)
 		return (false);
 	if (set_player_pos(data) == false)
-		return (false);
+		return (error_player());
 	return (true);
 }
 

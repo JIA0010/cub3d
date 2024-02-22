@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 19:19:29 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 14:52:29 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool	floor_r(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_r = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_r < 0 && 255 < data->parser->floor_r)
+	if (data->parser->floor_r < 0 || 255 < data->parser->floor_r)
 		return (false);
 	*index = j;
 	return (true);
@@ -78,7 +78,7 @@ bool	floor_g(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_g = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_g < 0 && 255 < data->parser->floor_g)
+	if (data->parser->floor_g < 0 || 255 < data->parser->floor_g)
 		return (false);
 	*index = j;
 	return (true);
@@ -103,7 +103,7 @@ bool	floor_b(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->floor_b = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_b < 0 && 255 < data->parser->floor_b)
+	if (data->parser->floor_b < 0 || 255 < data->parser->floor_b)
 		return (false);
 	*index = j;
 	return (true);

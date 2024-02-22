@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:16:42 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 18:17:55 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 14:29:08 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,23 @@ bool	error_parser_all(void)
 bool	error_parser_path(void)
 {
 	printf("srcs/parser/path.c/path(): texture path error\n");
+	return (false);
+}
+
+bool	error_parser_floor_rgb(void)
+{
+	printf("srcs/parser/floor_rgb.c/floor_rgb(): floor_rgb error\n");
+	return (false);
+}
+
+bool	error_parser_ceiling_rgb(void)
+{
+	printf("srcs/parser/ceiling_rgb.c/ceiling_rgb(): ceiling_rgb error\n");
+	return (false);
+}
+
+bool	error_parser_map(void)
+{
+	printf("srcs/parser/map.c/map(): map error\n");
 	return (false);
 }

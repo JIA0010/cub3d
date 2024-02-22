@@ -6,11 +6,24 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:13:12 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/22 12:51:46 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 14:07:42 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define_ray.h"
+
+void	all_free(char **str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 
 int	close_window(t_ray *data)
 {

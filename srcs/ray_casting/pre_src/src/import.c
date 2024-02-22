@@ -6,12 +6,13 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/22 12:49:25 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 13:40:23 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define_ray.h"
-#include "minilibx/mlx.h"
+
+// #include "minilibx/mlx.h"
 
 void	import_map(char **argv, t_ray *map)
 {
@@ -40,8 +41,8 @@ void	place_images_in_game(t_ray *data)
 	int	x;
 	int	y;
 
-	data->player = mlx_xpm_file_to_image(data->graphics_context, P_IMG_PLAYER, &x,
-			&y);
+	data->player = mlx_xpm_file_to_image(data->graphics_context, P_IMG_PLAYER,
+			&x, &y);
 	data->grass = mlx_xpm_file_to_image(data->graphics_context, P_IMG_GRASS, &x,
 			&y);
 	data->wood = mlx_xpm_file_to_image(data->graphics_context, P_IMG_WOOD, &x,
@@ -52,13 +53,15 @@ void	place_images_in_game(t_ray *data)
 			&y);
 }
 
-
 void	start_game(t_ray *data)
 {
 	data->graphics_context = mlx_init();
 	if (!data->graphics_context)
 		error("Failed to initialize graphics context");
-	data->window = mlx_new_window(data->graphics_context, WIN_WIDTH, WIN_HEIGHT, "cub3D");
+	// data->window = mlx_new_window(data->graphics_context, WIN_WIDTH,
+			// WIN_HEIGHT, "cub3D");
+	data->window = mlx_new_window(data->graphics_context, data->map_width * 40,
+			data->map_height * 40, "so_long");
 	if (!data->window)
 		error("Failed to create window");
 	place_images_in_game(data);

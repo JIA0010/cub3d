@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/22 12:49:55 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 14:10:43 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // # include "cub3d.h"
 # include "../libft/inc/libft.h"
-# include "minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
@@ -122,5 +122,6 @@ void		set_null(t_ray *data);
 void		start_game(t_ray *data);
 void		hook(t_ray *data);
 int			create_map(t_ray *data);
+int			close_window(t_ray *data);
 
 #endif

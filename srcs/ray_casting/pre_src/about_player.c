@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:52:38 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/22 10:57:05 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 11:23:10 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,18 @@ void	movement_player(t_ray *data, char c)
 
 	player = search_player(data);
 	frag = 0;
-	if (c == 'w')
-		frag = check_pce(data, player.p_y - 1, player.p_x);
-	else if (c == 'd')
-		frag = check_pce(data, player.p_y, player.p_x + 1);
-	else if (c == 's')
-		frag = check_pce(data, player.p_y + 1, player.p_x);
-	else if (c == 'a')
-		frag = check_pce(data, player.p_y, player.p_x - 1);
-	create_map(data);
+	// if (c == 'w')
+	// 	frag = check_pce(data, player.p_y - 1, player.p_x);
+	// else if (c == 'd')
+	// 	frag = check_pce(data, player.p_y, player.p_x + 1);
+	// else if (c == 's')
+	// 	frag = check_pce(data, player.p_y + 1, player.p_x);
+	// else if (c == 'a')
+	// 	frag = check_pce(data, player.p_y, player.p_x - 1);
+	// create_map(data);
 	if (frag == 1)
 	{
 		ft_printf("GAME CLEAR\n");
-		close_window(data);
+		// close_window(data);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2023/09/16 10:58:24 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 12:27:10 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	get_map(t_game_data *data, char *line, size_t k)
 	while (line[i])
 	{
 		img.img = make_image(data, line[i]);
-		img.addr = mlx_get_data_addr(img.img, &img.pixel, &img.len, &img.end);
+		// img.addr = mlx_get_data_addr(img.img, &img.pixel, &img.len, &img.end);
 		mlx_put_image_to_window(data->graphics_context, data->window, img.img,
 			j, k);
 		j += 40;

@@ -6,29 +6,29 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/22 10:54:56 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 12:28:55 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define_ray.h"
 
-t_ray	place_images_in_game(t_ray data)
-{
-	int	x;
-	int	y;
+// t_ray	place_images_in_game(t_ray data)
+// {
+// 	int	x;
+// 	int	y;
 
-	data.player = mlx_xpm_file_to_image(data.graphics_context, P_IMG_PLAYER, &x,
-			&y);
-	data.grass = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GRASS, &x,
-			&y);
-	data.wood = mlx_xpm_file_to_image(data.graphics_context, P_IMG_WOOD, &x,
-			&y);
-	data.goal = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GOAL, &x,
-			&y);
-	data.item = mlx_xpm_file_to_image(data.graphics_context, P_IMG_ITEM, &x,
-			&y);
-	return (data);
-}
+// 	data.player = mlx_xpm_file_to_image(data.graphics_context, P_IMG_PLAYER, &x,
+// 			&y);
+// 	data.grass = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GRASS, &x,
+// 			&y);
+// 	data.wood = mlx_xpm_file_to_image(data.graphics_context, P_IMG_WOOD, &x,
+// 			&y);
+// 	data.goal = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GOAL, &x,
+// 			&y);
+// 	data.item = mlx_xpm_file_to_image(data.graphics_context, P_IMG_ITEM, &x,
+// 			&y);
+// 	return (data);
+// }
 
 static t_ray	*make_image(t_ray *data, char c)
 {
@@ -46,7 +46,8 @@ static t_ray	*make_image(t_ray *data, char c)
 		img.img = data->item;
 	if (img.img == NULL)
 	{
-		all_free(data->map);
+		// all_free(data->map);
+		printf("c: %c\n", c);
 		error("Image acquisition failure");
 	}
 	return (img.img);
@@ -63,7 +64,6 @@ static void	get_map(t_ray *data, char *line, size_t k)
 	while (line[i])
 	{
 		img.img = make_image(data, line[i]);
-		img.addr = mlx_get_ray_addr(img.img, &img.pixel, &img.len, &img.end);
 		mlx_put_image_to_window(data->graphics_context, data->window, img.img,
 				j, k);
 		j += 40;

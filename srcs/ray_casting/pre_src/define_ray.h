@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/22 10:53:40 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 12:49:55 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 // # include "cub3d.h"
 # include "../libft/inc/libft.h"
+# include "minilibx/mlx.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <math.h>
-# include <mlx.h>
+// # include <mlx.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>

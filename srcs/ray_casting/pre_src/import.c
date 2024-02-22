@@ -6,11 +6,12 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/22 11:06:58 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 12:49:25 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define_ray.h"
+#include "minilibx/mlx.h"
 
 void	import_map(char **argv, t_ray *map)
 {
@@ -34,7 +35,7 @@ void	import_map(char **argv, t_ray *map)
 	set_null(map);
 }
 
-t_ray	place_images_in_game(t_ray *data)
+void	place_images_in_game(t_ray *data)
 {
 	int	x;
 	int	y;
@@ -60,9 +61,9 @@ void	start_game(t_ray *data)
 	data->window = mlx_new_window(data->graphics_context, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (!data->window)
 		error("Failed to create window");
-	// place_images_in_game(data);
-	// create_map(data);
+	place_images_in_game(data);
+	create_map(data);
 	// ray_casting(data);
-	// hook(&data);
+	hook(data);
 	mlx_loop(data->graphics_context);
 }

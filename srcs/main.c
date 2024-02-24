@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 15:05:47 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 16:22:39 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "../includes/player.h"
 
 static void	test(t_data *data);
-static void	test_mlx(void);
 
 int	main(int argc, char **argv)
 {
@@ -27,24 +26,13 @@ int	main(int argc, char **argv)
 		return (false);
 	data = init();
 	if (data == NULL)
-		return (false);
+		return (ft_free(data), false);
 	if (parser(data, argv[1]) == false)
-		return (false);
+		return (ft_free(data), false);
 	if (player_pos(data) == false)
-		return (false);
+		return (ft_free(data), false);
 	test(data);
-	ft_free(data);
-	test_mlx();
-	return (true);
-}
-
-static void	test_mlx(void)
-{
-	void	*mlx;
-
-	mlx = mlx_init();
-	mlx_new_window(mlx, 500, 500, "test");
-	mlx_loop(mlx);
+	return (ft_free(data), true);
 }
 
 static void	test(t_data *data)

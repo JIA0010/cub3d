@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/24 16:34:16 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 18:25:54 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <limits.h>
 # include "mlx.h"
 # include "../Libft/libft.h"
+
+# define STACK_SIZE 100
 
 typedef struct s_pos
 {
@@ -48,6 +50,17 @@ typedef struct s_data
 	struct s_map	*map;
 	struct s_pos	*player_pos;
 }				t_data;
+
+typedef struct s_dfs
+{
+	t_pos	log_stack[STACK_SIZE];
+	t_pos	peke_stack[STACK_SIZE];
+	int		log_index;
+	int		peke_index;
+	size_t	cur_x;
+	size_t	cur_z;
+	bool	flag;
+}	t_dfs;
 
 void	ft_free(t_data *data);
 

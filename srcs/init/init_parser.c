@@ -30,12 +30,12 @@ bool	init_map(t_data *data, char *line)
 	x = 0;
 	x_len = map_x_len(line);
 	z_len = map_z_len(line);
-	data->map->map = malloc(sizeof(char *) * (x_len + 1));
+	data->map->map = ft_calloc(sizeof(char *), (x_len + 1));
 	if (data->map->map == NULL)
 		return (false);
 	while (x < x_len)
 	{
-		data->map->map[x] = malloc(sizeof(char) * (z_len + 1));
+		data->map->map[x] = ft_calloc(sizeof(char), (z_len + 1));
 		if (data->map->map[x] == NULL)
 			return (false);
 		x++;

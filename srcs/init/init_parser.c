@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_parser.c                                      :+:      :+:    :+:   */
+/*   init_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,8 +15,8 @@
 
 bool	init_parser(t_data *data)
 {
-	data->parser = (t_parser *)malloc(sizeof(t_parser));
-	if (data->parser == NULL)
+	data->map = (t_map *)malloc(sizeof(t_map));
+	if (data->map == NULL)
 		return (false);
 	return (true);
 }
@@ -30,13 +30,13 @@ bool	init_map(t_data *data, char *line)
 	x = 0;
 	x_len = map_x_len(line);
 	z_len = map_z_len(line);
-	data->parser->map = malloc(sizeof(char *) * (x_len + 1));
-	if (data->parser->map == NULL)
+	data->map->map = malloc(sizeof(char *) * (x_len + 1));
+	if (data->map->map == NULL)
 		return (false);
 	while (x < x_len)
 	{
-		data->parser->map[x] = malloc(sizeof(char) * (z_len + 1));
-		if (data->parser->map[x] == NULL)
+		data->map->map[x] = malloc(sizeof(char) * (z_len + 1));
+		if (data->map->map[x] == NULL)
 			return (false);
 		x++;
 	}

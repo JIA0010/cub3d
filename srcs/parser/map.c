@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 16:14:35 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:38:23 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static char	*map_line(t_data *data)
 	char	*all;
 	size_t	i;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0')
 	{
@@ -68,22 +68,22 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z)
 	{
 		if (line[i] == '\n')
 		{
-			data->parser->map[x] = NULL;
+			data->map->map[x] = NULL;
 			x = 0;
 			z++;
 		}
 		else
 		{
-			data->parser->map[x][z] = line[i];
+			data->map->map[x][z] = line[i];
 			x++;
 		}
 		i++;
 	}
 	x = 0;
 	z++;
-	while (data->parser->map[x] != NULL)
+	while (data->map->map[x] != NULL)
 	{
-		data->parser->map[x][z] = '\0';
+		data->map->map[x][z] = '\0';
 		x++;
 	}
 }

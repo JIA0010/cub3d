@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:27:35 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 16:13:06 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:40:02 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	error_map(t_data *data)
 	size_t	x;
 	size_t	z;
 
-	map = data->parser->map;
+	map = data->map->map;
 	z = 0;
 	while (1)
 	{
@@ -52,12 +52,12 @@ static bool	check_map_closed(t_data *data)
 	while (1)
 	{
 		x = 0;
-		if (data->parser->map[x][z] == '\0')
+		if (data->map->map[x][z] == '\0')
 			break ;
-		while (data->parser->map[x] != NULL)
+		while (data->map->map[x] != NULL)
 		{
-			if (data->parser->map[x][z] == '0'
-				&& inside(data->parser->map, x, z) == false)
+			if (data->map->map[x][z] == '0'
+				&& inside(data->map->map, x, z) == false)
 				return (false);
 			x++;
 		}

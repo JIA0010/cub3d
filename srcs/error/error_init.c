@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:18:17 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 15:27:56 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:34:44 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_data	*error_init(void)
 	return (false);
 }
 
-bool	error_init_parser(void)
+bool	error_init_map(void)
 {
-	printf("srcs/init/init_parser.c : malloc_error\n");
+	printf("srcs/init/init_map.c : malloc_error\n");
 	return (false);
 }

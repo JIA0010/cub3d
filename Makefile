@@ -104,7 +104,7 @@ re:			fclean all
 debug:		fclean
 	@ make DEBUG=1
 
-42:
+42:			fclean
 	@ make OPENGL=1
 
 .PHONY:		all clean fclean re debug

@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/24 17:34:21 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/25 16:51:40 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ bool	map(t_data *data)
 	line = map_line(data);
 	if (init_map(data, line) == false)
 		return (false);
+	data->map->map_width = map_x_len(line);
+	printf("----------%ld\n", data->map->map_width);
+	data->map->map_hight = map_z_len(line);
 	map_double_line(data, line, 0, 0);
-	// if (error_map(data) == false)
-	// 	return (false);
+	if (error_map(data) == false)
+		return (false);
 	return (true);
 }
 
@@ -66,8 +69,10 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z)
 	i = 0;
 	while (line[i] != '\0')
 	{
+		printf("%ld| %c\n", x, line[i]);
 		if (line[i] == '\n')
 		{
+			data->map->map[x][z] = '\0';
 			x = 0;
 			z++;
 		}
@@ -78,7 +83,7 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z)
 		}
 		i++;
 	}
-	data->map->map[map_x_len(line)] = NULL;
+	data->map->map[data->map->map_width] = NULL;
 	x = 0;
 	z++;
 	while (data->map->map[x] != NULL)

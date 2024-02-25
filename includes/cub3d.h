@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/24 18:25:54 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/25 16:09:08 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_map
 	int		ceiling_g;
 	int		ceiling_b;
 	char	**map;
+	size_t	map_width;
+	size_t	map_hight;
 }	t_map;
 
 typedef struct s_data

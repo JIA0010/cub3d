@@ -3,32 +3,107 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/22 12:28:55 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/25 15:29:52 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define_ray.h"
 
-// t_ray	place_images_in_game(t_ray data)
-// {
-// 	int	x;
-// 	int	y;
 
-// 	data.player = mlx_xpm_file_to_image(data.graphics_context, P_IMG_PLAYER, &x,
-// 			&y);
-// 	data.grass = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GRASS, &x,
-// 			&y);
-// 	data.wood = mlx_xpm_file_to_image(data.graphics_context, P_IMG_WOOD, &x,
-// 			&y);
-// 	data.goal = mlx_xpm_file_to_image(data.graphics_context, P_IMG_GOAL, &x,
-// 			&y);
-// 	data.item = mlx_xpm_file_to_image(data.graphics_context, P_IMG_ITEM, &x,
-// 			&y);
-// 	return (data);
-// }
+
+
+void	init_texture_pixels(t_ray *data)
+{
+	int	i;
+
+	if (data->texture_pixels)
+		free_tab((void **)data->texture_pixels);
+	data->texture_pixels = ft_calloc(data->win_height + 1,
+			sizeof * data->texture_pixels);
+	if (!data->texture_pixels)
+		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+	i = 0;
+	while (i < data->win_height)
+	{
+		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
+				sizeof * data->texture_pixels);
+		if (!data->texture_pixels[i])
+			clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+		i++;
+	}
+}
+
+
+void	init_ray(t_ray *ray)
+{
+	ray->camera_x = 0;
+	ray->dir_x = 0;
+	ray->dir_y = 0;
+	ray->map_x = 0;
+	ray->map_y = 0;
+	ray->step_x = 0;
+	ray->step_y = 0;
+	ray->sidedist_x = 0;
+	ray->sidedist_y = 0;
+	ray->deltadist_x = 0;
+	ray->deltadist_y = 0;
+	ray->wall_dist = 0;
+	ray->wall_x = 0;
+	ray->side = 0;
+	ray->line_height = 0;
+	ray->draw_start = 0;
+	ray->draw_end = 0;
+}
+
+
+
+static void	set_frame_image_pixel(t_ray *ray, int x, int y)
+{
+	if (ray->texture_pixels[y][x] > 0)
+		set_image_pixel(ray, x, y, ray->texture_pixels[y][x]);
+	else if (y < ray->win_height / 2)
+		set_image_pixel(ray, x, y, ray->hex_ceiling);
+	else if (y < ray->win_height -1)
+		set_image_pixel(ray, x, y, ray->hex_floor);
+}
+
+static void	render_frame(t_ray *data)
+{
+	t_ray	image;
+	int		x;
+	int		y;
+
+	image.img = NULL;
+	init_img(data, &image, data->win_width, data->win_height);
+	y = 0;
+	while (y < data->win_height)
+	{
+		x = 0;
+		while (x < data->win_width)
+		{
+			set_frame_image_pixel(data, x, y);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);
+	mlx_destroy_image(data->mlx, image.img);
+}
+
+static void	render_raycast(t_ray *data)
+{
+	init_texture_pixels(data);
+	init_ray(data);
+	ray_casting(data);
+	render_frame(data);
+}
+
+
+
+
 
 static t_ray	*make_image(t_ray *data, char c)
 {
@@ -51,40 +126,4 @@ static t_ray	*make_image(t_ray *data, char c)
 		error("Image acquisition failure");
 	}
 	return (img.img);
-}
-
-static void	get_map(t_ray *data, char *line, size_t k)
-{
-	t_ray	img;
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (line[i])
-	{
-		img.img = make_image(data, line[i]);
-		mlx_put_image_to_window(data->graphics_context, data->window, img.img,
-				j, k);
-		j += 40;
-		i++;
-	}
-}
-
-int	create_map(t_ray *data)
-{
-	int		tmp;
-	size_t	i;
-	size_t	k;
-
-	i = 0;
-	k = 0;
-	tmp = data->map_height;
-	while (tmp--)
-	{
-		get_map(data, data->map[i], k);
-		i++;
-		k += 40;
-	}
-	return (0);
 }

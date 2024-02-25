@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:12 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/18 18:13:31 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:38:42 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	north(t_data *data)
 	int		i;
 	int		j;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && (all[i] != 'N' || all[i + 1] != 'O'))
 		i++;
@@ -43,8 +43,8 @@ bool	north(t_data *data)
 	j = i;
 	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
 		j++;
-	data->parser->path_north = ft_substr(all, i, j - i);
-	fd = open(data->parser->path_north, O_RDONLY);
+	data->map->path_north = ft_substr(all, i, j - i);
+	fd = open(data->map->path_north, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	close(fd);
@@ -58,7 +58,7 @@ bool	south(t_data *data)
 	int		i;
 	int		j;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && (all[i] != 'S' || all[i + 1] != 'O'))
 		i++;
@@ -69,8 +69,8 @@ bool	south(t_data *data)
 	j = i;
 	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
 		j++;
-	data->parser->path_south = ft_substr(all, i, j - i);
-	fd = open(data->parser->path_south, O_RDONLY);
+	data->map->path_south = ft_substr(all, i, j - i);
+	fd = open(data->map->path_south, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	close(fd);
@@ -84,7 +84,7 @@ bool	west(t_data *data)
 	int		i;
 	int		j;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && (all[i] != 'W' || all[i + 1] != 'E'))
 		i++;
@@ -95,8 +95,8 @@ bool	west(t_data *data)
 	j = i;
 	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
 		j++;
-	data->parser->path_west = ft_substr(all, i, j - i);
-	fd = open(data->parser->path_west, O_RDONLY);
+	data->map->path_west = ft_substr(all, i, j - i);
+	fd = open(data->map->path_west, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	close(fd);
@@ -110,7 +110,7 @@ bool	east(t_data *data)
 	int		i;
 	int		j;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && (all[i] != 'E' || all[i + 1] != 'A'))
 		i++;
@@ -121,8 +121,8 @@ bool	east(t_data *data)
 	j = i;
 	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
 		j++;
-	data->parser->path_east = ft_substr(all, i, j - i);
-	fd = open(data->parser->path_east, O_RDONLY);
+	data->map->path_east = ft_substr(all, i, j - i);
+	fd = open(data->map->path_east, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	close(fd);

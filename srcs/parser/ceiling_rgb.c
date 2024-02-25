@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_rgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:52:43 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/02/24 16:38:11 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	ceiling_rgb(t_data *data)
 	char	*all;
 	int		i;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && all[i] != 'C')
 		i++;
@@ -51,9 +51,9 @@ bool	ceiling_r(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->ceiling_r = ft_atoi(str);
+	data->map->ceiling_r = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_r < 0 || 255 < data->parser->ceiling_r)
+	if (data->map->ceiling_r < 0 || 255 < data->map->ceiling_r)
 		return (false);
 	*index = j;
 	return (true);
@@ -76,9 +76,9 @@ bool	ceiling_g(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->ceiling_g = ft_atoi(str);
+	data->map->ceiling_g = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_g < 0 || 255 < data->parser->ceiling_g)
+	if (data->map->ceiling_g < 0 || 255 < data->map->ceiling_g)
 		return (false);
 	*index = j;
 	return (true);
@@ -101,9 +101,9 @@ bool	ceiling_b(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->ceiling_b = ft_atoi(str);
+	data->map->ceiling_b = ft_atoi(str);
 	free(str);
-	if (data->parser->ceiling_b < 0 || 255 < data->parser->ceiling_b)
+	if (data->map->ceiling_b < 0 || 255 < data->map->ceiling_b)
 		return (false);
 	*index = j;
 	return (true);

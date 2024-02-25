@@ -11,7 +11,7 @@ INCLUDES	= includes/
 SRC_FILES	= main.c ft_free.c
 INIT_FILES	= init.c init_parser.c init_player.c
 ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c \
-				error_map.c error_map_floodfill.c error_player.c
+				error_map.c error_floodfill.c error_player.c
 PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c \
 				player_pos.c
 PLAYER_FILES= player_pos.c
@@ -104,7 +104,7 @@ re:			fclean all
 debug:		fclean
 	@ make DEBUG=1
 
-42:
+42:			fclean
 	@ make OPENGL=1
 
 .PHONY:		all clean fclean re debug

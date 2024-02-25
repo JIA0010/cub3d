@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:16:42 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:29:08 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/25 17:16:44 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ bool	error_parser_ceiling_rgb(void)
 
 bool	error_parser_map(void)
 {
-	printf("srcs/parser/map.c/map(): map error\n");
+	printf("srcs/parser/map.c/map(): map includes invalid character\n");
 	return (false);
 }

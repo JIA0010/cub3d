@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_rgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 16:29:19 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/22 16:39:38 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,8 @@ bool	ceiling_r(t_data *data, char *all, int *index)
 		return (false);
 	data->parser->ceiling_r = ft_atoi(str);
 	free(str);
-<<<<<<< HEAD
-	// if (data->parser->ceiling_r < 0 && 255 < data->parser->ceiling_r)
-	// 	return (false);
-=======
 	if (data->parser->ceiling_r < 0 || 255 < data->parser->ceiling_r)
 		return (false);
->>>>>>> 85254ba25b4568af775a467ebff52d1426d242e9
 	*index = j;
 	return (true);
 }

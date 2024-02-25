@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:29:33 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/22 16:12:06 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ bool	error_parser_path(void);
 bool	error_parser_floor_rgb(void);
 bool	error_parser_ceiling_rgb(void);
 bool	error_parser_map(void);
-bool	error_map(t_data *data);
-void	floodfill(void);
 bool	error_player(void);
+bool	error_map(t_data *data);
 
 #endif

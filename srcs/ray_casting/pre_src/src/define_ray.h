@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/25 15:15:18 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:52:09 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,17 +235,18 @@ void		hook(t_ray *data);
 int			create_map(t_ray *data);
 int			close_window(t_ray *data);
 int			ray_casting(t_ray *data);
-static void	render_raycasting(t_ray *ray);
 void	init_texture_pixels(t_ray *data);
 void	update_texture_pixels(t_ray *ray, int x);
 void	free_tab(void **tab);
-void	clean_exit(t_ray *data, char *err_msg);
 void	set_image_pixel(t_ray *ray, int x, int y, int color);
 void	init_ray(t_ray *ray);
-int	err_msg(char *detail, char *str, int code);
+int		err_msg(char *detail, char *str, int code);
 void	init_img(t_ray *data, t_ray *image, int width, int height);
 void	init_img_clean(t_ray *img);
-
+void	clean_exit(t_ray *data, int code);
+int		free_data(t_ray *data);
+void	init_texinfo(t_ray *textures);
+void	render_raycast(t_ray *data);
 
 
 

@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+         #
+#    By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/09 14:51:35 by cjia              #+#    #+#              #
-#    Updated: 2024/02/22 14:06:03 by cjia             ###   ########.fr        #
+#    Updated: 2024/02/25 15:43:21 by yoshimurahi      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= pre_ray_casting
 
 SRC_SDIR	= src/
-SRCS = pre_main.c import.c utils.c about_player.c create_map.c hook.c
+SRCS = pre_main.c import.c utils.c  create_map.c hook.c ray_casting.c texture.c init.c
 OBJS	= $(addprefix $(SRC_SDIR),  $(SRCS:.c=.o))
 
 CC		= cc

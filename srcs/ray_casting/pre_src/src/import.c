@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/25 15:30:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:51:21 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	start_game(t_ray *data)
 	if (!data->win)
 		error("Failed to create window");
 	place_images_in_game(data);
-	render_raycasting(data);
+	render_raycast(data);
 	hook(data);
 	mlx_loop(data->mlx);
 }

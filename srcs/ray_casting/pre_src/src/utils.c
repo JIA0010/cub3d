@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/25 15:10:27 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:41:52 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,57 @@ void	init_img(t_ray *data, t_ray *image, int width, int height)
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
 	return ;
+}
+
+void	clean_exit(t_ray *data, int code)
+{
+	if (!data)
+		exit(code);
+	if (data->win && data->mlx)
+		mlx_destroy_window(data->mlx, data->win);
+	if (data->mlx)
+	{
+		mlx_destroy_display(data->mlx);
+		mlx_loop_end(data->mlx);
+		free(data->mlx);
+	}
+	free_data(data);
+	exit(code);
+}
+
+static void	free_texinfo(t_ray *textures)
+{
+	if (textures->north)
+		free(textures->north);
+	if (textures->south)
+		free(textures->south);
+	if (textures->west)
+		free(textures->west);
+	if (textures->east)
+		free(textures->east);
+	if (textures->floor)
+		free(textures->floor);
+	if (textures->ceiling)
+		free(textures->ceiling);
+}
+
+static void	free_map(t_ray *data)
+{
+	if (data->fd > 0)
+		close(data->fd);
+	if (data->file)
+		free_tab((void **)data->file);
+	if (data->map)
+		free_tab((void **)data->map);
+}
+
+int	free_data(t_ray *data)
+{
+	if (data->textures)
+		free_tab((void **)data->textures);
+	if (data->texture_pixels)
+		free_tab((void **)data->texture_pixels);
+	free_texinfo(data);
+	free_map(data);
+	return (FAILURE);
 }

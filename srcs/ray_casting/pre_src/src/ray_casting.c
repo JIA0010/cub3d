@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/25 13:18:26 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:46:39 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,20 +121,12 @@ int	ray_casting(t_ray *ray)
 	x = 0;
 	while (x < ray->win_width)
 	{
-		init_raycasting_info(x, &ray);
-		set_dda(&ray);
+		init_raycasting_info(x, ray);
+		set_dda(ray);
 		perform_dda(ray);
-		calculate_line_height(&ray, x);
+		calculate_line_height(ray, x);
 		update_texture_pixels(ray, x);
 		x++;
 	}
 	return (SUCCESS);
-}
-
-static void	render_raycasting(t_ray *ray)
-{
-	init_texture_pixels(ray);
-	init_ray(ray);
-	ray_casting(ray);
-	render_frame(ray);
 }

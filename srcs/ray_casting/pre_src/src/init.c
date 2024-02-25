@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/25 13:22:17 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:49:28 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,24 @@ void	init_ray(t_ray *ray)
 	ray->draw_end = 0;
 }
 
+void	init_texinfo(t_ray *textures)
+{
+	textures->north = NULL;
+	textures->south = NULL;
+	textures->west = NULL;
+	textures->east = NULL;
+	textures->floor = 0;
+	textures->ceiling = 0;
+	textures->hex_floor = 0x0;
+	textures->hex_ceiling = 0x0;
+	textures->size = TEX_SIZE;
+	textures->step = 0.0;
+	textures->pos = 0.0;
+	textures->x1 = 0;
+	textures->y1 = 0;
+}
+
+
 static void	init_mapinfo(t_ray *mapinfo)
 {
 	mapinfo->fd = 0;
@@ -74,7 +92,7 @@ void	init_data(t_ray *data)
 	data->win = NULL;
 	data->win_height = WIN_HEIGHT;
 	data->win_width = WIN_WIDTH;
-	init_player(&data->player);
+	init_player(data);
 	init_texinfo(data);
 	data->map = NULL;
 	init_mapinfo(data);

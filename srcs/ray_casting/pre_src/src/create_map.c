@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/25 15:29:52 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/25 15:51:45 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	render_frame(t_ray *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
-static void	render_raycast(t_ray *data)
+void	render_raycast(t_ray *data)
 {
 	init_texture_pixels(data);
 	init_ray(data);
@@ -105,25 +105,25 @@ static void	render_raycast(t_ray *data)
 
 
 
-static t_ray	*make_image(t_ray *data, char c)
-{
-	t_ray	img;
+// static t_ray	*make_image(t_ray *data, char c)
+// {
+// 	t_ray	img;
 
-	if (c == 'P')
-		img.img = data->player;
-	if (c == '0')
-		img.img = data->grass;
-	if (c == '1')
-		img.img = data->wood;
-	if (c == 'E')
-		img.img = data->goal;
-	if (c == 'C')
-		img.img = data->item;
-	if (img.img == NULL)
-	{
-		// all_free(data->map);
-		printf("c: %c\n", c);
-		error("Image acquisition failure");
-	}
-	return (img.img);
-}
+// 	if (c == 'P')
+// 		img.img = data->player;
+// 	if (c == '0')
+// 		img.img = data->grass;
+// 	if (c == '1')
+// 		img.img = data->wood;
+// 	if (c == 'E')
+// 		img.img = data->goal;
+// 	if (c == 'C')
+// 		img.img = data->item;
+// 	if (img.img == NULL)
+// 	{
+// 		// all_free(data->map);
+// 		printf("c: %c\n", c);
+// 		error("Image acquisition failure");
+// 	}
+// 	return (img.img);
+// }

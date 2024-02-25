@@ -6,13 +6,14 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/25 16:32:27 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/25 17:13:23 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/error.h"
 
 static void	floodfill(t_data *data, bool *flag, size_t x, size_t z);
+static bool	check(t_data *data, bool *flag, size_t x, size_t z);
 
 bool	error_floodfill(t_data *data)
 {
@@ -27,15 +28,8 @@ bool	error_floodfill(t_data *data)
 
 static void	floodfill(t_data *data, bool *flag, size_t x, size_t z)
 {
-	if (data->map->map[x + 1] == NULL || data->map->map[x - 1] == NULL
-		|| data->map->map[x + 1][z] == '\0' || data->map->map[x - 1][z] == '\0'
-		|| data->map->map[x][z + 1] == '\0' || data->map->map[x][z - 1] == '\0'
-		|| data->map->map[x + 1][z] == ' ' || data->map->map[x - 1][z] == ' '
-		|| data->map->map[x][z + 1] == ' ' || data->map->map[x][z - 1] == ' ')
-	{
-		*flag = false;
+	if (check(data, flag, x, z) == false)
 		return ;
-	}
 	if (data->map->map[x + 1][z] == '0')
 	{
 		data->map->map[x + 1][z] = '*';
@@ -56,4 +50,19 @@ static void	floodfill(t_data *data, bool *flag, size_t x, size_t z)
 		data->map->map[x][z - 1] = '*';
 		floodfill(data, flag, x, z - 1);
 	}
+}
+
+static bool	check(t_data *data, bool *flag, size_t x, size_t z)
+{
+	if (x == 0 || z == 0
+		|| data->map->map[x + 1] == NULL
+		|| data->map->map[x + 1][z] == '\0' || data->map->map[x - 1][z] == '\0'
+		|| data->map->map[x][z + 1] == '\0' || data->map->map[x][z - 1] == '\0'
+		|| data->map->map[x + 1][z] == ' ' || data->map->map[x - 1][z] == ' '
+		|| data->map->map[x][z + 1] == ' ' || data->map->map[x][z - 1] == ' ')
+	{
+		*flag = false;
+		return (false);
+	}
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:35:16 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/25 16:49:59 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/25 17:00:10 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ size_t	map_x_len(char *line)
 	max = 0;
 	while (line[i] != '\0')
 	{
+		len++;
 		if (line[i] == '\n')
 		{
 			if (max < len)
 				max = len;
 			len = 0;
 		}
-		len++;
 		i++;
 	}
+	if (max < len)
+		max = len + 1;
 	return (max);
 }
 

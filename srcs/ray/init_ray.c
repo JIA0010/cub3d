@@ -6,11 +6,24 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/26 10:52:26 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 16:24:38 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
+
+void	init_texture_img(t_ray *data, t_img *image, char *path)
+{
+	init_img_clean(image);
+	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->size,
+			&data->size);
+	printf("image->img = %p\n", image->img);
+	if (image->img == NULL)
+		clean_exit(data, err_msg("mlx", ERR_MLX_IMG, 1));
+	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
+			&image->size_line, &image->endian);
+	return ;
+}
 
 void	init_img_clean(t_img *img)
 {
@@ -93,9 +106,9 @@ void	init_data(t_ray *data)
 	data->win_height = WIN_HEIGHT;
 	data->win_width = WIN_WIDTH;
 	init_player(data);
-	// init_texinfo(data);
-	// data->map = NULL;
-	// init_mapinfo(data);
+	init_texinfo(data);
+	data->map = NULL;
+	init_mapinfo(data);
 	data->texture_pixels = NULL;
 	data->textures = NULL;
 }

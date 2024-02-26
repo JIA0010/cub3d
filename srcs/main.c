@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/26 11:28:25 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 16:29:06 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,19 @@ static void	test(t_data *data);
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	t_ray	*ray;
 
 	if (check_error_arg(argc, argv) == false)
 		return (false);
 	data = init();
-	init_data(ray);
 	if (data == NULL)
 		return (ft_free(data), false);
+	// printf("data->parser->path_north = %s\n", data->parser->path_north);
 	if (parser(data, argv[1]) == false)
 		return (ft_free(data), false);
 	if (player_pos(data) == false)
 		return (ft_free(data), false);
 	test(data);
-	if (start_game(ray) == false)
+	if (start_game(data) == false)
 		return (ft_free(data), false);
 	return (ft_free(data), true);
 }
@@ -73,8 +72,8 @@ static void	test(t_data *data)
 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
 }
 
-__attribute__((destructor))
-static void	destructor(void)
-{
-	system("leaks -q cub3d");
-}
+// __attribute__((destructor))
+// static void	destructor(void)
+// {
+// 	system("leaks -q cub3d");
+// }

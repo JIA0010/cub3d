@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 11:06:34 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 14:01:48 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,6 +244,7 @@ int		free_data(t_ray *data);
 void	init_texinfo(t_ray *textures);
 void	render_raycast(t_ray *data);
 void	init_data(t_ray *data);
+void	init_texture_img(t_ray *data, t_img *image, char *path);
 
 
 

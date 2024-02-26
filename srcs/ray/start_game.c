@@ -6,31 +6,56 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 12:01:02 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 16:28:27 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
+
+static int	*xpm_to_img(t_ray *data, char *path)
+{
+	t_img	tmp;
+	int		*buffer;
+	int		x;
+	int		y;
+	init_texture_img(data, &tmp, path);
+	buffer = ft_calloc(1,
+			sizeof * buffer * data->size * data->size);
+	if (!buffer)
+		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+	y = 0;
+	while (y < data->size)
+	{
+		x = 0;
+		while (x < data->size)
+		{
+			buffer[y * data->size + x]
+				= tmp.addr[y * data->size + x];
+			++x;
+		}
+		y++;
+	}
+	mlx_destroy_image(data->mlx, tmp.img);
+	return (buffer);
+}
 
 void	place_images_in_game(t_ray *data)
 {
 	int	x;
 	int	y;
 
-	data->player = mlx_xpm_file_to_image(data->mlx, P_IMG_PLAYER,
-			&x, &y);
-	data->grass = mlx_xpm_file_to_image(data->mlx, P_IMG_GRASS, &x,
-			&y);
-	data->wood = mlx_xpm_file_to_image(data->mlx, P_IMG_WOOD, &x,
-			&y);
-	data->goal = mlx_xpm_file_to_image(data->mlx, P_IMG_GOAL, &x,
-			&y);
-	data->item = mlx_xpm_file_to_image(data->mlx, P_IMG_ITEM, &x,
-			&y);
+	data->textures = ft_calloc(5, sizeof * data->textures);
+	if (!data->textures)
+		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+	data->textures[NORTH] = xpm_to_img(data, data->north);
+	data->textures[SOUTH] = xpm_to_img(data, data->south);
+	data->textures[EAST] = xpm_to_img(data, data->east);
+	data->textures[WEST] = xpm_to_img(data, data->west);
 }
 
 bool	start_game(t_ray *data)
 {
+	printf("data->north = %s\n", data->north);
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		error("Failed to initialize graphics context");
@@ -38,10 +63,9 @@ bool	start_game(t_ray *data)
 			WIN_HEIGHT, "cub3D");
 	if (!data->win)
 		error("Failed to create window");
-	place_images_in_game(data);
-	render_raycast(data);
+	// place_images_in_game(data);
+	// render_raycast(data);
 	// hook(data);
-	printf("start_game\n");
 	mlx_loop(data->mlx);
 	return (true);
 }

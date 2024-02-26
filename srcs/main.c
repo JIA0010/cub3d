@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 16:22:39 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/26 11:28:25 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 #include "../includes/init.h"
 #include "../includes/parser.h"
 #include "../includes/player.h"
+#include "../includes/define_ray.h"
 
 static void	test(t_data *data);
 
 int	main(int argc, char **argv)
 {
 	t_data	*data;
+	t_ray	*ray;
 
 	if (check_error_arg(argc, argv) == false)
 		return (false);
 	data = init();
+	init_data(ray);
 	if (data == NULL)
 		return (ft_free(data), false);
 	if (parser(data, argv[1]) == false)
@@ -32,6 +35,8 @@ int	main(int argc, char **argv)
 	if (player_pos(data) == false)
 		return (ft_free(data), false);
 	test(data);
+	if (start_game(ray) == false)
+		return (ft_free(data), false);
 	return (ft_free(data), true);
 }
 

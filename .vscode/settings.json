@@ -1,23 +1,6 @@
 {
 	"files.associations": {
 		"parser.h": "c",
-<<<<<<< HEAD
-		"array": "c",
-		"iterator": "c",
-		"string": "c",
-		"string_view": "c",
-		"vector": "c",
-		"define_ray.h": "c",
-		"so_long.h": "c",
-		"mlx.h": "c",
-		"mlx_int.h": "c",
-		"libft.h": "c",
-		"fcntl.h": "c",
-		"limits.h": "c",
-		"math.h": "c",
-		"stdbool.h": "c"
-=======
 		"init.h": "c"
->>>>>>> 85254ba25b4568af775a467ebff52d1426d242e9
 	}
 }

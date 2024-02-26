@@ -15,7 +15,8 @@ ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c \
 PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c \
 				player_pos.c
 PLAYER_FILES= player_pos.c
-RAY_FILES	= 
+RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c create_map.c texture.c
+# import.c utils.c  create_map.c hook.c
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
 				$(PARSER_FILES:%.c=%.o) $(RAY_FILES:%.c=%.o)
@@ -27,16 +28,16 @@ PLAYERS		= $(addprefix $(PLAYER_PATH), $(PLAYER_FILES))
 RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
-CFLAGS		= -Wall -Wextra -Werror
+# CFLAGS		= -Wall -Wextra -Werror
 MLX			= $(MLX_MMS)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
 ifdef OPENGL
 	MLX		= $(MLX_OpenGL)
 endif
-ifdef DEBUG
-	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer
-endif
+# ifdef DEBUG
+# 	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer
+# endif
 
 ##------------color-----------##
 CHECK		= \033[36m[\033[0m✔\033[36m]\033[0m
@@ -101,8 +102,8 @@ fclean:
 
 re:			fclean all
 
-debug:		fclean
-	@ make DEBUG=1
+# debug:		fclean
+# 	@ make DEBUG=1
 
 42:
 	@ make OPENGL=1

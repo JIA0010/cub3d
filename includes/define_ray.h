@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 14:01:48 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 21:46:07 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define P_IMG_GRASS "./textures/grass.xpm"
 # define P_IMG_WOOD "./textures/wood.xpm"
 # define P_IMG_GOAL "./textures/goal.xpm"
-# define P_IMG_ITEM "./textures/item.xpm"
+# define P_IMG_ITEM "./textures/creeper.xpm"
 
 # define mapWidth 24
 # define mapHeight 24
@@ -226,7 +226,7 @@ typedef struct s_ray
 
 
 void		error(char *str);
-bool		start_game(t_ray *data);
+bool		start_game(t_data *data);
 void		hook(t_ray *data);
 int			create_map(t_ray *data);
 int			close_window(t_ray *data);

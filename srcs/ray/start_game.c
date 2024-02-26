@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 16:28:27 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/26 21:46:59 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,28 @@ void	place_images_in_game(t_ray *data)
 	data->textures = ft_calloc(5, sizeof * data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
-	data->textures[NORTH] = xpm_to_img(data, data->north);
-	data->textures[SOUTH] = xpm_to_img(data, data->south);
-	data->textures[EAST] = xpm_to_img(data, data->east);
-	data->textures[WEST] = xpm_to_img(data, data->west);
+	data->textures[NORTH] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[SOUTH] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[EAST] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[WEST] = xpm_to_img(data, P_IMG_ITEM);
 }
 
-bool	start_game(t_ray *data)
+bool	start_game(t_data *data_yhi)
 {
-	printf("data->north = %s\n", data->north);
-	data->mlx = mlx_init();
-	if (!data->mlx)
+	t_ray	data;
+
+	init_data(&data);
+	data.mlx = mlx_init();
+	if (!data.mlx)
 		error("Failed to initialize graphics context");
-	data->win = mlx_new_window(data->mlx, WIN_WIDTH,
+	data.win = mlx_new_window(data.mlx, WIN_WIDTH,
 			WIN_HEIGHT, "cub3D");
-	if (!data->win)
+	if (!data.win)
 		error("Failed to create window");
-	// place_images_in_game(data);
-	// render_raycast(data);
+
+	place_images_in_game(&data);
+	render_raycast(&data);
 	// hook(data);
-	mlx_loop(data->mlx);
+	mlx_loop(data.mlx);
 	return (true);
 }

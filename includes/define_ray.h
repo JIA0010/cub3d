@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 16:54:07 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/27 17:07:18 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ typedef struct s_ray
 	void			*win;
 	int				**texture_pixels;
 	int				**textures;
-	int				**map;
+	char				**map;
 	//------------------------------------------item
 	void			*wood;
 	void			*player;

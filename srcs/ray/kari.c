@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:40:48 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 16:42:07 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/27 17:18:37 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,9 +235,10 @@ static int	get_map_info(t_ray *data, char **file, int i)
 {
 	data->height = count_map_lines(data, file, i);
 	data->map = malloc(sizeof(char *) * (data->height + 1));
+	// printf("data->map: %p\n", data->map);
 	if (!data->map)
 		return (err_msg(NULL, "ERR_MALLOC", FAILURE));
-	if (fill_map_tab(&data, data->map, i) == FAILURE)
+	if (fill_map_tab(data, data->map, i) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -265,7 +266,7 @@ static void	change_space_into_wall(t_ray *data)
 	}
 }
 
-int	create_map(t_data *data, char **file, int i)
+int	create_map(t_ray *data, char **file, int i)
 {
 	if (get_map_info(data, file, i) == FAILURE)
 		return (FAILURE);
@@ -407,13 +408,13 @@ static int	ignore_whitespaces_get_info(t_ray *data, char **map, int i, int j)
 		if (map[i][j + 1] && ft_isprint(map[i][j + 1])
 			&& !ft_isdigit(map[i][j]))
 		{
-			if (fill_direction_textures(&data, map[i], j) == ERR)
+			if (fill_direction_textures(data, map[i], j) == ERR)
 				return (err_msg(data->path, "ERR_TEX_INVALID", FAILURE));
 			return (BREAK);
 		}
 		else
 		{
-			if (fill_color_textures(data, &data, map[i], j) == ERR)
+			if (fill_color_textures(data, data, map[i], j) == ERR)
 				return (FAILURE);
 			return (BREAK);
 		}
@@ -519,10 +520,10 @@ static void	init_player_north_south(t_ray *player)
 		return ;
 }
 
-void	init_player_direction(t_data *data)
+void	init_player_direction(t_ray *data)
 {
-	init_player_north_south(&data);
-	init_player_east_west(&data);
+	init_player_north_south(data);
+	init_player_east_west(data);
 }
 
 static unsigned long	convert_rgb_to_hex(int *rgb_tab)
@@ -690,9 +691,10 @@ static int	check_map_elements(t_ray *data, char **map_tab)
 
 int	check_map_validity(t_ray *data, char **map_tab)
 {
+	printf("data->map: %p\n", data->map);
 	if (!data->map)
 		return (err_msg(data->path, "ERR_MAP_MISSING", FAILURE));
-	if (check_map_sides(&data, map_tab) == FAILURE)
+	if (check_map_sides(data, map_tab) == FAILURE)
 		return (err_msg(data->path, "ERR_MAP_NO_WALLS", FAILURE));
 	if (data->height < 3)
 		return (err_msg(data->path, "ERR_MAP_TOO_SMALL", FAILURE));
@@ -700,7 +702,7 @@ int	check_map_validity(t_ray *data, char **map_tab)
 		return (FAILURE);
 	if (check_player_position(data, map_tab) == FAILURE)
 		return (FAILURE);
-	if (check_map_is_at_the_end(&data) == FAILURE)
+	if (check_map_is_at_the_end(data) == FAILURE)
 		return (err_msg(data->path, "ERR_MAP_LAST", FAILURE));
 	return (SUCCESS);
 }
@@ -717,7 +719,7 @@ int	get_file_data(t_ray *data, char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			ret = ignore_whitespaces_get_info(data, map, i, j);
+			// ret = ignore_whitespaces_get_info(data, map, i, j);
 			if (ret == BREAK)
 				break ;
 			else if (ret == FAILURE)
@@ -766,6 +768,7 @@ static int	get_number_of_lines(char *path)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
+		
 		line_count++;
 		free(line);
 		line = get_next_line(fd);
@@ -804,7 +807,7 @@ int	parse_args(t_ray *data, char **av)
 		return (free_data(data));
 	if (check_map_validity(data, data->map) == 1)
 		return (free_data(data));
-	if (check_textures_validity(data, &data) == 1)
+	if (check_textures_validity(data, data) == 1)
 		return (free_data(data));
 	init_player_direction(data);
 	return (0);

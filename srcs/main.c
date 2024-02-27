@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/27 12:58:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 16:54:36 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+#include "../includes/define_ray.h"
 #include "../includes/error.h"
 #include "../includes/init.h"
 #include "../includes/parser.h"
 #include "../includes/player.h"
-#include "../includes/define_ray.h"
 
 static void	test(t_data *data);
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	if (player_pos(data) == false)
 		return (ft_free(data), false);
 	test(data);
-	if (start_game(data) == false)
+	if (start_game(data, argv) == false)
 		return (ft_free(data), false);
 	return (ft_free(data), true);
 }
@@ -49,9 +49,9 @@ static void	test(t_data *data)
 	printf("path_west[%s]\n", data->parser->path_west);
 	printf("path_east[%s]\n\n", data->parser->path_east);
 	printf("floor_rgb[%d,%d,%d]\n", data->parser->floor_r,
-		data->parser->floor_g, data->parser->floor_b);
+			data->parser->floor_g, data->parser->floor_b);
 	printf("ceiling_rgb[%d,%d,%d]\n\n", data->parser->ceiling_r,
-		data->parser->ceiling_g, data->parser->ceiling_b);
+			data->parser->ceiling_g, data->parser->ceiling_b);
 	printf("-----map-----\n");
 	z = 0;
 	while (1)
@@ -68,7 +68,8 @@ static void	test(t_data *data)
 		z++;
 	}
 	printf("-------------\n\n");
-	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
+	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x,
+			data->player_pos->z);
 }
 
 // __attribute__((destructor))

@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/26 21:17:24 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 12:58:07 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 	data = init();
 	if (data == NULL)
 		return (ft_free(data), false);
-	printf("data->parser->path_north = \n");
 	if (parser(data, argv[1]) == false)
 		return (ft_free(data), false);
 	if (player_pos(data) == false)

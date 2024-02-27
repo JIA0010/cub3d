@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/27 05:53:34 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:14:04 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_texture_img(t_ray *data, t_img *image, char *path)
 	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->win_width,
 			&data->win_height);
 	if (image->img == NULL)
-		clean_exit(data, err_msg("mlx", ERR_MLX_IMG, 1));
+		clean_exit(data, err_msg("mlx", "Could not create mlx image", 1));
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
 	return ;

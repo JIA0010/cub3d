@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 21:46:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:20:00 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@
 # define D 2
 
 
+
+/* # define WIN_WIDTH 960 */
+/* # define WIN_HEIGHT 720 */
+# define WIN_WIDTH 640
+# define WIN_HEIGHT 480
+
+# define TEX_SIZE 64
+
 enum e_output
 {
 	SUCCESS = 0,
@@ -76,63 +84,6 @@ enum e_texture_index
 	WEST = 3
 };
 
-
-
-# ifndef BONUS
-#  define BONUS 1
-# endif
-
-/* # define WIN_WIDTH 960 */
-/* # define WIN_HEIGHT 720 */
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 480
-
-# define TEX_SIZE 64
-
-# ifndef O_DIRECTORY
-#  define O_DIRECTORY 00200000
-# endif
-
-# define MOVESPEED 0.0125
-# define ROTSPEED 0.015
-
-# define DIST_EDGE_MOUSE_WRAP 20
-
-/* MINIMAP MACROS */
-# define MMAP_PIXEL_SIZE 128
-# define MMAP_VIEW_DIST 4
-# define MMAP_COLOR_PLAYER 0x00FF00
-# define MMAP_COLOR_WALL 0x808080
-# define MMAP_COLOR_FLOOR 0xE6E6E6
-# define MMAP_COLOR_SPACE 0x404040
-
-// ERROR MESSAGES
-# define ERR_USAGE "usage: ./cub3d <path/to/map.cub>"
-
-# define ERR_FILE_NOT_CUB "Not a .cub file"
-# define ERR_FILE_NOT_XPM "Not an .xpm file"
-# define ERR_FILE_IS_DIR "Is a directory"
-# define ERR_FLOOR_CEILING "Invalid floor/ceiling RGB color(s)"
-# define ERR_COLOR_FLOOR "Invalid floor RGB color"
-# define ERR_COLOR_CEILING "Invalid ceiling RGB color"
-# define ERR_INVALID_MAP "Map description is either wrong or incomplete"
-# define ERR_INV_LETTER "Invalid character in map"
-# define ERR_NUM_PLAYER "Map has more than one player"
-# define ERR_TEX_RGB_VAL "Invalid RGB value (min: 0, max: 255)"
-# define ERR_TEX_MISSING "Missing texture(s)"
-# define ERR_TEX_INVALID "Invalid texture(s)"
-# define ERR_COLOR_MISSING "Missing color(s)"
-# define ERR_MAP_MISSING "Missing map"
-# define ERR_MAP_TOO_SMALL "Map is not at least 3 lines high"
-# define ERR_MAP_NO_WALLS "Map is not surrounded by walls"
-# define ERR_MAP_LAST "Map is not the last element in file"
-# define ERR_PLAYER_POS "Invalid player position"
-# define ERR_PLAYER_DIR "Map has no player position (expected N, S, E or W)"
-# define ERR_MALLOC "Could not allocate memory"
-# define ERR_MLX_START "Could not start mlx"
-# define ERR_MLX_WIN "Could not create mlx window"
-# define ERR_MLX_IMG "Could not create mlx image"
-
 typedef struct s_img
 {
 	void	*img;
@@ -144,6 +95,7 @@ typedef struct s_img
 
 typedef struct s_ray
 {
+	t_data	*data;
 	//------------------------------------------ray_casting
 	double	camera_x;
 	double	dir_x;
@@ -162,10 +114,7 @@ typedef struct s_ray
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
-
-
 	//------------------------------------------map
-
 	int			fd;
 	int			line_count;
 	char		*path;
@@ -173,25 +122,20 @@ typedef struct s_ray
 	int			height;
 	int			width;
 	int			index_end_of_map;
-
 	//------------------------------------------long
-
-	char		**map;
 	int			win_height;
 	int			win_width;
 	void		*mlx;
 	void		*win;
 	int			**texture_pixels;
 	int			**textures;
-
+	int			**map;
 	//------------------------------------------item
-
 	void	*wood;
 	void	*player;
 	void	*goal;
 	void	*grass;
 	void	*item;
-
 	//------------------------------------------player
 	char	dir;
 	double	pos_x;
@@ -204,8 +148,6 @@ typedef struct s_ray
 	int		move_x;
 	int		move_y;
 	int		rotate;
-
-
 	//------------------------------------------texture_info
 	char			*north;
 	char			*south;
@@ -221,7 +163,6 @@ typedef struct s_ray
 	double			pos;
 	int				x1;
 	int				y1;
-
 }			t_ray;
 
 

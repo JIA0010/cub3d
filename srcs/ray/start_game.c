@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 06:06:47 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:13:29 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	*xpm_to_img(t_ray *data, char *path)
 	buffer = ft_calloc(1,
 			sizeof * buffer * data->size * data->size);
 	if (!buffer)
-		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
 	y = 0;
 	while (y < data->size)
 	{
@@ -46,7 +46,7 @@ void	place_images_in_game(t_ray *data)
 
 	data->textures = ft_calloc(5, sizeof * data->textures);
 	if (!data->textures)
-		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
 	data->textures[NORTH] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[SOUTH] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[EAST] = xpm_to_img(data, P_IMG_ITEM);
@@ -60,11 +60,11 @@ bool	start_game(t_data *data_yhi)
 	init_data(&data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
-		error("Failed to initialize graphics context");
+		return(error("Failed to initialize graphics context"), false);
 	data.win = mlx_new_window(data.mlx, WIN_WIDTH,
 			WIN_HEIGHT, "cub3D");
 	if (!data.win)
-		error("Failed to create window");
+		return(error("Failed to create window"), false);
 
 	place_images_in_game(&data);
 	render_raycast(&data);

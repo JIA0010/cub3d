@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:48:27 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 17:03:44 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/27 09:01:54 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_free_parser(t_data *data);
 
-void	ft_free(t_data *data)
+void		ft_free(t_data *data)
 {
 	ft_free_parser(data);
 	if (data->player_pos)

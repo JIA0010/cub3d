@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/27 05:53:05 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:14:39 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	init_texture_pixels(t_ray *data)
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
-		clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
 	i = 0;
 	while (i < data->win_height)
 	{
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,
 				sizeof * data->texture_pixels);
 		if (!data->texture_pixels[i])
-			clean_exit(data, err_msg(NULL, ERR_MALLOC, 1));
+			clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
 		i++;
 	}
 }
@@ -57,6 +57,7 @@ static void	render_frame(t_ray *data)
 	image.img = NULL;
 	init_img(data, &image, data->win_width, data->win_height);
 	y = 0;
+	printf("image.img: %p\n", image.img);
 	while (y < data->win_height)
 	{
 		x = 0;

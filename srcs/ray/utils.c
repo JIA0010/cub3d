@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/26 11:09:48 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/27 15:13:49 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	init_img(t_ray *data, t_img *image, int width, int height)
 	init_img_clean(image);
 	image->img = mlx_new_image(data->mlx, width, height);
 	if (image->img == NULL)
-		clean_exit(data, err_msg("mlx", ERR_MLX_IMG, 1));
+		clean_exit(data, err_msg("mlx", "Could not create mlx image", 1));
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
 	return ;

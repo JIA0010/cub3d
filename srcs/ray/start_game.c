@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 12:33:00 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 12:56:53 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ bool	start_game(t_data *data_yhi, char **av)
 	data.size = 70;
 	data.pos_x = data_yhi->player_pos->x;
 	data.pos_y = data_yhi->player_pos->z;
-	data.hex_ceiling = data_yhi->parser->ceiling_r;
-	data.hex_floor = data_yhi->parser->floor_g;
-	data.map = data_yhi->parser->map;
+	data.hex_ceiling = data_yhi->map->ceiling_r;
+	data.hex_floor = data_yhi->map->floor_g;
+	data.map = data_yhi->map->map;
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (error("Failed to initialize graphics context"), false);

@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:08:27 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:38:54 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static bool	set_player_pos(t_data *data)
 	while (1)
 	{
 		x = 0;
-		if (data->parser->map[x][z] == '\0')
+		if (data->map->map[x][z] == '\0')
 			break ;
-		while (data->parser->map[x] != NULL)
+		while (data->map->map[x] != NULL)
 		{
-			if (data->parser->map[x][z] == 'N' || data->parser->map[x][z] == 'S'
-				|| data->parser->map[x][z] == 'E'
-				|| data->parser->map[x][z] == 'W')
+			if (data->map->map[x][z] == 'N' || data->map->map[x][z] == 'S'
+				|| data->map->map[x][z] == 'E'
+				|| data->map->map[x][z] == 'W')
 			{
 				data->player_pos->x = x;
 				data->player_pos->z = z;

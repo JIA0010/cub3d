@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 16:29:30 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/28 12:42:57 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	floor_rgb(t_data *data)
 	char	*all;
 	int		i;
 
-	all = data->parser->all;
+	all = data->map->all;
 	i = 0;
 	while (all[i] != '\0' && all[i] != 'F')
 		i++;
@@ -51,9 +51,9 @@ bool	floor_r(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->floor_r = ft_atoi(str);
+	data->map->floor_r = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_r < 0 || 255 < data->parser->floor_r)
+	if (data->map->floor_r < 0 || 255 < data->map->floor_r)
 		return (false);
 	*index = j;
 	return (true);
@@ -76,9 +76,9 @@ bool	floor_g(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->floor_g = ft_atoi(str);
+	data->map->floor_g = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_g < 0 || 255 < data->parser->floor_g)
+	if (data->map->floor_g < 0 || 255 < data->map->floor_g)
 		return (false);
 	*index = j;
 	return (true);
@@ -101,9 +101,9 @@ bool	floor_b(t_data *data, char *all, int *index)
 		return (false);
 	if (ft_strlen(str) > 3)
 		return (false);
-	data->parser->floor_b = ft_atoi(str);
+	data->map->floor_b = ft_atoi(str);
 	free(str);
-	if (data->parser->floor_b < 0 || 255 < data->parser->floor_b)
+	if (data->map->floor_b < 0 || 255 < data->map->floor_b)
 		return (false);
 	*index = j;
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/21 11:35:04 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/24 16:37:38 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	all(t_data *data, char *file)
 	int		fd;
 
 	fd = open(file, O_RDONLY);
-	data->parser->all = NULL;
+	data->map->all = NULL;
 	while (1)
 	{
 		read_size = read (fd, &str, 1);
@@ -30,9 +30,9 @@ bool	all(t_data *data, char *file)
 			break ;
 		if (read_size < 0)
 			return (false);
-		tmp = data->parser->all;
-		data->parser->all = ft_strjoin_c(tmp, str);
-		if (data->parser->all == NULL)
+		tmp = data->map->all;
+		data->map->all = ft_strjoin_c(tmp, str);
+		if (data->map->all == NULL)
 			return (false);
 		free(tmp);
 	}

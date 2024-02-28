@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 16:53:13 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/28 10:59:42 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ bool	start_game(t_data *data_yhi, char **av)
 	t_ray	data;
 
 	init_data(&data);
-	parse_args(&data, av);
+	data.pos_x = 22;
+	data.pos_y = 12;
+	data.dir_x = -1;
+	data.dir_y = 0;
+	data.plane_x = 0;
+	data.plane_y = 0.66;
+	data.size = 64;
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (error("Failed to initialize graphics context"), false);
@@ -66,7 +72,10 @@ bool	start_game(t_data *data_yhi, char **av)
 	if (!data.win)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
-	render_raycast(&data);
+	data.win_width = WIN_WIDTH;
+	data.win_height = WIN_HEIGHT;
+	data.map = data_yhi->parser->map;
+	raycast_and_draw(&data);
 	// hook(data);
 	mlx_loop(data.mlx);
 	return (true);

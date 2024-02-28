@@ -6,16 +6,13 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/27 15:14:39 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 11:28:53 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
 
-
-
-
-void	init_texture_pixels(t_ray *data)
+void	calloc_texture_pixels(t_ray *data)
 {
 	int	i;
 
@@ -48,7 +45,7 @@ static void	set_frame_image_pixel(t_ray *ray, t_img *image, int x, int y)
 		set_image_pixel(image, x, y, ray->hex_floor);
 }
 
-static void	render_frame(t_ray *data)
+static void	draw_image_to_window(t_ray *data)
 {
 	t_img	image;
 	int		x;
@@ -72,10 +69,9 @@ static void	render_frame(t_ray *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
-void	render_raycast(t_ray *data)
+void	raycast_and_draw(t_ray *data)
 {
-	init_texture_pixels(data);
-	init_ray(data);
+	calloc_texture_pixels(data);
 	ray_casting(data);
-	render_frame(data);
+	draw_image_to_window(data);
 }

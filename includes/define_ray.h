@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 17:07:18 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/28 11:19:48 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,9 @@
 # define S 1
 # define D 2
 
-/* # define WIN_WIDTH 960 */
-/* # define WIN_HEIGHT 720 */
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 480
-
 # define TEX_SIZE 64
+
+# define EXCEPT_COLOR 0x00FF00FF
 
 enum				e_output
 {
@@ -167,7 +164,7 @@ void				error(char *str);
 void				hook(t_ray *data);
 int					close_window(t_ray *data);
 int					ray_casting(t_ray *data);
-void				init_texture_pixels(t_ray *data);
+void				calloc_texture_pixels(t_ray *data);
 void				update_texture_pixels(t_ray *ray, int x);
 void				free_tab(void **tab);
 void				set_image_pixel(t_img *img, int x, int y, int color);
@@ -178,7 +175,7 @@ void				init_img_clean(t_img *img);
 void				clean_exit(t_ray *data, int code);
 int					free_data(t_ray *data);
 void				init_texinfo(t_ray *textures);
-void				render_raycast(t_ray *data);
+void				raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);

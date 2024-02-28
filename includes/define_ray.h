@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 11:19:48 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 11:44:20 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 
 # define TEX_SIZE 64
 
-# define EXCEPT_COLOR 0x00FF00FF
+# define EXCEPT_COLOR 0xFFFFFF
 
 enum				e_output
 {

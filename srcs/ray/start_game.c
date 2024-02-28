@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 10:59:42 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 12:33:00 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	place_images_in_game(t_ray *data)
 	data->textures = ft_calloc(5, sizeof *data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
-	data->textures[NORTH] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[NORTH] = xpm_to_img(data, P_IMG_PLAYER);
 	data->textures[SOUTH] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[EAST] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[WEST] = xpm_to_img(data, P_IMG_ITEM);
@@ -58,13 +58,16 @@ bool	start_game(t_data *data_yhi, char **av)
 	t_ray	data;
 
 	init_data(&data);
-	data.pos_x = 22;
-	data.pos_y = 12;
-	data.dir_x = -1;
-	data.dir_y = 0;
+	data.dir_x = 0;
+	data.dir_y = -1;
 	data.plane_x = 0;
 	data.plane_y = 0.66;
-	data.size = 64;
+	data.size = 70;
+	data.pos_x = data_yhi->player_pos->x;
+	data.pos_y = data_yhi->player_pos->z;
+	data.hex_ceiling = data_yhi->parser->ceiling_r;
+	data.hex_floor = data_yhi->parser->floor_g;
+	data.map = data_yhi->parser->map;
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (error("Failed to initialize graphics context"), false);
@@ -74,7 +77,6 @@ bool	start_game(t_data *data_yhi, char **av)
 	place_images_in_game(&data);
 	data.win_width = WIN_WIDTH;
 	data.win_height = WIN_HEIGHT;
-	data.map = data_yhi->parser->map;
 	raycast_and_draw(&data);
 	// hook(data);
 	mlx_loop(data.mlx);

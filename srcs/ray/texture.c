@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:06:59 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/28 12:26:25 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 14:39:18 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static void	get_texture_index(t_ray *ray)
 		else
 			ray->index = NORTH;
 	}
+	printf("ray->index = %d\n", ray->index);
 }
 
 void	update_texture_pixels(t_ray *ray, int x)
@@ -49,9 +50,9 @@ void	update_texture_pixels(t_ray *ray, int x)
 		ray->y1 = (int)ray->pos & (ray->size - 1);
 		ray->pos += ray->step;
 		color = ray->textures[ray->index][ray->size * ray->y1 + ray->x1];// ここでcolorにray->texturesの色情報を入れている
-		// if (ray->index == NORTH || ray->index == EAST)
-		// 	color = (color >> 1) & EXCEPT_COLOR;
-		// if (color > 0)
+		if (ray->index == NORTH || ray->index == EAST)
+			color = (color >> 1) & EXCEPT_COLOR;
+		if (color > 0)
 			ray->texture_pixels[y][x] = color; // ここでray->texture_pixelsに色情報を入れている
 		y++;
 	}

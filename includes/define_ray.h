@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 11:44:20 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 13:46:48 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ typedef struct s_ray
 }					t_ray;
 
 void				error(char *str);
+void				init_player_direction(t_ray *data);
 void				hook(t_ray *data);
 int					close_window(t_ray *data);
 int					ray_casting(t_ray *data);

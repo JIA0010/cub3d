@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/28 12:40:36 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 14:43:18 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	draw_image_to_window(t_ray *data)
 	image.img = NULL;
 	init_img(data, &image, data->win_width, data->win_height);
 	y = 0;
-	printf("image.img: %p\n", image.img);
 	while (y < data->win_height)
 	{
 		x = 0;

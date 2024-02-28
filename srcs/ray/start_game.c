@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 12:56:53 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 15:24:13 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,15 @@ bool	start_game(t_data *data_yhi, char **av)
 	t_ray	data;
 
 	init_data(&data);
-	data.dir_x = 0;
-	data.dir_y = -1;
-	data.plane_x = 0;
-	data.plane_y = 0.66;
-	data.size = 70;
 	data.pos_x = data_yhi->player_pos->x;
 	data.pos_y = data_yhi->player_pos->z;
-	data.hex_ceiling = data_yhi->map->ceiling_r;
+	data.hex_ceiling = data_yhi->map->ceiling_g;
 	data.hex_floor = data_yhi->map->floor_g;
+	data.dir = data_yhi->player_pos->direction;
 	data.map = data_yhi->map->map;
+	data.height = data_yhi->map->map_hight;
+	data.width = data_yhi->map->map_width;
+	init_player_direction(&data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (error("Failed to initialize graphics context"), false);

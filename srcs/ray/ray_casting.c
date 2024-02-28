@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 12:21:31 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 15:15:54 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@ static void	get_raycast_info(int x, t_ray *ray)
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
 	ray->p_dir_x = ray->p_dir_x + ray->plane_x * ray->camera_x;
 	ray->p_dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
-	// printf("ray->pos_x = %f\n", ray->pos_x);
-	// printf("ray->pos_y = %f\n", ray->pos_y);
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	// printf("ray->map_x = %d\n", ray->map_x);
-	// printf("ray->map_y = %d\n", ray->map_y);
 	ray->deltadist_x = fabs(1 / ray->p_dir_x);
 	ray->deltadist_y = fabs(1 / ray->p_dir_y);
 }
@@ -74,9 +70,6 @@ static void	start_dda(t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		// printf("ra->map_x = %d\n", ray->map_x);
-		// printf("ra->map_y = %d\n", ray->map_y);
-		// printf("ray->map[ray->map_y][ray->map_x] = %c\n", ray->map[ray->map_y][ray->map_x]);
 		if (ray->map_y < 0.25
 			|| ray->map_x < 0.25
 			|| ray->map_y > ray->height - 0.25

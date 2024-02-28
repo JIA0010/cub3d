@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 15:15:54 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 16:27:57 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	get_raycast_info(int x, t_ray *ray)
 {
 	init_ray(ray);
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
-	ray->p_dir_x = ray->p_dir_x + ray->plane_x * ray->camera_x;
-	ray->p_dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
+	ray->dir_x = ray->p_dir_x + ray->plane_x * ray->camera_x;
+	ray->dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
 	ray->deltadist_x = fabs(1 / ray->p_dir_x);

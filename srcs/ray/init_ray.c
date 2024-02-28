@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/28 14:33:02 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 16:33:46 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void	init_texture_img(t_ray *data, t_img *image, char *path)
 {
 	init_img_clean(image);
-	data->win_width = 70;
-	data->win_height = 70;
 	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->win_width,
 			&data->win_height);
 	//data->win_width　data->win_height 70になってしまう

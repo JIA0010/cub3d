@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:06:59 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/28 14:39:18 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/28 17:20:21 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	get_texture_index(t_ray *ray)
 		else
 			ray->index = NORTH;
 	}
-	printf("ray->index = %d\n", ray->index);
 }
 
 void	update_texture_pixels(t_ray *ray, int x)

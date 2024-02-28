@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/25 17:17:46 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/28 12:45:53 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+#include "../includes/define_ray.h"
 #include "../includes/error.h"
 #include "../includes/init.h"
 #include "../includes/parser.h"
@@ -70,8 +71,8 @@ int	main(int argc, char **argv)
 // 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
 // }
 
-__attribute__((destructor))
-static void	destructor(void)
-{
-	system("leaks -q cub3d");
-}
+// __attribute__((destructor))
+// static void	destructor(void)
+// {
+// 	system("leaks -q cub3d");
+// }

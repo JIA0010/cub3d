@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/24 16:38:54 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/02/28 14:01:27 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../../includes/error.h"
 
 static bool	set_player_pos(t_data *data);
+static void	set_player_direction(t_data *data);
 
 bool	player_pos(t_data *data)
 {
@@ -22,6 +23,7 @@ bool	player_pos(t_data *data)
 		return (false);
 	if (set_player_pos(data) == false)
 		return (error_player());
+	set_player_direction(data);
 	return (true);
 }
 
@@ -51,4 +53,12 @@ static bool	set_player_pos(t_data *data)
 		z++;
 	}
 	return (false);
+}
+
+static void	set_player_direction(t_data *data)
+{
+	char	c;
+
+	c = data->map->map[data->player_pos->x][data->player_pos->z];
+	data->player_pos->direction = c;
 }

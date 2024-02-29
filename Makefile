@@ -15,7 +15,7 @@ ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c \
 PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c \
 				player_pos.c
 PLAYER_FILES= player_pos.c
-RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c create_map.c texture.c
+RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c raycast_and_draw.c texture.c init_player_dir.c
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
 				$(PARSER_FILES:%.c=%.o) $(RAY_FILES:%.c=%.o)

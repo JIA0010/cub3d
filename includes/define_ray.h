@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 11:44:20 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 13:47:11 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 //map_textures
 # define P_IMG_PLAYER "./textures/player.xpm"
-# define P_IMG_GRASS "./textures/grass.xpm"
+# define P_IMG_GRASS "./textures/bookshelf.xpm"
 # define P_IMG_WOOD "./textures/wood.xpm"
-# define P_IMG_GOAL "./textures/goal.xpm"
+# define P_IMG_GOAL "./textures/basalt_top.xpm"
 # define P_IMG_ITEM "./textures/creeper.xpm"
 
 # define mapWidth 24
@@ -60,7 +60,9 @@
 
 # define TEX_SIZE 64
 
-# define EXCEPT_COLOR 0xFFFFFF
+# define MASK_COLOR 8355711
+// 0X323232
+// 0xFFFFFF
 
 enum				e_output
 {
@@ -114,8 +116,8 @@ typedef struct s_ray
 	int				line_count;
 	char			*path;
 	char			**file;
-	int				height;
-	int				width;
+	int				map_height;
+	int				map_width;
 	int				index_end_of_map;
 	//------------------------------------------long
 	int				win_height;
@@ -124,7 +126,7 @@ typedef struct s_ray
 	void			*win;
 	int				**texture_pixels;
 	int				**textures;
-	char				**map;
+	char			**map;
 	//------------------------------------------item
 	void			*wood;
 	void			*player;
@@ -161,6 +163,7 @@ typedef struct s_ray
 }					t_ray;
 
 void				error(char *str);
+void				init_player_direction(t_ray *data);
 void				hook(t_ray *data);
 int					close_window(t_ray *data);
 int					ray_casting(t_ray *data);
@@ -176,9 +179,9 @@ void				clean_exit(t_ray *data, int code);
 int					free_data(t_ray *data);
 void				init_texinfo(t_ray *textures);
 void				raycast_and_draw(t_ray *data);
-void				init_data(t_ray *data);
+void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);
-int 				parse_args(t_ray *data, char **av);
+int					parse_args(t_ray *data, char **av);
 
 #endif

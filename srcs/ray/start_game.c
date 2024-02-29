@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 12:56:53 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 13:47:32 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,20 @@ static int	*xpm_to_img(t_ray *data, char *path)
 
 void	place_images_in_game(t_ray *data)
 {
-	int	x;
-	int	y;
-
 	data->textures = ft_calloc(5, sizeof *data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
-	data->textures[NORTH] = xpm_to_img(data, P_IMG_PLAYER);
-	data->textures[SOUTH] = xpm_to_img(data, P_IMG_ITEM);
-	data->textures[EAST] = xpm_to_img(data, P_IMG_ITEM);
-	data->textures[WEST] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[NORTH] = xpm_to_img(data, P_IMG_GOAL);
+	data->textures[SOUTH] = xpm_to_img(data, P_IMG_GRASS);
+	data->textures[EAST] = xpm_to_img(data, P_IMG_GRASS);
+	data->textures[WEST] = xpm_to_img(data, P_IMG_GOAL);
 }
 
 bool	start_game(t_data *data_yhi, char **av)
 {
 	t_ray	data;
 
-	init_data(&data);
-	data.dir_x = 0;
-	data.dir_y = -1;
-	data.plane_x = 0;
-	data.plane_y = 0.66;
-	data.size = 70;
-	data.pos_x = data_yhi->player_pos->x;
-	data.pos_y = data_yhi->player_pos->z;
-	data.hex_ceiling = data_yhi->map->ceiling_r;
-	data.hex_floor = data_yhi->map->floor_g;
-	data.map = data_yhi->map->map;
+	init_data(&data, data_yhi);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (error("Failed to initialize graphics context"), false);

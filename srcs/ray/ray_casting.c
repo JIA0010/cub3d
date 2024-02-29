@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 12:21:31 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 12:37:40 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@ static void	get_raycast_info(int x, t_ray *ray)
 {
 	init_ray(ray);
 	ray->camera_x = 2 * x / (double)WIN_WIDTH - 1;
-	ray->p_dir_x = ray->p_dir_x + ray->plane_x * ray->camera_x;
-	ray->p_dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
-	// printf("ray->pos_x = %f\n", ray->pos_x);
-	// printf("ray->pos_y = %f\n", ray->pos_y);
+	ray->dir_x = ray->p_dir_x + ray->plane_x * ray->camera_x;
+	ray->dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	// printf("ray->map_x = %d\n", ray->map_x);
-	// printf("ray->map_y = %d\n", ray->map_y);
-	ray->deltadist_x = fabs(1 / ray->p_dir_x);
-	ray->deltadist_y = fabs(1 / ray->p_dir_y);
+	ray->deltadist_x = fabs(1 / ray->dir_x);
+	ray->deltadist_y = fabs(1 / ray->dir_y);
 }
 
 static void	init_dda(t_ray *ray)
@@ -74,15 +70,12 @@ static void	start_dda(t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		// printf("ra->map_x = %d\n", ray->map_x);
-		// printf("ra->map_y = %d\n", ray->map_y);
-		// printf("ray->map[ray->map_y][ray->map_x] = %c\n", ray->map[ray->map_y][ray->map_x]);
 		if (ray->map_y < 0.25
 			|| ray->map_x < 0.25
-			|| ray->map_y > ray->height - 0.25
-			|| ray->map_x > ray->width - 1.25)
+			|| ray->map_y > ray->map_height - 0.25
+			|| ray->map_x > ray->map_width - 1.25)
 			break ;
-		else if (ray->map[ray->map_y][ray->map_x] > '0')//ここ？
+		if (ray->map[ray->map_y][ray->map_x] > '0')
 			hit = 1;
 	}
 }
@@ -93,7 +86,7 @@ static void	calculate_line_height(t_ray *ray, int x)
 		ray->wall_dist = (ray->sidedist_x - ray->deltadist_x);
 	else
 		ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
-	ray->line_height = (ray->win_height / ray->wall_dist);
+	ray->line_height = (int)(ray->win_height / ray->wall_dist);
 	ray->draw_start = -(ray->line_height) / 2 + ray->win_height / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;

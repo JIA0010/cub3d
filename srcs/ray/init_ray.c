@@ -3,14 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/28 16:33:46 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 09:51:47 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
+
+static unsigned long	convert_rgb_to_hex(int *rgb_tab)
+{
+	unsigned long	result;
+	int				r;
+	int				g;
+	int				b;
+
+	r = rgb_tab[0];
+	g = rgb_tab[1];
+	b = rgb_tab[2];
+	result = ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+	return (result);
+}
+
+bool	init_floor_ceiling(t_ray *data, t_data *data_yhi)
+{
+	int	*rgb_ceiling;
+	int	*rgb_floor;
+
+	rgb_floor = malloc(sizeof(int) * 3);
+	if (!rgb_floor)
+		return (error("Failed to allocate memory"), false);
+	rgb_floor[0] = data_yhi->map->floor_r;
+	rgb_floor[1] = data_yhi->map->floor_g;
+	rgb_floor[2] = data_yhi->map->floor_b;
+	rgb_ceiling = malloc(sizeof(int) * 3);
+	if (!rgb_ceiling)
+		return (error("Failed to allocate memory"), false);
+	rgb_ceiling[0] = data_yhi->map->ceiling_r;
+	rgb_ceiling[1] = data_yhi->map->ceiling_g;
+	rgb_ceiling[2] = data_yhi->map->ceiling_b;
+	data->hex_ceiling = convert_rgb_to_hex(rgb_ceiling);
+	data->hex_floor = convert_rgb_to_hex(rgb_floor);
+	return (true);
+}
 
 void	init_texture_img(t_ray *data, t_img *image, char *path)
 {
@@ -72,15 +108,14 @@ void	init_texinfo(t_ray *textures)
 	textures->y1 = 0;
 }
 
-
 static void	init_mapinfo(t_ray *mapinfo)
 {
 	mapinfo->fd = 0;
 	mapinfo->line_count = 0;
 	mapinfo->path = NULL;
 	mapinfo->file = NULL;
-	mapinfo->height = 0;
-	mapinfo->width = 0;
+	mapinfo->map_height = 0;
+	mapinfo->map_width = 0;
 	mapinfo->index_end_of_map = 0;
 }
 
@@ -99,7 +134,7 @@ static void	init_player(t_ray *player)
 	player->rotate = 0;
 }
 
-void	init_data(t_ray *data)
+void	init_data(t_ray *data, t_data *data_yhi)
 {
 	data->mlx = NULL;
 	data->win = NULL;
@@ -111,4 +146,12 @@ void	init_data(t_ray *data)
 	init_mapinfo(data);
 	data->texture_pixels = NULL;
 	data->textures = NULL;
+	data->pos_x = data_yhi->player_pos->x;
+	data->pos_y = data_yhi->player_pos->z;
+	data->dir = data_yhi->player_pos->direction;
+	data->map = data_yhi->map->map;
+	data->map_height = data_yhi->map->map_hight;
+	data->map_width = data_yhi->map->map_width;
+	init_floor_ceiling(data, data_yhi);
+	init_player_direction(data);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 16:27:57 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 09:53:48 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	get_raycast_info(int x, t_ray *ray)
 	ray->dir_y = ray->p_dir_y + ray->plane_y * ray->camera_x;
 	ray->map_x = (int)ray->pos_x;
 	ray->map_y = (int)ray->pos_y;
-	ray->deltadist_x = fabs(1 / ray->p_dir_x);
-	ray->deltadist_y = fabs(1 / ray->p_dir_y);
+	ray->deltadist_x = fabs(1 / ray->dir_x);
+	ray->deltadist_y = fabs(1 / ray->dir_y);
 }
 
 static void	init_dda(t_ray *ray)
@@ -72,8 +72,8 @@ static void	start_dda(t_ray *ray)
 		}
 		if (ray->map_y < 0.25
 			|| ray->map_x < 0.25
-			|| ray->map_y > ray->height - 0.25
-			|| ray->map_x > ray->width - 1.25)
+			|| ray->map_y > ray->map_height - 0.25
+			|| ray->map_x > ray->map_width - 1.25)
 			break ;
 		else if (ray->map[ray->map_y][ray->map_x] > '0')//ここ？
 			hit = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/28 13:46:48 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/02/29 09:50:55 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ typedef struct s_ray
 	int				line_count;
 	char			*path;
 	char			**file;
-	int				height;
-	int				width;
+	int				map_height;
+	int				map_width;
 	int				index_end_of_map;
 	//------------------------------------------long
 	int				win_height;
@@ -177,7 +177,7 @@ void				clean_exit(t_ray *data, int code);
 int					free_data(t_ray *data);
 void				init_texinfo(t_ray *textures);
 void				raycast_and_draw(t_ray *data);
-void				init_data(t_ray *data);
+void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);
 int 				parse_args(t_ray *data, char **av);

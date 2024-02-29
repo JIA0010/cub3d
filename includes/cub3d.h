@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/29 14:16:09 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/02/28 13:51:29 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ typedef struct s_pos
 {
 	size_t	x;
 	size_t	z;
+	char	direction;
 }	t_pos;
+
 typedef struct s_map
 {
 	char	*all;

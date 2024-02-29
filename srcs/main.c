@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+#include "../includes/define_ray.h"
 #include "../includes/error.h"
 #include "../includes/init.h"
 #include "../includes/parser.h"
@@ -70,8 +71,8 @@ static void	test(t_data *data)
 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
 }
 
-__attribute__((destructor))
-static void	destructor(void)
-{
-	system("leaks -q cub3d");
-}
+// __attribute__((destructor))
+// static void	destructor(void)
+// {
+// 	system("leaks -q cub3d");
+// }

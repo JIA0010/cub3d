@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:30:17 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/22 14:54:20 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/02/22 16:29:04 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // int main(void)
 // {
 // 	// char s[4] = "123";
-// 	printf("original=%lu, ft=%lu\n", 
+// 	printf("original=%lu, ft=%lu\n",
 // 				strlcat(s, "424242", 2), ft_strlcat(s, "424242", 2));
 // }
 

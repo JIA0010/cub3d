@@ -1,0 +1,17 @@
+NO ./textures/creeper.xpm
+SO ./textures/creeper.xpm
+WE ./textures/creeper.xpm
+EA ./textures/creeper.xpm
+
+F 220,100,0
+C 255,30,0
+
+1111111
+1000001
+1000001
+1010101
+1000001
+100N001
+1000001
+1000001
+1111111

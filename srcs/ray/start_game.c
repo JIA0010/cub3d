@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 10:08:54 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 12:02:54 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	place_images_in_game(t_ray *data)
 	data->textures = ft_calloc(5, sizeof *data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
-	data->textures[NORTH] = xpm_to_img(data, P_IMG_ITEM);
+	data->textures[NORTH] = xpm_to_img(data, P_IMG_PLAYER);
 	data->textures[SOUTH] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[EAST] = xpm_to_img(data, P_IMG_ITEM);
 	data->textures[WEST] = xpm_to_img(data, P_IMG_ITEM);
@@ -62,6 +62,8 @@ bool	start_game(t_data *data_yhi, char **av)
 	if (!data.win)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
+	printf("data.win_width %d\n", data.win_width);
+	printf("data.win_height %d\n", data.win_height);
 	data.win_width = WIN_WIDTH;
 	data.win_height = WIN_HEIGHT;
 	raycast_and_draw(&data);

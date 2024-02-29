@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 09:50:55 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 11:32:54 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@
 
 # define TEX_SIZE 64
 
-# define EXCEPT_COLOR 0xFFFFFF
+# define MASK_COLOR 0xFFFFFF
+// 0X323232
+// 0xFFFFFF
 
 enum				e_output
 {
@@ -124,7 +126,7 @@ typedef struct s_ray
 	void			*win;
 	int				**texture_pixels;
 	int				**textures;
-	char				**map;
+	char			**map;
 	//------------------------------------------item
 	void			*wood;
 	void			*player;
@@ -180,6 +182,6 @@ void				raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);
-int 				parse_args(t_ray *data, char **av);
+int					parse_args(t_ray *data, char **av);
 
 #endif

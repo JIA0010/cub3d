@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 09:53:48 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 11:41:16 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	start_dda(t_ray *ray)
 			|| ray->map_y > ray->map_height - 0.25
 			|| ray->map_x > ray->map_width - 1.25)
 			break ;
-		else if (ray->map[ray->map_y][ray->map_x] > '0')//ここ？
+		if (ray->map[ray->map_y][ray->map_x] > '0')
 			hit = 1;
 	}
 }

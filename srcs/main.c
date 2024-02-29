@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/29 14:20:17 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 14:19:46 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	main(int argc, char **argv)
 		return (ft_free(data), false);
 	if (player_pos(data) == false)
 		return (ft_free(data), false);
-	// if (error_floodfill(data) == false)
-	// 	return (ft_free(data), false);
+	if (error_floodfill(data) == false)
+		return (ft_free(data), false);
 	test(data);
-	start_game(data, argv);
 	return (ft_free(data), true);
 }
 

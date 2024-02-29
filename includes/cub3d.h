@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
 /*   Updated: 2024/02/28 13:51:29 by yhirai           ###   ########.fr       */
@@ -23,6 +23,8 @@
 # include "../Libft/libft.h"
 
 # define STACK_SIZE 100
+# define MAP_FLOOR 0
+# define MAP_WALL 1
 
 typedef struct s_pos
 {

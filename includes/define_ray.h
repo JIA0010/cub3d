@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 11:32:54 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 13:47:11 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 //map_textures
 # define P_IMG_PLAYER "./textures/player.xpm"
-# define P_IMG_GRASS "./textures/grass.xpm"
+# define P_IMG_GRASS "./textures/bookshelf.xpm"
 # define P_IMG_WOOD "./textures/wood.xpm"
-# define P_IMG_GOAL "./textures/goal.xpm"
+# define P_IMG_GOAL "./textures/basalt_top.xpm"
 # define P_IMG_ITEM "./textures/creeper.xpm"
 
 # define mapWidth 24
@@ -60,7 +60,7 @@
 
 # define TEX_SIZE 64
 
-# define MASK_COLOR 0xFFFFFF
+# define MASK_COLOR 8355711
 // 0X323232
 // 0xFFFFFF
 

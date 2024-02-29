@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:06:59 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/29 12:04:56 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 13:41:26 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	update_texture_pixels(t_ray *ray, int x)
 		ray->pos += ray->step;
 		color = ray->textures[ray->index][ray->size * ray->y1 + ray->x1];
 		if (ray->index == NORTH || ray->index == EAST)
-			color = color / 2;
-		// color = (color >> 1) & MASK_COLOR;
+			color = (color >> 1) & MASK_COLOR;
 		if (color > 0)
 			ray->texture_pixels[y][x] = color;
 		y++;

@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 11:41:16 by cjia             ###   ########.fr       */
+/*   Updated: 2024/02/29 12:37:40 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void	calculate_line_height(t_ray *ray, int x)
 		ray->wall_dist = (ray->sidedist_x - ray->deltadist_x);
 	else
 		ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
-	ray->line_height = (ray->win_height / ray->wall_dist);
+	ray->line_height = (int)(ray->win_height / ray->wall_dist);
 	ray->draw_start = -(ray->line_height) / 2 + ray->win_height / 2;
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 13:47:11 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/02 11:04:39 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,6 @@
 # define P_IMG_WOOD "./textures/wood.xpm"
 # define P_IMG_GOAL "./textures/basalt_top.xpm"
 # define P_IMG_ITEM "./textures/creeper.xpm"
-
-# define mapWidth 24
-# define mapHeight 24
-# define screenWidth 640
-# define screenHeight 480
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480

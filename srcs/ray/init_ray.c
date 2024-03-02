@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/29 09:51:47 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/02 18:00:14 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ bool	init_floor_ceiling(t_ray *data, t_data *data_yhi)
 void	init_texture_img(t_ray *data, t_img *image, char *path)
 {
 	init_img_clean(image);
-	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->win_width,
-			&data->win_height);
-	//data->win_width　data->win_height 70になってしまう
+	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->size, &data->size);
 	if (image->img == NULL)
 		clean_exit(data, err_msg("mlx", "Could not create mlx image", 1));
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,

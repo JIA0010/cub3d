@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/29 12:37:40 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/02 22:26:40 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,24 @@ static void	start_dda(t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (ray->map_y < 0.25
-			|| ray->map_x < 0.25
-			|| ray->map_y > ray->map_height - 0.25
-			|| ray->map_x > ray->map_width - 1.25)
-			break ;
-		if (ray->map[ray->map_y][ray->map_x] > '0')
+		if (ray->map[ray->map_x][ray->map_y] == '1')//＞０だと他の文字が来た時に怖い
+		{
 			hit = 1;
+			// printf("data->map[ray->map_y%d][ray->map_x%d] = %c\n",ray->map_y, ray->map_x, ray->map[ray->map_x][ray->map_y]);
+		}
+		// printf("ray->map_y = %d\n", ray->map_y);
+		// printf("ray->map_x = %d\n", ray->map_x);
+		// printf("data->map[ray->map_y%d][ray->map_x%d] = %c\n",ray->map_y, ray->map_x, ray->map[ray->map_x][ray->map_y]);		
+		// if (ray->map_y < 0.25
+		// 	|| ray->map_x < 0.25
+		// 	|| ray->map_y > ray->map_height - 0.25
+		// 	|| ray->map_x > ray->map_width - 1.25)
+		// 	{
+		// 		printf("ray->map_y = %d\n", ray->map_y);
+		// 		printf("ray->map_x = %d\n", ray->map_x);
+		// 		break ;
+				
+		// 	}
 	}
 }
 
@@ -105,9 +116,11 @@ int	ray_casting(t_ray *ray)
 	int		x;
 
 	x = 0;
-	init_ray(ray);
 	while (x < ray->win_width)
 	{
+		// printf("x = %d\n", x);
+		// if(x == 10)
+		// 	exit(0);
 		get_raycast_info(x, ray);
 		start_dda(ray);
 		calculate_line_height(ray, x);

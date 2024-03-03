@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/02 11:04:39 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 10:10:03 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 // # include <unistd.h>
 
 //map_textures
-# define P_IMG_PLAYER "./textures/player.xpm"
-# define P_IMG_GRASS "./textures/bookshelf.xpm"
-# define P_IMG_WOOD "./textures/wood.xpm"
-# define P_IMG_GOAL "./textures/basalt_top.xpm"
-# define P_IMG_ITEM "./textures/creeper.xpm"
+# define P_IMG_LUFFY "./textures/1.xpm"
+# define P_IMG_SANJI "./textures/3.xpm"
+# define P_IMG_NAMI "./textures/4.xpm"
+# define P_IMG_USOP "./textures/5.xpm"
+# define P_IMG_ZORO "./textures/2.xpm"
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
@@ -163,7 +163,7 @@ void				hook(t_ray *data);
 int					close_window(t_ray *data);
 int					ray_casting(t_ray *data);
 void				calloc_texture_pixels(t_ray *data);
-void				update_texture_pixels(t_ray *ray, int x);
+void				input_color_tuxture_pixels(t_ray *ray, int x);
 void				free_tab(void **tab);
 void				set_image_pixel(t_img *img, int x, int y, int color);
 void				init_ray(t_ray *ray);
@@ -177,6 +177,8 @@ void				raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);
-int					parse_args(t_ray *data, char **av);
+void				get_wall_height(t_ray *ray, int x);
+void				start_dda(t_ray *ray);
+
 
 #endif

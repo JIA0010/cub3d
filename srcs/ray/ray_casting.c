@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/02 22:26:40 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 10:18:39 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,91 +26,6 @@ static void	get_raycast_info(int x, t_ray *ray)
 	ray->deltadist_y = fabs(1 / ray->dir_y);
 }
 
-static void	init_dda(t_ray *ray)
-{
-	if (ray->dir_x < 0)
-	{
-		ray->step_x = -1;
-		ray->sidedist_x = (ray->pos_x - ray->map_x) * ray->deltadist_x;
-	}
-	else
-	{
-		ray->step_x = 1;
-		ray->sidedist_x = (ray->map_x + 1.0 - ray->pos_x) * ray->deltadist_x;
-	}
-	if (ray->dir_y < 0)
-	{
-		ray->step_y = -1;
-		ray->sidedist_y = (ray->pos_y - ray->map_y) * ray->deltadist_y;
-	}
-	else
-	{
-		ray->step_y = 1;
-		ray->sidedist_y = (ray->map_y + 1.0 - ray->pos_y) * ray->deltadist_y;
-	}
-}
-
-static void	start_dda(t_ray *ray)
-{
-	int	hit;
-
-	hit = 0;
-	init_dda(ray);
-	while (hit == 0)
-	{
-		if (ray->sidedist_x < ray->sidedist_y)
-		{
-			ray->sidedist_x += ray->deltadist_x;
-			ray->map_x += ray->step_x;
-			ray->side = 0;
-		}
-		else
-		{
-			ray->sidedist_y += ray->deltadist_y;
-			ray->map_y += ray->step_y;
-			ray->side = 1;
-		}
-		if (ray->map[ray->map_x][ray->map_y] == '1')//＞０だと他の文字が来た時に怖い
-		{
-			hit = 1;
-			// printf("data->map[ray->map_y%d][ray->map_x%d] = %c\n",ray->map_y, ray->map_x, ray->map[ray->map_x][ray->map_y]);
-		}
-		// printf("ray->map_y = %d\n", ray->map_y);
-		// printf("ray->map_x = %d\n", ray->map_x);
-		// printf("data->map[ray->map_y%d][ray->map_x%d] = %c\n",ray->map_y, ray->map_x, ray->map[ray->map_x][ray->map_y]);		
-		// if (ray->map_y < 0.25
-		// 	|| ray->map_x < 0.25
-		// 	|| ray->map_y > ray->map_height - 0.25
-		// 	|| ray->map_x > ray->map_width - 1.25)
-		// 	{
-		// 		printf("ray->map_y = %d\n", ray->map_y);
-		// 		printf("ray->map_x = %d\n", ray->map_x);
-		// 		break ;
-				
-		// 	}
-	}
-}
-
-static void	calculate_line_height(t_ray *ray, int x)
-{
-	if (ray->side == 0)
-		ray->wall_dist = (ray->sidedist_x - ray->deltadist_x);
-	else
-		ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
-	ray->line_height = (int)(ray->win_height / ray->wall_dist);
-	ray->draw_start = -(ray->line_height) / 2 + ray->win_height / 2;
-	if (ray->draw_start < 0)
-		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + ray->win_height / 2;
-	if (ray->draw_end >= ray->win_height)
-		ray->draw_end = ray->win_height - 1;
-	if (ray->side == 0)
-		ray->wall_x = ray->pos_y + ray->wall_dist * ray->dir_y;
-	else
-		ray->wall_x = ray->pos_x + ray->wall_dist * ray->dir_x;
-	ray->wall_x -= floor(ray->wall_x);
-}
-
 int	ray_casting(t_ray *ray)
 {
 	int		x;
@@ -118,13 +33,10 @@ int	ray_casting(t_ray *ray)
 	x = 0;
 	while (x < ray->win_width)
 	{
-		// printf("x = %d\n", x);
-		// if(x == 10)
-		// 	exit(0);
 		get_raycast_info(x, ray);
 		start_dda(ray);
-		calculate_line_height(ray, x);
-		update_texture_pixels(ray, x);
+		get_wall_height(ray, x);
+		input_color_tuxture_pixels(ray, x);
 		x++;
 	}
 	return (SUCCESS);

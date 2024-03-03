@@ -2,6 +2,7 @@
 	"files.associations": {
 		"parser.h": "c",
 		"init.h": "c",
-		"error.h": "c"
+		"error.h": "c",
+		"define_ray.h": "c"
 	}
 }

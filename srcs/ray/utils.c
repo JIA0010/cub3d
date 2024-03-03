@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/02/27 15:13:49 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 08:42:51 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ void	clean_exit(t_ray *data, int code)
 		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
 	{
-		// mlx_destroy_display(data->mlx);
-		// mlx_loop_end(data->mlx);
 		free(data->mlx);
 	}
 	free_data(data);

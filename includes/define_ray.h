@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 10:10:03 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 11:53:20 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,8 @@ typedef struct s_ray
 	int				draw_start;
 	int				draw_end;
 	//------------------------------------------map
-	int				fd;
-	int				line_count;
-	char			*path;
-	char			**file;
 	int				map_height;
 	int				map_width;
-	int				index_end_of_map;
 	//------------------------------------------long
 	int				win_height;
 	int				win_width;

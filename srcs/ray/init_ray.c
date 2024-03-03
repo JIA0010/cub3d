@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 11:56:32 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 12:10:51 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	init_ray(t_ray *ray)
 
 void	init_texinfo(t_ray *textures)
 {
+	textures->texture_pixels = NULL;
+	textures->textures = NULL;
 	textures->north = NULL;
 	textures->south = NULL;
 	textures->west = NULL;
@@ -102,12 +104,6 @@ void	init_texinfo(t_ray *textures)
 	textures->pos = 0.0;
 	textures->x1 = 0;
 	textures->y1 = 0;
-}
-
-static void	init_mapinfo(t_ray *mapinfo)
-{
-	mapinfo->map_height = 0;
-	mapinfo->map_width = 0;
 }
 
 static void	init_player(t_ray *player)
@@ -122,6 +118,19 @@ static void	init_player(t_ray *player)
 	player->rotate = 0;
 }
 
+static void get_data_from_yhi(t_ray *data, t_data *data_yhi)
+{
+	data->map = NULL;
+	data->map_height = 0;
+	data->map_width = 0;
+	data->pos_x = data_yhi->player_pos->x;
+	data->pos_y = data_yhi->player_pos->z;
+	data->dir = data_yhi->player_pos->direction;
+	data->map = data_yhi->map->map;
+	data->map_height = data_yhi->map->map_hight;
+	data->map_width = data_yhi->map->map_width;
+}
+
 void	init_data(t_ray *data, t_data *data_yhi)
 {
 	data->mlx = NULL;
@@ -130,16 +139,7 @@ void	init_data(t_ray *data, t_data *data_yhi)
 	data->win_width = WIN_WIDTH;
 	init_player(data);
 	init_texinfo(data);
-	data->map = NULL;
-	init_mapinfo(data);
-	data->texture_pixels = NULL;
-	data->textures = NULL;
-	data->pos_x = data_yhi->player_pos->x;
-	data->pos_y = data_yhi->player_pos->z;
-	data->dir = data_yhi->player_pos->direction;
-	data->map = data_yhi->map->map;
-	data->map_height = data_yhi->map->map_hight;
-	data->map_width = data_yhi->map->map_width;
+	get_data_from_yhi(data, data_yhi);
 	init_floor_ceiling(data, data_yhi);
 	init_player_direction(data);
 }

@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 11:30:14 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 11:32:35 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 12:10:29 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,31 @@ static void	set_frame_image_pixel(t_ray *ray, t_img *image, int x, int y)
 		set_image_pixel(image, x, y, ray->hex_floor);
 }
 
-
-void	draw_image_to_window(t_ray *data)
+static void drawing_image(t_ray *ray, t_img *image)
 {
-	t_img	image;
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
-	image.img = NULL;
-	init_img(data, &image, data->win_width, data->win_height);
 	y = 0;
-	while (y < data->win_height)
+	while (y < ray->win_height)
 	{
 		x = 0;
-		while (x < data->win_width)
+		while (x < ray->win_width)
 		{
-			set_frame_image_pixel(data, &image, x, y);
+			set_frame_image_pixel(ray, image, x, y);
 			x++;
 		}
 		y++;
 	}
-	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);
+}
+
+void	draw_image_to_window(t_ray *data)
+{
+	t_img	image;
+
+	image.img = NULL;
+	init_img(data, &image, data->win_width, data->win_height);
+	drawing_image(data, &image);
+	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);//なぜイメージをすぐ消すのかをゆいなさんに説明
 	mlx_destroy_image(data->mlx, image.img);
 }

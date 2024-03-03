@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:09:21 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 10:18:42 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 11:59:16 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ static void	init_dda(t_ray *ray)
 
 void	start_dda(t_ray *ray)
 {
-	int	hit;
-
-	hit = 0;
 	init_dda(ray);
-	while (hit == 0)
+	while (1)
 	{
 		if (ray->sidedist_x < ray->sidedist_y)
 		{
@@ -57,6 +54,6 @@ void	start_dda(t_ray *ray)
 			ray->side = 1;
 		}
 		if (ray->map[ray->map_x][ray->map_y] == '1')
-			hit = 1;
+			break ;
 	}
 }

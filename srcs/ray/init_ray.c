@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 11:53:13 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 11:56:32 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ void	init_texinfo(t_ray *textures)
 	textures->south = NULL;
 	textures->west = NULL;
 	textures->east = NULL;
-	textures->floor = 0;
-	textures->ceiling = 0;
 	textures->hex_floor = 0x0;
 	textures->hex_ceiling = 0x0;
 	textures->size = TEX_SIZE;
@@ -121,9 +119,6 @@ static void	init_player(t_ray *player)
 	player->p_dir_y = 0.0;
 	player->plane_x = 0.0;
 	player->plane_y = 0.0;
-	player->has_moved = 0;
-	player->move_x = 0;
-	player->move_y = 0;
 	player->rotate = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 11:52:53 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 11:56:15 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,6 @@ static void	free_texinfo(t_ray *textures)
 		free(textures->west);
 	if (textures->east)
 		free(textures->east);
-	if (textures->floor)
-		free(textures->floor);
-	if (textures->ceiling)
-		free(textures->ceiling);
 }
 
 static void	free_map(t_ray *data)

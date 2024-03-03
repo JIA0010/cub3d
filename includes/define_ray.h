@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 11:53:20 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 11:56:02 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,23 +106,14 @@ typedef struct s_ray
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
-	//------------------------------------------map
-	int				map_height;
-	int				map_width;
-	//------------------------------------------long
+	//------------------------------------------mlx/map
 	int				win_height;
 	int				win_width;
 	void			*mlx;
 	void			*win;
-	int				**texture_pixels;
-	int				**textures;
+	int				map_height;
+	int				map_width;
 	char			**map;
-	//------------------------------------------item
-	void			*wood;
-	void			*player;
-	void			*goal;
-	void			*grass;
-	void			*item;
 	//------------------------------------------player
 	char			dir;
 	double			pos_x;
@@ -131,17 +122,14 @@ typedef struct s_ray
 	double			p_dir_y;
 	double			plane_x;
 	double			plane_y;
-	int				has_moved;
-	int				move_x;
-	int				move_y;
 	int				rotate;
 	//------------------------------------------texture_info
+	int				**texture_pixels;
+	int				**textures;
 	char			*north;
 	char			*south;
 	char			*west;
 	char			*east;
-	int				*floor;
-	int				*ceiling;
 	unsigned long	hex_floor;
 	unsigned long	hex_ceiling;
 	int				size;

@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 12:10:51 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 10:07:43 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,10 @@ static void get_data_from_yhi(t_ray *data, t_data *data_yhi)
 	data->map = data_yhi->map->map;
 	data->map_height = data_yhi->map->map_hight;
 	data->map_width = data_yhi->map->map_width;
+	data->north = data_yhi->map->path_north;
+	data->south = data_yhi->map->path_south;
+	data->west = data_yhi->map->path_west;
+	data->east = data_yhi->map->path_east;
 }
 
 void	init_data(t_ray *data, t_data *data_yhi)

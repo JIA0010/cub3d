@@ -1,10 +1,10 @@
-NO ./textures/creeper.xpm
-SO ./textures/creeper.xpm
-WE ./textures/creeper.xpm
-EA ./textures/creeper.xpm
+NO ./textures/1.xpm
+SO ./textures/2.xpm
+WE ./textures/3.xpm
+EA ./textures/4.xpm
 
-F 0,0,0
-C 0,100,0
+F 0,32,255
+C 80,208,255
 
 1111111111111111111111111
 1000000000000000000000001

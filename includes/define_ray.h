@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 11:56:02 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 10:10:40 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,7 @@
 # define DEFINE_RAY_H
 
 # include "cub3d.h"
-// # include "../libft/inc/libft.h"
-// # include "../minilibx/mlx.h"
-// # include <fcntl.h>
-// # include <limits.h>
 # include <math.h>
-// // # include <mlx.h>
-// # include <stdbool.h>
-// # include <stdio.h>
-// # include <stdlib.h>
-// # include <unistd.h>
-
-//map_textures
-# define P_IMG_LUFFY "./textures/1.xpm"
-# define P_IMG_SANJI "./textures/3.xpm"
-# define P_IMG_NAMI "./textures/4.xpm"
-# define P_IMG_USOP "./textures/5.xpm"
-# define P_IMG_ZORO "./textures/2.xpm"
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
@@ -125,7 +109,7 @@ typedef struct s_ray
 	int				rotate;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
-	int				**textures;
+	int			**textures;
 	char			*north;
 	char			*south;
 	char			*west;

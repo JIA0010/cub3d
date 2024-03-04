@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/03 12:11:18 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/03 18:24:50 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		return (ft_free(data), false);
 	if (error_floodfill(data) == false)
 		return (ft_free(data), false);
-	test(data);
+	// test(data);
 	start_game(data, argv);
 	return (ft_free(data), true);
 }

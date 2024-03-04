@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 08:19:57 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 10:04:07 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	place_images_in_game(t_ray *data)
 	data->textures = ft_calloc(5, sizeof *data->textures);
 	if (!data->textures)
 		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
-	data->textures[NORTH] = xpm_to_img(data, P_IMG_LUFFY);
-	data->textures[SOUTH] = xpm_to_img(data, P_IMG_NAMI);
-	data->textures[EAST] = xpm_to_img(data, P_IMG_ZORO);
-	data->textures[WEST] = xpm_to_img(data, P_IMG_SANJI);
+	data->textures[NORTH] = xpm_to_img(data, data->north);
+	data->textures[SOUTH] = xpm_to_img(data, data->south);
+	data->textures[EAST] = xpm_to_img(data, data->east);
+	data->textures[WEST] = xpm_to_img(data, data->west);
 }
 
 bool	start_game(t_data *data_yhi, char **av)
@@ -63,6 +63,7 @@ bool	start_game(t_data *data_yhi, char **av)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
 	raycast_and_draw(&data);
+	// hook_events(&data);
 	mlx_loop(data.mlx);
 	return (true);
 }

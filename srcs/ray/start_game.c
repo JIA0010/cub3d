@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 10:04:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 16:48:32 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,66 @@ void	place_images_in_game(t_ray *data)
 	data->textures[WEST] = xpm_to_img(data, data->west);
 }
 
+
+static int	rotate_left_right(t_ray *data, double rotspeed)
+{
+	t_ray	*tmp;
+	double		tmp_x;
+
+	tmp = data;
+	tmp_x = tmp->p_dir_x;
+	tmp->p_dir_x = tmp->p_dir_x * cos(rotspeed) - tmp->p_dir_y * sin(rotspeed);
+	tmp->p_dir_y = tmp_x * sin(rotspeed) + tmp->p_dir_y * cos(rotspeed);
+	tmp_x = tmp->plane_x;
+	tmp->plane_x = tmp->plane_x * cos(rotspeed) - tmp->plane_y * sin(rotspeed);
+	tmp->plane_y = tmp_x * sin(rotspeed) + tmp->plane_y * cos(rotspeed);
+	return (1);
+}
+
+int	rotate_player(t_ray *data, double rotdir)
+{
+	int		moved;
+	double	rotspeed;
+
+	moved = 0;
+	rotspeed = ROTSPEED * rotdir;
+	moved += rotate_left_right(data, rotspeed);
+	return (moved);
+}
+
+
+int key_event(int key, t_ray *data)
+{
+	printf("key_event: %d\n", key);
+	if(key == LEFT)
+		data->rotate -= 1;
+	else if(key == RIGHT)
+		data->rotate += 1;
+	return (0);
+}
+
+int key_release_hook(int key, t_ray *data)
+{
+	if (key == LEFT && data->rotate <= 1)
+		data->rotate = 0;
+	if (key == RIGHT && data->rotate >= -1)
+		data->rotate = 0;
+	return (0);
+}
+
+
+int	render(t_ray *data)
+{
+	int	moved;
+	
+	moved = 0;
+	if (data->rotate != 0)
+		moved += rotate_player(data, data->rotate);
+	if(moved != 0)
+		raycast_and_draw(data);
+	return (0);
+}
+
 bool	start_game(t_data *data_yhi, char **av)
 {
 	t_ray	data;
@@ -63,7 +123,10 @@ bool	start_game(t_data *data_yhi, char **av)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
 	raycast_and_draw(&data);
-	// hook_events(&data);
+	printf("data->rotate: %d\n", data.rotate);
+	mlx_hook(data.win, 2, 1L << 0, key_event, &data);
+	mlx_hook(data.win, 3, 1L << 0, key_release_hook, &data);
+	mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop(data.mlx);
 	return (true);
 }

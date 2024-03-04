@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 10:10:40 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 11:42:52 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
+
+# define ROTSPEED 0.015
 
 //keycode
 # define X_ESC 65307
@@ -140,12 +142,13 @@ void				init_img_clean(t_img *img);
 void				clean_exit(t_ray *data, int code);
 int					free_data(t_ray *data);
 void				init_texinfo(t_ray *textures);
-void				raycast_and_draw(t_ray *data);
+int				raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi, char **av);
 void				get_wall_height(t_ray *ray, int x);
 void				start_dda(t_ray *ray);
+void				hook_events(t_ray *ray);
 
 
 #endif

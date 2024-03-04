@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 09:19:37 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/04 11:42:37 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ static void	draw_image_to_window(t_ray *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
-void	raycast_and_draw(t_ray *data)
+int	raycast_and_draw(t_ray *data)
 {
 	calloc_texture_pixels(data);
 	ray_casting(data);
 	draw_image_to_window(data);
+	return (1);
 }

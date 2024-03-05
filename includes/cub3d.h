@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/28 13:51:29 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/05 17:10:58 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@
 # define STACK_SIZE 100
 # define MAP_FLOOR 0
 # define MAP_WALL 1
+
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_ARROW_U 126
+# define KEY_ARROW_L 123
+# define KEY_ARROW_D 125
+# define KEY_ARROW_R 124
 
 typedef struct s_pos
 {
@@ -69,5 +79,7 @@ typedef struct s_dfs
 }	t_dfs;
 
 void	ft_free(t_data *data);
+int		key_hook(int key, t_data *data);
+int		key_hook_esc(t_data *data);
 
 #endif

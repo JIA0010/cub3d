@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 10:04:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:11:29 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
+#include "../../includes/cub3d.h"
 
 static int	*xpm_to_img(t_ray *data, char *path)
 {
@@ -64,6 +65,8 @@ bool	start_game(t_data *data_yhi, char **av)
 	place_images_in_game(&data);
 	raycast_and_draw(&data);
 	// hook_events(&data);
+	mlx_key_hook(data.win, key_hook, data_yhi);
+	mlx_hook(data.win, 17, 1L << 2, key_hook_esc, data_yhi);
 	mlx_loop(data.mlx);
 	return (true);
 }

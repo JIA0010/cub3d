@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 10:10:40 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:10:41 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

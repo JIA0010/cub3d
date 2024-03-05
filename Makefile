@@ -8,14 +8,15 @@ RAY_PATH	= srcs/ray/
 OBJ_PATH	= objs/
 LIBFT_PATH	= Libft/
 INCLUDES	= includes/
-SRC_FILES	= main.c ft_free.c
+SRC_FILES	= main.c ft_free.c hook.c
 INIT_FILES	= init.c init_parser.c init_player.c
 ERROR_FILES	= error_init.c error_arg.c check_error_arg.c error_parser.c \
 				error_map.c error_floodfill.c error_player.c
 PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c \
 				player_pos.c
-PLAYER_FILES= player_pos.c
-RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c raycast_and_draw.c texture.c init_player_dir.c get_wall_height.c start_dda.c draw_image_to_window.c
+PLAYER_FILES= player_pos.c move_player.c
+RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c raycast_and_draw.c \
+				texture.c init_player_dir.c get_wall_height.c start_dda.c draw_image_to_window.c
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
 				$(PARSER_FILES:%.c=%.o) $(RAY_FILES:%.c=%.o)

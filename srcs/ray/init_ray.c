@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/29 09:51:47 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/04 10:07:43 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ bool	init_floor_ceiling(t_ray *data, t_data *data_yhi)
 void	init_texture_img(t_ray *data, t_img *image, char *path)
 {
 	init_img_clean(image);
-	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->win_width,
-			&data->win_height);
-	//data->win_width　data->win_height 70になってしまう
+	image->img = mlx_xpm_file_to_image(data->mlx, path, &data->size, &data->size);
 	if (image->img == NULL)
 		clean_exit(data, err_msg("mlx", "Could not create mlx image", 1));
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
@@ -93,12 +91,12 @@ void	init_ray(t_ray *ray)
 
 void	init_texinfo(t_ray *textures)
 {
+	textures->texture_pixels = NULL;
+	textures->textures = NULL;
 	textures->north = NULL;
 	textures->south = NULL;
 	textures->west = NULL;
 	textures->east = NULL;
-	textures->floor = 0;
-	textures->ceiling = 0;
 	textures->hex_floor = 0x0;
 	textures->hex_ceiling = 0x0;
 	textures->size = TEX_SIZE;
@@ -106,17 +104,6 @@ void	init_texinfo(t_ray *textures)
 	textures->pos = 0.0;
 	textures->x1 = 0;
 	textures->y1 = 0;
-}
-
-static void	init_mapinfo(t_ray *mapinfo)
-{
-	mapinfo->fd = 0;
-	mapinfo->line_count = 0;
-	mapinfo->path = NULL;
-	mapinfo->file = NULL;
-	mapinfo->map_height = 0;
-	mapinfo->map_width = 0;
-	mapinfo->index_end_of_map = 0;
 }
 
 static void	init_player(t_ray *player)
@@ -128,10 +115,24 @@ static void	init_player(t_ray *player)
 	player->p_dir_y = 0.0;
 	player->plane_x = 0.0;
 	player->plane_y = 0.0;
-	player->has_moved = 0;
-	player->move_x = 0;
-	player->move_y = 0;
 	player->rotate = 0;
+}
+
+static void get_data_from_yhi(t_ray *data, t_data *data_yhi)
+{
+	data->map = NULL;
+	data->map_height = 0;
+	data->map_width = 0;
+	data->pos_x = data_yhi->player_pos->x;
+	data->pos_y = data_yhi->player_pos->z;
+	data->dir = data_yhi->player_pos->direction;
+	data->map = data_yhi->map->map;
+	data->map_height = data_yhi->map->map_hight;
+	data->map_width = data_yhi->map->map_width;
+	data->north = data_yhi->map->path_north;
+	data->south = data_yhi->map->path_south;
+	data->west = data_yhi->map->path_west;
+	data->east = data_yhi->map->path_east;
 }
 
 void	init_data(t_ray *data, t_data *data_yhi)
@@ -142,16 +143,7 @@ void	init_data(t_ray *data, t_data *data_yhi)
 	data->win_width = WIN_WIDTH;
 	init_player(data);
 	init_texinfo(data);
-	data->map = NULL;
-	init_mapinfo(data);
-	data->texture_pixels = NULL;
-	data->textures = NULL;
-	data->pos_x = data_yhi->player_pos->x;
-	data->pos_y = data_yhi->player_pos->z;
-	data->dir = data_yhi->player_pos->direction;
-	data->map = data_yhi->map->map;
-	data->map_height = data_yhi->map->map_hight;
-	data->map_width = data_yhi->map->map_width;
+	get_data_from_yhi(data, data_yhi);
 	init_floor_ceiling(data, data_yhi);
 	init_player_direction(data);
 }

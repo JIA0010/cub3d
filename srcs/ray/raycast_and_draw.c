@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_and_draw.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/02/29 13:48:20 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/03 09:19:37 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
 
-void	calloc_texture_pixels(t_ray *data)
+static void	identify_texture(t_ray *data)
 {
-	int	i;
-
 	if (data->texture_pixels)
-		free_tab((void **)data->texture_pixels);
+	free_tab((void **)data->texture_pixels);
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
 		clean_exit(data, err_msg(NULL, "Could not allocate memory", 1));
+}
+
+void	calloc_texture_pixels(t_ray *data)
+{
+	int	i;
+	
 	i = 0;
+	identify_texture(data);
 	while (i < data->win_height)
 	{
 		data->texture_pixels[i] = ft_calloc(data->win_width + 1,

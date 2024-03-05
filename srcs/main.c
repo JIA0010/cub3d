@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/03 18:24:50 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:47:30 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	main(int argc, char **argv)
 		return (ft_free(data), false);
 	if (error_floodfill(data) == false)
 		return (ft_free(data), false);
-	// test(data);
-	start_game(data, argv);
+	test(data);
+	start_game(data);
 	return (ft_free(data), true);
 }
 

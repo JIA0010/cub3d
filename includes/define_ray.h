@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/05 17:10:41 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/05 17:48:10 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,8 @@ void				init_texinfo(t_ray *textures);
 void				raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
-bool				start_game(t_data *data_yhi, char **av);
-void				get_wall_height(t_ray *ray, int x);
+bool				start_game(t_data *data_yhi);
+void				get_wall_height(t_ray *ray);
 void				start_dda(t_ray *ray);
 
 

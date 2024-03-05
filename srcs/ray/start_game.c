@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/05 17:11:29 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/05 18:11:16 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	place_images_in_game(t_ray *data)
 	data->textures[WEST] = xpm_to_img(data, data->west);
 }
 
-bool	start_game(t_data *data_yhi, char **av)
+bool	start_game(t_data *data_yhi)
 {
 	t_ray	data;
 

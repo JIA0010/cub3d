@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/07 10:17:46 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/07 10:51:31 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
-# define ROTSPEED 0.015
+# define ROTSPEED 0.02
 
 //keycode
 # define X_ESC 65307

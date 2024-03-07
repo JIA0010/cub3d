@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 10:31:00 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 10:18:39 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:48:27 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ray_casting(t_ray *ray)
 	{
 		get_raycast_info(x, ray);
 		start_dda(ray);
-		get_wall_height(ray, x);
+		get_wall_height(ray);
 		input_color_tuxture_pixels(ray, x);
 		x++;
 	}

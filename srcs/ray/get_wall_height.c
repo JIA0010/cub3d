@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_wall_height.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 09:31:04 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 10:08:42 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:47:53 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void  get_wall_dist(t_ray *ray)
         ray->wall_dist = (ray->sidedist_y - ray->deltadist_y);
 }
 
-void	get_wall_height(t_ray *ray, int x)
+void	get_wall_height(t_ray *ray)
 {
     get_wall_dist(ray);
 	ray->line_height = (int)(ray->win_height / ray->wall_dist);

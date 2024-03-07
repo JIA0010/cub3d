@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/04 10:07:43 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/07 15:12:12 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,4 +146,5 @@ void	init_data(t_ray *data, t_data *data_yhi)
 	get_data_from_yhi(data, data_yhi);
 	init_floor_ceiling(data, data_yhi);
 	init_player_direction(data);
+	data_yhi->ray = data;
 }

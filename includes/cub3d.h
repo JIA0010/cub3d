@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/05 17:10:58 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/07 15:17:26 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <limits.h>
 # include "mlx.h"
 # include "../Libft/libft.h"
+// # include "define_ray.h"
 
 # define STACK_SIZE 100
 # define MAP_FLOOR 0
@@ -65,6 +66,7 @@ typedef struct s_data
 {
 	struct s_map	*map;
 	struct s_pos	*player_pos;
+	struct s_ray	*ray;
 }				t_data;
 
 typedef struct s_dfs

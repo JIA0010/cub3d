@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:41 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/05 18:15:38 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/07 15:19:09 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	player_move_w(t_data *data)
 		data->map->map[data->player_pos->x][data->player_pos->z] = 'P';
 	}
 	test(data);
+	get_data_from_yhi(data->ray, data);
+	ray_casting(data->ray);
 }
 
 void	player_move_a(t_data *data)

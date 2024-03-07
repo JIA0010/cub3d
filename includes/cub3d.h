@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/07 15:17:26 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/07 16:21:13 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@
 
 typedef struct s_pos
 {
-	size_t	x;
-	size_t	z;
+	double	x;
+	double	z;
 	char	direction;
 }	t_pos;
 

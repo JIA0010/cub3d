@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/04 10:07:43 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/07 15:19:55 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static void	init_player(t_ray *player)
 	player->rotate = 0;
 }
 
-static void get_data_from_yhi(t_ray *data, t_data *data_yhi)
+void get_data_from_yhi(t_ray *data, t_data *data_yhi)
 {
 	data->map = NULL;
 	data->map_height = 0;

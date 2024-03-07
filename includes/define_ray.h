@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/07 10:51:31 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/07 15:20:05 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,9 @@ bool				start_game(t_data *data_yhi, char **av);
 void				get_wall_height(t_ray *ray, int x);
 void				start_dda(t_ray *ray);
 void				hook_events(t_ray *ray);
-int 				key_release_hook(int key, t_ray *data);
+int					key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
-int 				rotate(t_ray *data);
+int					rotate(t_ray *data);
+void	get_data_from_yhi(t_ray *data, t_data *data_yhi);
 
 #endif

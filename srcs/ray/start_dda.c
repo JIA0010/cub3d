@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:09:21 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/07 13:52:36 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/07 14:59:32 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	start_dda(t_ray *ray)
 			ray->side = 1;
 		}
 		if (ray->map[ray->map_x][ray->map_y] == '1')
+		{
+			printf("ray->map_x[%d], ray->map_y[%d]\n", ray->map_x, ray->map_y);
 			break ;
+		}
 	}
 }

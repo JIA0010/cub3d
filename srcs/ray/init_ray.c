@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 13:20:57 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/07 15:12:12 by yhirai           ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/03/07 15:26:08 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../../includes/define_ray.h"
 
@@ -118,7 +119,7 @@ static void	init_player(t_ray *player)
 	player->rotate = 0;
 }
 
-static void get_data_from_yhi(t_ray *data, t_data *data_yhi)
+void get_data_from_yhi(t_ray *data, t_data *data_yhi)
 {
 	data->map = NULL;
 	data->map_height = 0;

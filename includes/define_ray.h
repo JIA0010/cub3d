@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/07 15:16:26 by yhirai           ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/03/07 15:25:53 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef DEFINE_RAY_H
 # define DEFINE_RAY_H
@@ -18,6 +19,8 @@
 
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
+
+# define ROTSPEED 0.02
 
 //keycode
 # define X_ESC 65307
@@ -109,7 +112,7 @@ typedef struct s_ray
 	int				rotate;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
-	int			**textures;
+	int				**textures;
 	char			*north;
 	char			*south;
 	char			*west;
@@ -140,12 +143,16 @@ void				init_img_clean(t_img *img);
 void				clean_exit(t_ray *data, int code);
 int					free_data(t_ray *data);
 void				init_texinfo(t_ray *textures);
-void				raycast_and_draw(t_ray *data);
+int					raycast_and_draw(t_ray *data);
 void				init_data(t_ray *data, t_data *data_yhi);
 void				init_texture_img(t_ray *data, t_img *image, char *path);
 bool				start_game(t_data *data_yhi);
 void				get_wall_height(t_ray *ray);
 void				start_dda(t_ray *ray);
-
+void				hook_events(t_ray *ray);
+int					key_release_hook(int key, t_ray *data);
+int					key_event(int key, t_ray *data);
+int					rotate(t_ray *data);
+void	get_data_from_yhi(t_ray *data, t_data *data_yhi);
 
 #endif

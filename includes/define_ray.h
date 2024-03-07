@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:35:11 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 16:51:44 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/07 10:17:46 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ typedef struct s_ray
 	int				rotate;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
-	int			**textures;
+	int				**textures;
 	char			*north;
 	char			*south;
 	char			*west;
@@ -151,6 +151,6 @@ void				start_dda(t_ray *ray);
 void				hook_events(t_ray *ray);
 int 				key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
-int 				render(t_ray *data);
+int 				rotate(t_ray *data);
 
 #endif

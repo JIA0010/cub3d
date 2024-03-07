@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/04 16:52:58 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/07 10:17:14 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ int key_release_hook(int key, t_ray *data)
 }
 
 
-int	render(t_ray *data)
+int	rotate(t_ray *data)
 {
 	int	moved;
-	
+
 	moved = 0;
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/04 10:04:07 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/07 13:49:55 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ bool	start_game(t_data *data_yhi, char **av)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
 	raycast_and_draw(&data);
-	// hook_events(&data);
+	mlx_hook(data.win, 2, 1L << 0, key_event, &data);
+	mlx_hook(data.win, 3, 1L << 0, key_release_hook, &data);
+	mlx_loop_hook(data.mlx, rotate, &data);
 	mlx_loop(data.mlx);
 	return (true);
 }

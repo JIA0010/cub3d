@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/28 14:01:27 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/07 16:31:23 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ static bool	set_player_pos(t_data *data)
 static void	set_player_direction(t_data *data)
 {
 	char	c;
+	size_t	x;
+	size_t	z;
 
-	c = data->map->map[data->player_pos->x][data->player_pos->z];
+	x = (size_t)data->player_pos->x;
+	z = (size_t)data->player_pos->z;
+	c = data->map->map[x][z];
 	data->player_pos->direction = c;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/07 15:25:53 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 09:46:42 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,11 @@ typedef struct s_ray
 	double			plane_x;
 	double			plane_y;
 	int				rotate;
+
+	int 			move_up;
+	int 			move_down;
+	int 			move_right;
+	int 			move_left;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
 	int				**textures;
@@ -152,7 +157,7 @@ void				start_dda(t_ray *ray);
 void				hook_events(t_ray *ray);
 int					key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
-int					rotate(t_ray *data);
-void	get_data_from_yhi(t_ray *data, t_data *data_yhi);
+int					rotate_move(t_ray *data);
+void				get_data_from_yhi(t_ray *data, t_data *data_yhi);
 
 #endif

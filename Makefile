@@ -35,7 +35,7 @@ ifdef OPENGL
 	MLX		= $(MLX_OpenGL)
 endif
 ifdef DEBUG
-	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer
+	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer -g
 endif
 
 ##------------color-----------##

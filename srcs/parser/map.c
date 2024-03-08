@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/02 22:17:05 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/08 15:23:24 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ bool	map(t_data *data)
 	char	*line;
 
 	line = map_line(data);
+	if (line == NULL)
+		return (false);
 	if (init_map(data, line) == false)
 		return (false);
 	data->map->map_width = map_x_len(line);
@@ -55,6 +57,8 @@ static char	*map_line(t_data *data)
 		else if (all[i] == '1' || all[i] == '0' || all[i] == 'N'
 			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W' || all[i] == ' ')
 			break ;
+		else if (all[i] != '\n')
+			return (NULL);
 		i++;
 	}
 	line = &all[i];

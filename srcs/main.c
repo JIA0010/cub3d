@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/08 12:29:24 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 15:24:36 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 // 		z++;
 // 	}
 // 	printf("-------------\n\n");
-// 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
+// 	printf("player [x = %f, z = %f]\n\n", data->player_pos->x, data->player_pos->z);
 // }
 
 // __attribute__((destructor))

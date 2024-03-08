@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/07 15:26:34 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 09:39:48 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/define_ray.h"
 #include "../../includes/cub3d.h"
+#include "../../includes/define_ray.h"
 
 static int	*xpm_to_img(t_ray *data, char *path)
 {
@@ -64,9 +64,11 @@ bool	start_game(t_data *data_yhi)
 		return (error("Failed to create window"), false);
 	place_images_in_game(&data);
 	raycast_and_draw(&data);
-	// hook_events(&data);
-	mlx_key_hook(data.win, key_hook, data_yhi);
-	mlx_hook(data.win, 17, 1L << 2, key_hook_esc, data_yhi);
+	// mlx_key_hook(data.win, key_hook, data_yhi);
+	mlx_hook(data.win, 2, 1L << 0, key_event, &data);
+	mlx_hook(data.win, 3, 1L << 0, key_release_hook, &data);
+	// mlx_hook(data.win, 17, 1L << 2, key_hook_esc, data_yhi);
+	mlx_loop_hook(data.mlx, rotate, &data);
 	mlx_loop(data.mlx);
 	return (true);
 }

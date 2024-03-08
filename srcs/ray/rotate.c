@@ -6,16 +6,18 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/07 13:14:37 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/07 16:36:28 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/cub3d.h"
 #include "../../includes/define_ray.h"
+#include "../../includes/player.h"
 
 static int	rotate_left_right(t_ray *data, double rotspeed)
 {
 	t_ray	*tmp;
-	double		tmp_x;
+	double	tmp_x;
 
 	tmp = data;
 	tmp_x = tmp->p_dir_x;
@@ -38,19 +40,18 @@ int	rotate_player(t_ray *data, double rotdir)
 	return (moved);
 }
 
-
-int key_event(int key, t_ray *data)
+int	key_event(int key, t_ray *data)
 {
-	if(key == LEFT)
+	if (key == LEFT)
 		data->rotate -= 1;
-	else if(key == RIGHT)
+	else if (key == RIGHT)
 		data->rotate += 1;
-	else if(key == ESC)
+	else if (key == ESC)
 		clean_exit(data, 0);
 	return (0);
 }
 
-int key_release_hook(int key, t_ray *data)
+int	key_release_hook(int key, t_ray *data)
 {
 	if (key == LEFT && data->rotate <= 1)
 		data->rotate = 0;
@@ -59,7 +60,6 @@ int key_release_hook(int key, t_ray *data)
 	return (0);
 }
 
-
 int	rotate(t_ray *data)
 {
 	int	moved;
@@ -67,7 +67,7 @@ int	rotate(t_ray *data)
 	moved = 0;
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);
-	if(moved != 0)
+	if (moved != 0)
 		raycast_and_draw(data);
 	return (0);
 }

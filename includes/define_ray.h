@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/07 15:25:53 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/07 16:31:37 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,11 @@ typedef struct s_ray
 	double			plane_x;
 	double			plane_y;
 	int				rotate;
+
+	int 			move_up;
+	int 			move_down;
+	int 			move_right;
+	int 			move_left;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
 	int				**textures;

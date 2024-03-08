@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:41 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/08 10:54:05 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 11:45:26 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,13 @@ static bool	check_can_move(t_data *data, size_t x, size_t z);
 
 int	player_move_w(t_data *data)
 {
-	double	tmp;
-
-	data->player_pos->z = tmp;
-	printf("x: %f, z: %f\n", data->player_pos->x, data->player_pos->z);
-	// if (check_can_move(data, data->player_pos->x, data->player_pos->z - 1)
-	// 	== true)
-	// {
-	// 	data->player_pos->x += (data->ray->p_dir_x / 5);
-	// 	data->player_pos->z += (data->ray->p_dir_y / 5);
-	// 	get_data_from_yhi(data->ray, data);
-	// }
+	if (check_can_move(data, data->player_pos->x, data->player_pos->z - 1)
+		== true)
+	{
+		data->player_pos->x += (data->ray->p_dir_x / 5);
+		data->player_pos->z += (data->ray->p_dir_y / 5);
+		get_data_from_yhi(data->ray, data);
+	}
 	return (1);
 }
 

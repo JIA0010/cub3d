@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/08 10:43:36 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 11:54:04 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	rotate_move(t_ray *data)
 	int	moved;
 
 	moved = 0;
+	// printf("pos_x: %f, pos_y: %f\n", data->pos_x, data->pos_y);
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);
 	if (data->move_up != 0)

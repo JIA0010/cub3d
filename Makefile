@@ -27,7 +27,7 @@ PLAYERS		= $(addprefix $(PLAYER_PATH), $(PLAYER_FILES))
 RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
-# CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
 MLX			= $(MLX_MMS)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
@@ -105,6 +105,6 @@ debug:		fclean
 	@ make DEBUG=1
 
 42:			fclean
-	@ make OPENGL=1 DEBUG=1
+	@ make OPENGL=1
 
 .PHONY:		all clean fclean re debug

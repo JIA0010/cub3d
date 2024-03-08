@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/08 11:54:18 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 12:23:46 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int	main(int argc, char **argv)
 // 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
 // }
 
-// __attribute__((destructor))
-// static void	destructor(void)
-// {
-// 	system("leaks -q cub3d");
-// }
+__attribute__((destructor))
+static void	destructor(void)
+{
+	system("leaks -q cub3d");
+}

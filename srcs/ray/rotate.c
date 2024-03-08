@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/08 10:04:04 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 10:05:53 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ int	rotate_move(t_ray *data)
 	moved = 0;
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);
-	// if (data->move_up != 0)
-	// 	moved += player_move_w(data->data);
-	// if (data->move_left != 0)
-	// 	moved += player_move_a(data->data);
-	// if (data->move_down != 0)
-	// 	moved += player_move_s(data->data);
-	// if (data->move_right != 0)
-	// 	moved += player_move_d(data->data);
+	if (data->move_up != 0)
+		moved += player_move_w(data->data);
+	if (data->move_left != 0)
+		moved += player_move_a(data->data);
+	if (data->move_down != 0)
+		moved += player_move_s(data->data);
+	if (data->move_right != 0)
+		moved += player_move_d(data->data);
 	if (moved != 0)
 		moved += raycast_and_draw(data);
 	return (0);

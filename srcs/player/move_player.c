@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:41 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/08 12:02:23 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 12:11:20 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@ static bool	check_can_move(t_data *data, double x, double z);
 
 bool	player_move_w(t_data *data)
 {
-	if (check_can_move(data, data->player_pos->x, data->player_pos->z - 1)
-		== true)
+	double	x;
+	double	z;
+
+	x = data->player_pos->x + (data->ray->p_dir_x / ONE_STEP);
+	z = data->player_pos->z + (data->ray->p_dir_y / ONE_STEP);
+	if (check_can_move(data, x, z) == true)
 	{
-		data->player_pos->x += (data->ray->p_dir_x / 5);
-		data->player_pos->z += (data->ray->p_dir_y / 5);
+		data->player_pos->x += (data->ray->p_dir_x / ONE_STEP);
+		data->player_pos->z += (data->ray->p_dir_y / ONE_STEP);
 		get_data_from_yhi(data->ray, data);
 	}
 	return (1);

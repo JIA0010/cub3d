@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/08 09:39:48 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 09:54:29 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	start_game(t_data *data_yhi)
 	mlx_hook(data.win, 2, 1L << 0, key_event, &data);
 	mlx_hook(data.win, 3, 1L << 0, key_release_hook, &data);
 	// mlx_hook(data.win, 17, 1L << 2, key_hook_esc, data_yhi);
-	mlx_loop_hook(data.mlx, rotate, &data);
+	mlx_loop_hook(data.mlx, rotate_move, &data);
 	mlx_loop(data.mlx);
 	return (true);
 }

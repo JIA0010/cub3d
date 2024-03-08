@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:41 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/08 09:41:35 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 10:02:06 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static bool	check_can_move(t_data *data, size_t x, size_t z);
 
-void	player_move_w(t_data *data)
+int		player_move_w(t_data *data)
 {
 	if (check_can_move(data, data->player_pos->x, data->player_pos->z - 1)
 		== true)
@@ -23,11 +23,11 @@ void	player_move_w(t_data *data)
 		data->player_pos->x += (data->ray->p_dir_x / 5);
 		data->player_pos->z += (data->ray->p_dir_y / 5);
 		get_data_from_yhi(data->ray, data);
-		raycast_and_draw(data->ray);
 	}
+	return (1);
 }
 
-void	player_move_a(t_data *data)
+int		player_move_a(t_data *data)
 {
 	if (check_can_move(data, data->player_pos->x - 1, data->player_pos->z)
 		== true)
@@ -35,11 +35,11 @@ void	player_move_a(t_data *data)
 		data->player_pos->x += (data->ray->p_dir_y / 5);
 		data->player_pos->z -= (data->ray->p_dir_x / 5);
 		get_data_from_yhi(data->ray, data);
-		raycast_and_draw(data->ray);
 	}
+	return (1);
 }
 
-void	player_move_s(t_data *data)
+int		player_move_s(t_data *data)
 {
 	if (check_can_move(data, data->player_pos->x, data->player_pos->z + 1)
 		== true)
@@ -47,11 +47,11 @@ void	player_move_s(t_data *data)
 		data->player_pos->x -= (data->ray->p_dir_x / 5);
 		data->player_pos->z -= (data->ray->p_dir_y / 5);
 		get_data_from_yhi(data->ray, data);
-		raycast_and_draw(data->ray);
 	}
+	return (1);
 }
 
-void	player_move_d(t_data *data)
+int		player_move_d(t_data *data)
 {
 	if (check_can_move(data, data->player_pos->x + 1, data->player_pos->z)
 		== true)
@@ -59,8 +59,8 @@ void	player_move_d(t_data *data)
 		data->player_pos->x += (data->ray->p_dir_y / 5);
 		data->player_pos->z += (data->ray->p_dir_x / 5);
 		get_data_from_yhi(data->ray, data);
-		raycast_and_draw(data->ray);
 	}
+	return (1);
 }
 
 static bool	check_can_move(t_data *data, size_t x, size_t z)

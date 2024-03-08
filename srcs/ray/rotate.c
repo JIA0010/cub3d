@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/07 16:36:28 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/08 10:04:04 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int	key_event(int key, t_ray *data)
 		data->rotate -= 1;
 	else if (key == RIGHT)
 		data->rotate += 1;
+	if (key == W)
+		data->move_up = 1;
+	if (key == A)
+		data->move_left = 1;
+	if (key == S)
+		data->move_down = 1;
+	if (key == D)
+		data->move_right = 1;
 	else if (key == ESC)
 		clean_exit(data, 0);
 	return (0);
@@ -57,17 +65,33 @@ int	key_release_hook(int key, t_ray *data)
 		data->rotate = 0;
 	if (key == RIGHT && data->rotate >= -1)
 		data->rotate = 0;
+	if (key == W && data->move_up != 0)
+		data->move_up = 0;
+	if (key == A && data->move_left != 0)
+		data->move_left = 0;
+	if (key == S && data->move_down != 0)
+		data->move_down = 0;
+	if (key == D && data->move_right != 0)
+		data->move_right = 0;
 	return (0);
 }
 
-int	rotate(t_ray *data)
+int	rotate_move(t_ray *data)
 {
 	int	moved;
 
 	moved = 0;
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);
+	// if (data->move_up != 0)
+	// 	moved += player_move_w(data->data);
+	// if (data->move_left != 0)
+	// 	moved += player_move_a(data->data);
+	// if (data->move_down != 0)
+	// 	moved += player_move_s(data->data);
+	// if (data->move_right != 0)
+	// 	moved += player_move_d(data->data);
 	if (moved != 0)
-		raycast_and_draw(data);
+		moved += raycast_and_draw(data);
 	return (0);
 }

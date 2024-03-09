@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/09 13:28:49 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/09 14:08:51 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ static void	init_player(t_ray *player)
 
 void get_data_from_yhi(t_ray *data, t_data *data_yhi)
 {
+	data->data = data_yhi;
 	data->map = NULL;
 	data->map_height = 0;
 	data->map_width = 0;

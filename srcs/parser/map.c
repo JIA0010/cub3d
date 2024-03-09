@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/08 15:23:24 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/09 20:08:24 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 static char	*map_line(t_data *data);
 static void	map_double_line(t_data *data, char *line, size_t x, size_t z);
+static bool	space_check(char *all, size_t i);
 //x(+east(left))(-west(right))
 //z(+south(down))(-north(top))
 //map[x][z]
@@ -55,7 +56,9 @@ static char	*map_line(t_data *data)
 			while (all[i] != '\0' && all[i] != '\n')
 				i++;
 		else if (all[i] == '1' || all[i] == '0' || all[i] == 'N'
-			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W' || all[i] == ' ')
+			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W')
+			break ;
+		else if (all[i] == ' ' && space_check(all, i) == true)
 			break ;
 		else if (all[i] != '\n')
 			return (NULL);
@@ -92,4 +95,16 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z)
 		data->map->map[x][z] = '\0';
 		x++;
 	}
+}
+
+static bool	space_check(char *all, size_t i)
+{
+	while (all[i] != '\0' && all[i] != '\n')
+	{
+		if (all[i] == '1' || all[i] == '0' || all[i] == 'N'
+			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W')
+			return (true);
+		i++;
+	}
+	return (false);
 }

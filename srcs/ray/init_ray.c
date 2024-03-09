@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/09 14:08:51 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/09 15:34:56 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,8 +127,8 @@ void get_data_from_yhi(t_ray *data, t_data *data_yhi)
 	data->map = NULL;
 	data->map_height = 0;
 	data->map_width = 0;
-	data->pos_x = data_yhi->player_pos->x;
-	data->pos_y = data_yhi->player_pos->z;
+	data->pos_x = data_yhi->player_pos->x + 0.1;
+	data->pos_y = data_yhi->player_pos->z + 0.1;
 	data->dir = data_yhi->player_pos->direction;
 	data->map = data_yhi->map->map;
 	data->map_height = data_yhi->map->map_hight;

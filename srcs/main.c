@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:42:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/08 11:54:18 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/09 15:26:51 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,41 @@ int	main(int argc, char **argv)
 	return (ft_free(data), true);
 }
 
-// static void	test(t_data *data)
-// {
-// 	size_t	x;
-// 	size_t	z;
+static void	test(t_data *data)
+{
+	size_t	x;
+	size_t	z;
 
-// 	printf("-----all-----\n%s\n-------------\n\n", data->map->all);
-// 	printf("path_north[%s]\n", data->map->path_north);
-// 	printf("path_south[%s]\n", data->map->path_south);
-// 	printf("path_west[%s]\n", data->map->path_west);
-// 	printf("path_east[%s]\n\n", data->map->path_east);
-// 	printf("floor_rgb[%d,%d,%d]\n", data->map->floor_r,
-// 		data->map->floor_g, data->map->floor_b);
-// 	printf("ceiling_rgb[%d,%d,%d]\n\n", data->map->ceiling_r,
-// 		data->map->ceiling_g, data->map->ceiling_b);
-// 	printf("-----map-----\n");
-// 	z = 0;
-// 	while (1)
-// 	{
-// 		x = 0;
-// 		if (data->map->map[x][z] == '\0')
-// 			break ;
-// 		while (data->map->map[x] != NULL)
-// 		{
-// 			printf("%c", data->map->map[x][z]);
-// 			x++;
-// 		}
-// 		printf("\n");
-// 		z++;
-// 	}
-// 	printf("-------------\n\n");
-// 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
-// }
+	printf("-----all-----\n%s\n-------------\n\n", data->map->all);
+	printf("path_north[%s]\n", data->map->path_north);
+	printf("path_south[%s]\n", data->map->path_south);
+	printf("path_west[%s]\n", data->map->path_west);
+	printf("path_east[%s]\n\n", data->map->path_east);
+	printf("floor_rgb[%d,%d,%d]\n", data->map->floor_r,
+		data->map->floor_g, data->map->floor_b);
+	printf("ceiling_rgb[%d,%d,%d]\n\n", data->map->ceiling_r,
+		data->map->ceiling_g, data->map->ceiling_b);
+	printf("-----map-----\n");
+	z = 0;
+	while (1)
+	{
+		x = 0;
+		if (data->map->map[x][z] == '\0')
+			break ;
+		while (data->map->map[x] != NULL)
+		{
+			printf("%c", data->map->map[x][z]);
+			x++;
+		}
+		printf("\n");
+		z++;
+	}
+	printf("-------------\n\n");
+	printf("player [x = %f, z = %f]\n\n", data->player_pos->x, data->player_pos->z);
+}
 
-// __attribute__((destructor))
-// static void	destructor(void)
-// {
-// 	system("leaks -q cub3d");
-// }
+__attribute__((destructor))
+static void	destructor(void)
+{
+	system("leaks -q cub3d");
+}

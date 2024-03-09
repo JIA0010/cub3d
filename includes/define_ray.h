@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/08 09:46:42 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/09 13:28:29 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,8 @@ typedef struct s_ray
 	double			plane_y;
 	int				rotate;
 
-	int 			move_up;
-	int 			move_down;
-	int 			move_right;
-	int 			move_left;
+	int 			move_x;
+	int 			move_y;
 	//------------------------------------------texture_info
 	int				**texture_pixels;
 	int				**textures;

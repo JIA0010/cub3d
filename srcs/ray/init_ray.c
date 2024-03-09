@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/07 16:32:22 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/09 13:28:49 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,8 @@ static void	init_player(t_ray *player)
 	player->plane_x = 0.0;
 	player->plane_y = 0.0;
 	player->rotate = 0;
-	player->move_up = 0;
-	player->move_down = 0;
-	player->move_right = 0;
-	player->move_left = 0;
+	player->move_x = 0;
+	player->move_y = 0;
 }
 
 void get_data_from_yhi(t_ray *data, t_data *data_yhi)

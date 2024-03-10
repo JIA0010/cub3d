@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 15:53:58 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 17:00:05 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static bool	set_player_pos(t_data *data)
 			{
 				data->player_pos->x = x;
 				data->player_pos->z = z;
+				data->map->map[x][z] = '0';
 				return (true);
 			}
 			x++;

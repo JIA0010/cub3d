@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:24:22 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/10 16:22:18 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 17:23:09 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ bool	error_all(t_data *data)
 	i = 0;
 	while (all[i] != '\0')
 	{
-		printf("[%c]\n", all[i]);
-		skip_map(data, all, i);
+		skip_map(data, all, &i);
 		if (check_path_rgb(all, &i) == false)
 			return (false);
-		else if (all[i] != '1' && all[i] != '0' && all[i] != 'N'
-			&& all[i] != 'S' && all[i] != 'E' && all[i] != 'W'
-			&& all[i] != ' ' && all[i] != '	' && all[i] != '\n'
-			&& all[i] != 'F' && all[i] != 'C')
+		else if (all[i] != '\0' && all[i] != '1' && all[i] != '0'
+			&& all[i] != 'N' && all[i] != 'S' && all[i] != 'E'
+			&& all[i] != 'W' && all[i] != ' ' && all[i] != '	'
+			&& all[i] != '\n' && all[i] != 'F' && all[i] != 'C')
 			return (false);
 		i++;
 	}
@@ -44,6 +43,8 @@ static bool	check_path_rgb(char *all, size_t *index)
 
 	i = *index;
 
+	if (all[i] == '\0')
+		return (true);
 	if (all[i] == 'N' || all[i] == 'S' || all[i] == 'W' || all[i] == 'E'
 		|| all[i] == 'F' || all[i] == 'C')
 	{
@@ -65,11 +66,29 @@ static bool	check_path_rgb(char *all, size_t *index)
 static void skip_map(t_data *data, char *all, size_t *index)
 {
 	size_t	i;
-	size_t	j;	
+	size_t	x;
+	size_t	z;	
 
 	i = *index;
-	j = 0;
-	while (all[i + j] == data->map->map[j])
-		i++;
-	*index = i + j;
+	z = 0;
+	while (1)
+	{
+		x = 0;
+		if (data->map->map[x][z] == '\0')
+			break ;
+		while (data->map->map[x] != NULL)
+		{
+			if (all[i] == '\n')
+			{
+				i++;
+				break ;
+			}
+			if (data->map->map[x][z] != all[i])
+				return ;
+			i++;
+			x++;
+		}
+		z++;
+	}
+	*index = i;
 }

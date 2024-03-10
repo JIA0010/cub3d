@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/07 16:31:23 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/10 16:39:21 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static bool	set_player_pos(t_data *data)
 				|| data->map->map[x][z] == 'E'
 				|| data->map->map[x][z] == 'W')
 			{
-				data->player_pos->x = x;
-				data->player_pos->z = z;
+				data->player_pos->x = x + 0.1;
+				data->player_pos->z = z + 0.1;
 				return (true);
 			}
 			x++;

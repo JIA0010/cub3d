@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/24 16:38:33 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/10 16:16:32 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 bool	parser(t_data *data, char *file)
 {
 	if (init_parser(data) == false)
-		return (error_init_map());
+		return (false);
 	if (all(data, file) == false)
-		return (error_parser_all());
+		return (printf("parser/all: malloc or read error\n"), false);
 	if (path(data) == false)
-		return (error_parser_path());
+		return (printf("parser/path: texture path error\n"), false);
 	if (floor_rgb(data) == false)
-		return (error_parser_floor_rgb());
+		return (printf("parser/floor_rgb: floor_rgb error\n"), false);
 	if (ceiling_rgb(data) == false)
-		return (error_parser_ceiling_rgb());
+		return (printf("parser/ceiling_rgb: ceiling_rgb error\n"), false);
 	if (map(data) == false)
-		return (error_parser_map());
+		return (printf("parser/map: invalid character\n"), false);
+	if (error_all(data) == false)
+		return (printf("parser/all: invalid character\n"), false);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_rgb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:03 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/28 12:43:12 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/08 14:53:30 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ bool	ceiling_r(t_data *data, char *all, int *index)
 	int		j;
 
 	i = *index;
-	while (all[i] != '\0' && ft_isalnum(all[i]) == false)
+	while (all[i] != '\0' && all[i] != '\n' && ft_isalnum(all[i]) == false)
 		i++;
+	if (all[i] == '\0' || all[i] == '\n')
+		return (false);
 	j = i;
 	while (ft_isalnum(all[j]) == true)
 		j++;
@@ -66,8 +68,10 @@ bool	ceiling_g(t_data *data, char *all, int *index)
 	int		j;
 
 	i = *index;
-	while (all[i] != '\0' && ft_isalnum(all[i]) == false)
+	while (all[i] != '\0' && all[i] != '\n' && ft_isalnum(all[i]) == false)
 		i++;
+	if (all[i] == '\0' || all[i] == '\n')
+		return (false);
 	j = i;
 	while (ft_isalnum(all[j]) == true)
 		j++;
@@ -91,8 +95,10 @@ bool	ceiling_b(t_data *data, char *all, int *index)
 	int		j;
 
 	i = *index;
-	while (all[i] != '\0' && ft_isalnum(all[i]) == false)
+	while (all[i] != '\0' && all[i] != '\n' && ft_isalnum(all[i]) == false)
 		i++;
+	if (all[i] == '\0' || all[i] == '\n')
+		return (false);
 	j = i;
 	while (ft_isalnum(all[j]) == true)
 		j++;

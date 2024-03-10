@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 18:00:41 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/08 12:11:20 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 12:15:43 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ bool	player_move_w(t_data *data)
 		data->player_pos->x += (data->ray->p_dir_x / ONE_STEP);
 		data->player_pos->z += (data->ray->p_dir_y / ONE_STEP);
 		get_data_from_yhi(data->ray, data);
+		return (true);
 	}
-	return (1);
+	return (false);
 }
 
 bool	player_move_a(t_data *data)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:27:35 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/25 16:54:30 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/08 15:17:34 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@ bool	error_map(t_data *data)
 	size_t	z;
 
 	map = data->map->map;
-	z = 0;
-	while (1)
+	x = 0;
+	while (map[x] != NULL)
 	{
-		x = 0;
-		if (map[x][z] == '\0')
-			break ;
-		while (map[x] != NULL)
+		z = 0;
+		while (map[x][z] != '\0')
 		{
 			if (map[x][z] != '1' && map[x][z] != '0' && map[x][z] != 'N'
 				&& map[x][z] != 'S' && map[x][z] != 'E' && map[x][z] != 'W'
 				&& map[x][z] != ' ' && map[x][z] != '\n' && map[x][z] != '\0')
 				return (false);
-			x++;
+			z++;
 		}
-		z++;
+		x++;
 	}
 	return (true);
 }

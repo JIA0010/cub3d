@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/25 16:18:06 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/10 15:54:28 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,7 @@ bool	check_error_arg(int argc, char **argv);
 bool	check_argv(char **argv);
 bool	error_argc(void);
 bool	error_argv(void);
-t_data	*error_init(void);
-bool	error_init_map(void);
-bool	error_parser_all(void);
-bool	error_parser_path(void);
-bool	error_parser_floor_rgb(void);
-bool	error_parser_ceiling_rgb(void);
-bool	error_parser_map(void);
-bool	error_player(void);
+bool	error_all(t_data *data);
 bool	error_map(t_data *data);
 bool	error_floodfill(t_data *data);
 

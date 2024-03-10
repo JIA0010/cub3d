@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/02/29 14:19:02 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 17:41:06 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ static void	floodfill(t_data *data, bool *flag, size_t x, size_t z)
 {
 	if (check(data, flag, x, z) == false)
 		return ;
-	if (data->map->map[x + 1][z] == MAP_FLOOR)
+	if (data->map->map[x + 1][z] == '0')
 	{
 		data->map->map[x + 1][z] = '*';
 		floodfill(data, flag, x + 1, z);
 	}
-	if (data->map->map[x - 1][z] == MAP_FLOOR)
+	if (data->map->map[x - 1][z] == '0')
 	{
 		data->map->map[x - 1][z] = '*';
 		floodfill(data, flag, x - 1, z);
 	}
-	if (data->map->map[x][z + 1] == MAP_FLOOR)
+	if (data->map->map[x][z + 1] == '0')
 	{
 		data->map->map[x][z + 1] = '*';
 		floodfill(data, flag, x, z + 1);
 	}
-	if (data->map->map[x][z - 1] == MAP_FLOOR)
+	if (data->map->map[x][z - 1] == '0')
 	{
 		data->map->map[x][z - 1] = '*';
 		floodfill(data, flag, x, z - 1);
@@ -83,10 +83,12 @@ static void	fix_map(t_data *data)
 		while (data->map->map[x] != NULL)
 		{
 			if (data->map->map[x][z] == '*')
-				data->map->map[x][z] = MAP_FLOOR;
+				data->map->map[x][z] = '0';
+			if (data->map->map[x][z] == 'N' || data->map->map[x][z] == 'S'
+				|| data->map->map[x][z] == 'W' || data->map->map[x][z] == 'E')
+				data->map->map[x][z] = '0';
 			x++;
 		}
-		printf("\n");
 		z++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/02 22:17:05 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/10 15:29:16 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 static char	*map_line(t_data *data);
 static void	map_double_line(t_data *data, char *line, size_t x, size_t z);
+static bool	space_check(char *all, size_t *i);
 //x(+east(left))(-west(right))
 //z(+south(down))(-north(top))
 //map[x][z]
@@ -25,6 +26,8 @@ bool	map(t_data *data)
 	char	*line;
 
 	line = map_line(data);
+	if (line == NULL)
+		return (false);
 	if (init_map(data, line) == false)
 		return (false);
 	data->map->map_width = map_x_len(line);
@@ -50,11 +53,17 @@ static char	*map_line(t_data *data)
 			|| (all[i] == 'W' && all[i + 1] != '\0' && all[i + 1] == 'E')
 			|| (all[i] == 'E' && all[i + 1] != '\0' && all[i + 1] == 'A')
 			|| (all[i] == 'F') || (all[i] == 'C'))
+		{
 			while (all[i] != '\0' && all[i] != '\n')
 				i++;
+		}
 		else if (all[i] == '1' || all[i] == '0' || all[i] == 'N'
-			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W' || all[i] == ' ')
+			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W')
 			break ;
+		else if ((all[i] == '	' || all[i] == ' ') && space_check(all, &i) == true)
+			break ;
+		else if (all[i] != '\n')
+			return (NULL);
 		i++;
 	}
 	line = &all[i];
@@ -88,4 +97,31 @@ static void	map_double_line(t_data *data, char *line, size_t x, size_t z)
 		data->map->map[x][z] = '\0';
 		x++;
 	}
+}
+
+static bool	space_check(char *all, size_t *i)
+{
+	size_t	index;
+
+	index = *i;
+	while (all[index] != '\0' && all[index] != '\n')
+	{
+		if ((all[index] == 'N' && all[index + 1] != '\0' && all[index + 1] == 'O')
+			|| (all[index] == 'S' && all[index + 1] != '\0' && all[index + 1] == 'O')
+			|| (all[index] == 'W' && all[index + 1] != '\0' && all[index + 1] == 'E')
+			|| (all[index] == 'E' && all[index + 1] != '\0' && all[index + 1] == 'A')
+			|| (all[index] == 'F') || (all[index] == 'C'))
+		{
+			while (all[index] != '\0' && all[index] != '\n')
+				index++;
+			*i = index;
+			return (false);
+		}
+		else if (all[index] == '1' || all[index] == '0' || all[index] == 'N'
+			|| all[index] == 'S' || all[index] == 'E' || all[index] == 'W')
+			return (true);
+		index++;
+	}
+	*i = index;
+	return (false);
 }

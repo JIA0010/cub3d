@@ -6,7 +6,7 @@
 /*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 15:16:53 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 17:41:06 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ static void	fix_map(t_data *data)
 		while (data->map->map[x] != NULL)
 		{
 			if (data->map->map[x][z] == '*')
+				data->map->map[x][z] = '0';
+			if (data->map->map[x][z] == 'N' || data->map->map[x][z] == 'S'
+				|| data->map->map[x][z] == 'W' || data->map->map[x][z] == 'E')
 				data->map->map[x][z] = '0';
 			x++;
 		}

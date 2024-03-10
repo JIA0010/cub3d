@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/03 11:56:15 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/10 18:40:28 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ int	free_data(t_ray *data)
 		free_tab((void **)data->texture_pixels);
 	free_texinfo(data);
 	free_map(data);
+	free(data->rgb_ceiling);
+	free(data->rgb_floor);
 	return (FAILURE);
 }
 

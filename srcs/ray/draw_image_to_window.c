@@ -6,7 +6,7 @@
 /*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 11:30:14 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 12:10:29 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/10 18:49:14 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void	draw_image_to_window(t_ray *data)
 	image.img = NULL;
 	init_img(data, &image, data->win_width, data->win_height);
 	drawing_image(data, &image);
-	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);//なぜイメージをすぐ消すのかをゆいなさんに説明
+	mlx_put_image_to_window(data->mlx, data->win, image.img, 0, 0);
 	mlx_destroy_image(data->mlx, image.img);
 }

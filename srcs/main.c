@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/10 17:31:48 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 18:44:33 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ int	main(int argc, char **argv)
 // 	printf("player [x = %ld, z = %ld]\n\n", data->player_pos->x, data->player_pos->z);
 // }
 
-// __attribute__((destructor))
-// static void	destructor(void)
-// {
-// 	system("leaks -q cub3d");
-// }
+__attribute__((destructor))
+static void	destructor(void)
+{
+	system("leaks -q cub3d");
+}

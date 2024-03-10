@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   player_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/07 16:31:23 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/10 15:53:58 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/player.h"
 #include "../../includes/init.h"
-#include "../../includes/error.h"
 
 static bool	set_player_pos(t_data *data);
 static void	set_player_direction(t_data *data);
@@ -22,7 +21,7 @@ bool	player_pos(t_data *data)
 	if (init_player(data) == false)
 		return (false);
 	if (set_player_pos(data) == false)
-		return (error_player());
+		return (printf("No player\n"), false);
 	set_player_direction(data);
 	return (true);
 }

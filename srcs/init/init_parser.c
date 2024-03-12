@@ -13,12 +13,25 @@
 #include "../../includes/init.h"
 #include "../../includes/parser.h"
 
+static void	init_null(t_data *data);
+
 bool	init_parser(t_data *data)
 {
 	data->map = (t_map *)malloc(sizeof(t_map));
+	init_null(data);
 	if (data->map == NULL)
 		return (printf("init_parser: malloc_error\n"), false);
 	return (true);
+}
+
+static void	init_null(t_data *data)
+{
+	data->map->all = NULL;
+	data->map->path_north = NULL;
+	data->map->path_south = NULL;
+	data->map->path_east = NULL;
+	data->map->path_west = NULL;
+	data->map->map = NULL;
 }
 
 bool	init_map(t_data *data, char *line)

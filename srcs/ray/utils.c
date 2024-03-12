@@ -116,6 +116,8 @@ int	free_data(t_ray *data)
 		free_tab((void **)data->texture_pixels);
 	free_texinfo(data);
 	free_map(data);
+	free(data->rgb_ceiling);
+	free(data->rgb_floor);
 	return (FAILURE);
 }
 

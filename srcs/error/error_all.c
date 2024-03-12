@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   error_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:24:22 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/10 17:23:09 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/12 14:50:47 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/error.h"
 
 static bool	check_path_rgb(char *all, size_t *index);
-static void skip_map(t_data *data, char *all, size_t *index);
+static void	skip_map(t_data *data, char *all, size_t *index);
 
 bool	error_all(t_data *data)
 {
@@ -49,12 +49,12 @@ static bool	check_path_rgb(char *all, size_t *index)
 		|| all[i] == 'F' || all[i] == 'C')
 	{
 		if (!((all[i + 1] != '\0' && all[i + 2] != '\0')
-			&& ((all[i] == 'N' && all[i + 1] == 'O' && all[i + 2] == ' ')
-			|| (all[i] == 'S' && all[i + 1] == 'O' && all[i + 2] == ' ')
-			|| (all[i] == 'W' && all[i + 1] == 'E' && all[i + 2] == ' ')
-			|| (all[i] == 'E' && all[i + 1] == 'A' && all[i + 2] == ' ')
-			|| (all[i] == 'F' && all[i + 1] == ' ')
-			|| (all[i] == 'C' && all[i + 1] == ' '))))
+				&& ((all[i] == 'N' && all[i + 1] == 'O' && all[i + 2] == ' ')
+					|| (all[i] == 'S' && all[i + 1] == 'O' && all[i + 2] == ' ')
+					|| (all[i] == 'W' && all[i + 1] == 'E' && all[i + 2] == ' ')
+					|| (all[i] == 'E' && all[i + 1] == 'A' && all[i + 2] == ' ')
+					|| (all[i] == 'F' && all[i + 1] == ' ')
+					|| (all[i] == 'C' && all[i + 1] == ' '))))
 			return (false);
 		while (all[i] != '\0' && all[i] != '\n')
 			i++;
@@ -63,11 +63,11 @@ static bool	check_path_rgb(char *all, size_t *index)
 	return (true);
 }
 
-static void skip_map(t_data *data, char *all, size_t *index)
+static void	skip_map(t_data *data, char *all, size_t *index)
 {
 	size_t	i;
 	size_t	x;
-	size_t	z;	
+	size_t	z;
 
 	i = *index;
 	z = 0;
@@ -76,19 +76,16 @@ static void skip_map(t_data *data, char *all, size_t *index)
 		x = 0;
 		if (data->map->map[x][z] == '\0')
 			break ;
-		while (data->map->map[x] != NULL)
+		while (data->map->map[x] != NULL && all[i] != '\n')
 		{
-			if (all[i] == '\n')
-			{
-				i++;
-				break ;
-			}
 			if (data->map->map[x][z] != all[i])
 				return ;
 			i++;
 			x++;
 		}
+		if (all[i] == '\n')
+			i++;
 		z++;
 	}
-	*index = i;
+	*index = i - 1;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 16:16:32 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/12 15:20:22 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 bool	parser(t_data *data, char *file)
 {
-	if (init_parser(data) == false)
-		return (false);
 	if (all(data, file) == false)
 		return (printf("parser/all: malloc or read error\n"), false);
 	if (path(data) == false)

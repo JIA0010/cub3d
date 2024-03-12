@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 15:29:16 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/12 16:03:39 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 static char	*map_line(t_data *data);
 static void	map_double_line(t_data *data, char *line, size_t x, size_t z);
 static bool	space_check(char *all, size_t *i);
+static bool	is_not_map(char *all, size_t i);
 //x(+east(left))(-west(right))
 //z(+south(down))(-north(top))
 //map[x][z]
@@ -48,11 +49,7 @@ static char	*map_line(t_data *data)
 	i = 0;
 	while (all[i] != '\0')
 	{
-		if ((all[i] == 'N' && all[i + 1] != '\0' && all[i + 1] == 'O')
-			|| (all[i] == 'S' && all[i + 1] != '\0' && all[i + 1] == 'O')
-			|| (all[i] == 'W' && all[i + 1] != '\0' && all[i + 1] == 'E')
-			|| (all[i] == 'E' && all[i + 1] != '\0' && all[i + 1] == 'A')
-			|| (all[i] == 'F') || (all[i] == 'C'))
+		if (is_not_map(all, i) == true)
 		{
 			while (all[i] != '\0' && all[i] != '\n')
 				i++;
@@ -60,7 +57,8 @@ static char	*map_line(t_data *data)
 		else if (all[i] == '1' || all[i] == '0' || all[i] == 'N'
 			|| all[i] == 'S' || all[i] == 'E' || all[i] == 'W')
 			break ;
-		else if ((all[i] == '	' || all[i] == ' ') && space_check(all, &i) == true)
+		else if ((all[i] == '	' || all[i] == ' ')
+			&& space_check(all, &i) == true)
 			break ;
 		else if (all[i] != '\n')
 			return (NULL);
@@ -106,11 +104,7 @@ static bool	space_check(char *all, size_t *i)
 	index = *i;
 	while (all[index] != '\0' && all[index] != '\n')
 	{
-		if ((all[index] == 'N' && all[index + 1] != '\0' && all[index + 1] == 'O')
-			|| (all[index] == 'S' && all[index + 1] != '\0' && all[index + 1] == 'O')
-			|| (all[index] == 'W' && all[index + 1] != '\0' && all[index + 1] == 'E')
-			|| (all[index] == 'E' && all[index + 1] != '\0' && all[index + 1] == 'A')
-			|| (all[index] == 'F') || (all[index] == 'C'))
+		if (is_not_map(all, index) == true)
 		{
 			while (all[index] != '\0' && all[index] != '\n')
 				index++;
@@ -123,5 +117,16 @@ static bool	space_check(char *all, size_t *i)
 		index++;
 	}
 	*i = index;
+	return (false);
+}
+
+static bool	is_not_map(char *all, size_t i)
+{
+	if ((all[i] == 'N' && all[i + 1] != '\0' && all[i + 1] == 'O')
+		|| (all[i] == 'S' && all[i + 1] != '\0' && all[i + 1] == 'O')
+		|| (all[i] == 'W' && all[i + 1] != '\0' && all[i + 1] == 'E')
+		|| (all[i] == 'E' && all[i + 1] != '\0' && all[i + 1] == 'A')
+		|| (all[i] == 'F') || (all[i] == 'C'))
+		return (true);
 	return (false);
 }

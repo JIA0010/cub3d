@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 17:41:12 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/12 15:19:40 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void	set_player_direction(t_data *data);
 
 bool	player_pos(t_data *data)
 {
-	if (init_player(data) == false)
-		return (false);
 	if (set_player_pos(data) == false)
 		return (printf("No player\n"), false);
 	set_player_direction(data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:06:59 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/03 10:17:36 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/12 15:32:24 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	get_texture_index(t_ray *ray)
 	}
 }
 
-static void puting_color(t_ray *ray, int x)
+static void	puting_color(t_ray *ray, int x)
 {
 	int	color;
 	int	y;
-	
+
 	y = ray->draw_start;
 	while (y < ray->draw_end)
 	{

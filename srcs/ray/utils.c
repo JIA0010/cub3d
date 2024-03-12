@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/10 18:40:28 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/12 15:57:46 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/define_ray.h"
-#include "../minilibx/mlx.h"
 
 void	error(char *str)
 {

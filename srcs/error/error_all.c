@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:24:22 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/12 14:50:47 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/12 16:04:18 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static bool	check_path_rgb(char *all, size_t *index)
 	size_t	i;
 
 	i = *index;
-
 	if (all[i] == '\0')
 		return (true);
 	if (all[i] == 'N' || all[i] == 'S' || all[i] == 'W' || all[i] == 'E'

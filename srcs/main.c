@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 	return (ft_free(data), true);
 }
 
+
 __attribute__((destructor))
 static void	destructor(void)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:50:26 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/09 14:56:33 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/10 19:02:28 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	rotate_player(t_ray *data, double rotdir)
 int	key_event(int key, t_ray *data)
 {
 	if (key == LEFT)
-		data->rotate -= 1;
+		data->rotate = -1;
 	else if (key == RIGHT)
-		data->rotate += 1;
+		data->rotate = 1;
 	if (key == W)
 		data->move_y = 1;
 	if (key == A)
@@ -61,9 +61,9 @@ int	key_event(int key, t_ray *data)
 
 int	key_release_hook(int key, t_ray *data)
 {
-	if (key == LEFT && data->rotate <= 1)
+	if (key == LEFT && data->rotate == -1)
 		data->rotate = 0;
-	if (key == RIGHT && data->rotate >= -1)
+	if (key == RIGHT && data->rotate == 1)
 		data->rotate = 0;
 	if (key == W && data->move_y == 1)
 		data->move_y = 0;
@@ -81,7 +81,6 @@ int	rotate_move(t_ray *data)
 	int	moved;
 
 	moved = 0;
-	// printf("pos_x: %f, pos_y: %f\n", data->pos_x, data->pos_y);
 	if (data->rotate != 0)
 		moved += rotate_player(data, data->rotate);
 	if (data->move_y == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ray.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/10 16:37:09 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/10 18:40:18 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,20 @@ static unsigned long	convert_rgb_to_hex(int *rgb_tab)
 
 bool	init_floor_ceiling(t_ray *data, t_data *data_yhi)
 {
-	int	*rgb_ceiling;
-	int	*rgb_floor;
-
-	rgb_floor = malloc(sizeof(int) * 3);
-	if (!rgb_floor)
+	data->rgb_floor = malloc(sizeof(int) * 3);
+	if (!data->rgb_floor)
 		return (error("Failed to allocate memory"), false);
-	rgb_floor[0] = data_yhi->map->floor_r;
-	rgb_floor[1] = data_yhi->map->floor_g;
-	rgb_floor[2] = data_yhi->map->floor_b;
-	rgb_ceiling = malloc(sizeof(int) * 3);
-	if (!rgb_ceiling)
+	data->rgb_floor[0] = data_yhi->map->floor_r;
+	data->rgb_floor[1] = data_yhi->map->floor_g;
+	data->rgb_floor[2] = data_yhi->map->floor_b;
+	data->rgb_ceiling = malloc(sizeof(int) * 3);
+	if (!data->rgb_ceiling)
 		return (error("Failed to allocate memory"), false);
-	rgb_ceiling[0] = data_yhi->map->ceiling_r;
-	rgb_ceiling[1] = data_yhi->map->ceiling_g;
-	rgb_ceiling[2] = data_yhi->map->ceiling_b;
-	data->hex_ceiling = convert_rgb_to_hex(rgb_ceiling);
-	data->hex_floor = convert_rgb_to_hex(rgb_floor);
+	data->rgb_ceiling[0] = data_yhi->map->ceiling_r;
+	data->rgb_ceiling[1] = data_yhi->map->ceiling_g;
+	data->rgb_ceiling[2] = data_yhi->map->ceiling_b;
+	data->hex_ceiling = convert_rgb_to_hex(data->rgb_ceiling);
+	data->hex_floor = convert_rgb_to_hex(data->rgb_floor);
 	return (true);
 }
 

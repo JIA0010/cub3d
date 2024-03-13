@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/13 09:29:55 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/13 10:46:01 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,5 +158,6 @@ int					key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
 int					rotate_move(t_ray *data);
 void				get_data_from_yhi(t_ray *data, t_data *data_yhi);
+bool				init_floor_ceiling(t_ray *data, t_data *data_yhi);
 
 #endif

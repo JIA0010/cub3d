@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/13 09:29:03 by cjia             ###   ########.fr       */
+/*   Created: 2024/03/13 10:43:44 by cjia              #+#    #+#             */
+/*   Updated: 2024/03/13 10:43:52 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	main(int argc, char **argv)
 	start_game(data);
 	return (ft_free(data), true);
 }
-
 
 __attribute__((destructor))
 static void	destructor(void)

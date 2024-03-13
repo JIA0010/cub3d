@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image_to_window.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 11:30:14 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/10 18:49:14 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/13 10:39:09 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static void	set_frame_image_pixel(t_ray *ray, t_img *image, int x, int y)
 		set_image_pixel(image, x, y, ray->texture_pixels[y][x]);
 	else if (y < ray->win_height / 2)
 		set_image_pixel(image, x, y, ray->hex_ceiling);
-	else if (y < ray->win_height -1)
+	else if (y < ray->win_height - 1)
 		set_image_pixel(image, x, y, ray->hex_floor);
 }
 
-static void drawing_image(t_ray *ray, t_img *image)
+static void	drawing_image(t_ray *ray, t_img *image)
 {
 	int	x;
 	int	y;

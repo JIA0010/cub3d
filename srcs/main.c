@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/12 16:23:56 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/13 09:29:03 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char **argv)
 	if (error_floodfill(data) == false)
 		return (ft_free(data), false);
 	start_game(data);
-	exit(0);
 	return (ft_free(data), true);
 }
 

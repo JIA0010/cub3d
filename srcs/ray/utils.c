@@ -6,7 +6,7 @@
 /*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/12 16:32:17 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/13 10:27:58 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	error(char *str)
 	write(2, str, ft_strlen(str));
 	exit(1);
 }
-
 
 size_t	ft_strnlen(const char *str)
 {
@@ -61,7 +60,9 @@ int	err_msg(char *detail, char *str, int code)
 		ft_putstr_fd(": ", 2);
 		ft_putstr_fd(str, 2);
 	}
-	ft_putstr_fd("\n" "RESET", 2);
+	ft_putstr_fd("\n"
+					"RESET",
+					2);
 	return (code);
 }
 
@@ -82,10 +83,14 @@ void	clean_exit(t_ray *data, int code)
 		exit(code);
 	if (data->win && data->mlx)
 		mlx_destroy_window(data->mlx, data->win);
-	if (data->mlx)
-	{
-		free(data->mlx);
-	}
+	// if (data->mlx)
+	// {
+	// 	free(data->mlx);
+	// }
+	// mlx_destroy_image(data->mlx, data->texture_pixels[0]);
+	// mlx_destroy_image(data->mlx, data->texture_pixels[1]);
+	// mlx_destroy_image(data->mlx, data->texture_pixels[2]);
+	// mlx_destroy_image(data->mlx, data->texture_pixels[3]);
 	free_data(data);
 	exit(code);
 }
@@ -101,13 +106,6 @@ static void	free_texinfo(t_ray *textures)
 	if (textures->east)
 		free(textures->east);
 }
-
-static void	free_map(t_ray *data)
-{
-	if (data->map)
-		free_tab((void **)data->map);
-}
-
 int	free_data(t_ray *data)
 {
 	if (data->textures)
@@ -115,16 +113,15 @@ int	free_data(t_ray *data)
 	if (data->texture_pixels)
 		free_tab((void **)data->texture_pixels);
 	free_texinfo(data);
-	free_map(data);
 	free(data->rgb_ceiling);
 	free(data->rgb_floor);
 	return (FAILURE);
 }
 
-
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {
 	int	pixel;
+
 	pixel = y * (image->size_line / 4) + x;
 	image->addr[pixel] = color;
 }

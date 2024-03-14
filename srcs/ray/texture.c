@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 11:06:59 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/12 15:32:24 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/13 10:34:50 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	puting_color(t_ray *ray, int x)
 	}
 }
 
-static void get_texture_info(t_ray *ray)
+static void	get_texture_info(t_ray *ray)
 {
 	ray->x1 = (int)(ray->wall_x * ray->size);
 	if ((ray->side == 0 && ray->dir_x < 0) || (ray->side == 1

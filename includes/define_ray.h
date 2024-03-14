@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/10 18:57:06 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/13 10:46:01 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
-# define ROTSPEED 0.02
+# define ROTSPEED 0.04
 
 //keycode
 # define X_ESC 65307
@@ -158,5 +158,6 @@ int					key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
 int					rotate_move(t_ray *data);
 void				get_data_from_yhi(t_ray *data, t_data *data_yhi);
+bool				init_floor_ceiling(t_ray *data, t_data *data_yhi);
 
 #endif

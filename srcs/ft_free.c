@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:48:27 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 15:21:36 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/12 16:12:01 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+#include "../includes/define_ray.h"
 
 static void	ft_free_parser(t_data *data);
 
 void	ft_free(t_data *data)
 {
+	free_data(data->ray);
 	ft_free_parser(data);
 	if (data->player_pos != NULL)
 		free(data->player_pos);

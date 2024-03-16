@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_dda.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:09:21 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/10 17:32:41 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/13 10:34:34 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	start_dda(t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if(ray->map_x < 0.5 || ray->map_y < 0.5 || ray->map_x > ray->win_height - 0.5 || ray->map_y > ray->win_width - 1)
-			break;
-		// printf("ray->map_x[%d], ray->map_y[%d]\n", ray->map_x, ray->map_y);
+		if (ray->map_x < 0.5 || ray->map_y < 0.5 || ray->map_x > ray->win_height
+			- 0.5 || ray->map_y > ray->win_width - 1)
+			break ;
 		if (ray->map[ray->map_x][ray->map_y] == '1')
 		{
 			break ;

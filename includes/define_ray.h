@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/13 10:46:01 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/18 09:48:25 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,6 @@ int					key_event(int key, t_ray *data);
 int					rotate_move(t_ray *data);
 void				get_data_from_yhi(t_ray *data, t_data *data_yhi);
 bool				init_floor_ceiling(t_ray *data, t_data *data_yhi);
+int					rotate_player(t_ray *data, double rotdir);
 
 #endif

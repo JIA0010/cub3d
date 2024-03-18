@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:44:49 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/13 10:43:00 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/18 10:08:46 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,12 @@ void	clean_exit(t_ray *data, int code)
 	free_data(data);
 	exit(code);
 }
-	// if (data->mlx)
-	// {
-	// 	free(data->mlx);
-	// }
 	// mlx_destroy_image(data->mlx, data->texture_pixels[0]);
 	// mlx_destroy_image(data->mlx, data->texture_pixels[1]);
 	// mlx_destroy_image(data->mlx, data->texture_pixels[2]);
 	// mlx_destroy_image(data->mlx, data->texture_pixels[3]);
+	// free_data(data);
+	// ft_free(data->data);
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {

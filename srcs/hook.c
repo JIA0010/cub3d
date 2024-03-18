@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:25:22 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/12 17:07:07 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/18 10:08:06 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int	key_hook_esc(t_data *data)
 {
-	mlx_destroy_window(data->ray->mlx, data->ray->win);
-	mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[0]);
-	mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[1]);
-	mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[2]);
-	mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[3]);
 	ft_free(data);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
+	// mlx_destroy_window(data->ray->mlx, data->ray->win);
+	// mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[0]);
+	// mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[1]);
+	// mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[2]);
+	// mlx_destroy_image(data->ray->mlx, data->ray->texture_pixels[3]);
 
 int	key_hook(int key, t_data *data)
 {

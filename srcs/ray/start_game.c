@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 13:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/13 10:39:26 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/18 09:55:32 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,21 @@ void	place_images_in_game(t_ray *data)
 	data->textures[WEST] = xpm_to_img(data, data->west);
 }
 
+static int	mouse_motion_handler(int x, int y, t_ray *data)
+{
+	static int	old_x = WIN_WIDTH / 2;
+
+	(void)y;
+	if (x == old_x)
+		return (0);
+	else if (x < old_x)
+		rotate_player(data, -1);
+	else if (x > old_x)
+		rotate_player(data, 1);
+	old_x = x;
+	return (0);
+}
+
 bool	start_game(t_data *data_yhi)
 {
 	t_ray	data;
@@ -68,6 +83,7 @@ bool	start_game(t_data *data_yhi)
 	mlx_hook(data.win, 3, 1L << 0, key_release_hook, &data);
 	mlx_hook(data.win, 17, 1L << 2, key_hook_esc, data_yhi);
 	mlx_loop_hook(data.mlx, rotate_move, &data);
+	mlx_hook(data.win, 6, 1L << 6, mouse_motion_handler, &data);
 	mlx_loop(data.mlx);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:48:27 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 16:12:01 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/18 10:08:15 by yoshimurahi      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 static void	ft_free_parser(t_data *data);
 
+	// free_data(data->ray);
 void	ft_free(t_data *data)
 {
-	free_data(data->ray);
 	ft_free_parser(data);
 	if (data->player_pos != NULL)
 		free(data->player_pos);

@@ -32,7 +32,7 @@ MLX			= $(MLX_OpenGL)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
 ifdef OPENGL
-	MLX		= $(MLX_OpenGL)
+	MLX		= $(MLX_MMS)
 endif
 ifdef DEBUG
 	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer -g

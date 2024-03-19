@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:09:47 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 16:15:19 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/19 16:16:13 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_data	*init(void)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (data == NULL)
-		return (printf("init: malloc_error\n"), NULL);
+		return (printf("Error\ninit: malloc_error\n"), NULL);
 	if (init_parser(data) == false)
 		return (false);
 	if (init_player(data) == false)

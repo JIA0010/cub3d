@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   all.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 16:22:57 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/19 16:36:35 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ bool	all(t_data *data, char *file)
 		free(tmp);
 	}
 	close(fd);
+	if (data->map->all == NULL)
+		return (false);
 	return (true);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/13 10:43:52 by cjia             ###   ########.fr       */
+/*   Updated: 2024/03/19 15:23:25 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int argc, char **argv)
 	return (ft_free(data), true);
 }
 
-__attribute__((destructor))
-static void	destructor(void)
-{
-	system("leaks -q cub3d");
-}
+// __attribute__((destructor))
+// static void	destructor(void)
+// {
+// 	system("leaks -q cub3d");
+// }

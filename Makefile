@@ -28,7 +28,7 @@ RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror
-MLX			= $(MLX_MMS)
+MLX			= $(MLX_OpenGL)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
 ifdef OPENGL
@@ -56,7 +56,7 @@ $(NAME):	$(OBJS)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
 	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
-	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
+	@ echo "$(CHECK) $(BLUE)finish Compiling $(NAME). $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
 	@ mkdir -p $(OBJ_PATH)

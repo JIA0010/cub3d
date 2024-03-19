@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 15:48:27 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/18 10:08:15 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/19 15:17:06 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 static void	ft_free_parser(t_data *data);
 
-	// free_data(data->ray);
 void	ft_free(t_data *data)
 {
 	ft_free_parser(data);

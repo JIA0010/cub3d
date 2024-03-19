@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/18 09:48:25 by yoshimurahi      ###   ########.fr       */
+/*   Created: 2024/03/19 14:57:35 by yhirai            #+#    #+#             */
+/*   Updated: 2024/03/19 14:57:36 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct s_img
 typedef struct s_ray
 {
 	t_data			*data;
-	//------------------------------------------ray_casting
 	double			camera_x;
 	double			dir_x;
 	double			dir_y;
@@ -92,7 +91,6 @@ typedef struct s_ray
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
-	//------------------------------------------mlx/map
 	int				win_height;
 	int				win_width;
 	void			*mlx;
@@ -100,7 +98,6 @@ typedef struct s_ray
 	int				map_height;
 	int				map_width;
 	char			**map;
-	//------------------------------------------player
 	char			dir;
 	double			pos_x;
 	double			pos_y;
@@ -112,7 +109,6 @@ typedef struct s_ray
 
 	int				move_x;
 	int				move_y;
-	//------------------------------------------texture_info
 	int				**texture_pixels;
 	int				**textures;
 	char			*north;

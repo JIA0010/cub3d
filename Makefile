@@ -1,4 +1,4 @@
-NAME		= cub3d
+NAME		= cub3D
 SRC_PATH	= srcs/
 INIT_PATH	= srcs/init/
 ERROR_PATH	= srcs/error/
@@ -31,11 +31,11 @@ CFLAGS		= -Wall -Wextra -Werror
 MLX			= $(MLX_OpenGL)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
-ifdef OPENGL
+ifdef MMS
 	MLX		= $(MLX_MMS)
 endif
 ifdef DEBUG
-	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer -g
+	CFLAGS	+= -fsanitize=address -g
 endif
 
 ##------------color-----------##
@@ -105,6 +105,6 @@ debug:		fclean
 	@ make DEBUG=1
 
 42:			fclean
-	@ make OPENGL=1
+	@ make MMS=1m
 
 .PHONY:		all clean fclean re debug

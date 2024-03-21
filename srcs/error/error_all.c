@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_all.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:24:22 by hiraiyuina        #+#    #+#             */
-/*   Updated: 2024/03/12 16:04:18 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:08:07 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	skip_map(t_data *data, char *all, size_t *index)
 		x = 0;
 		if (data->map->map[x][z] == '\0')
 			break ;
-		while (data->map->map[x] != NULL && all[i] != '\n')
+		while (data->map->map[x] != NULL && all[i] != '\0' && all[i] != '\n')
 		{
 			if (data->map->map[x][z] != all[i])
 				return ;

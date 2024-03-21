@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:12 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 15:11:47 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:17:04 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ bool	north(t_data *data)
 	if (all[i] == '\0')
 		return (false);
 	j = i;
-	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
+	while (all[j] != '\0' && all[j] != ' '
+		&& all[j] != '	' && all[j] != '\n')
 		j++;
 	data->map->path_north = ft_substr(all, i, j - i);
 	fd = open(data->map->path_north, O_RDONLY);
@@ -67,7 +68,8 @@ bool	south(t_data *data)
 	if (all[i] == '\0')
 		return (false);
 	j = i;
-	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
+	while (all[j] != '\0' && all[j] != ' '
+		&& all[j] != '	' && all[j] != '\n')
 		j++;
 	data->map->path_south = ft_substr(all, i, j - i);
 	fd = open(data->map->path_south, O_RDONLY);
@@ -93,7 +95,8 @@ bool	west(t_data *data)
 	if (all[i] == '\0')
 		return (false);
 	j = i;
-	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
+	while (all[j] != '\0' && all[j] != ' '
+		&& all[j] != '	' && all[j] != '\n')
 		j++;
 	data->map->path_west = ft_substr(all, i, j - i);
 	fd = open(data->map->path_west, O_RDONLY);
@@ -119,7 +122,8 @@ bool	east(t_data *data)
 	if (all[i] == '\0')
 		return (false);
 	j = i;
-	while (all[j] != '\0' && all[j] != ' ' && all[j] != '	' && all[j] != '\n')
+	while (all[j] != '\0' && all[j] != ' '
+		&& all[j] != '	' && all[j] != '\n')
 		j++;
 	data->map->path_east = ft_substr(all, i, j - i);
 	fd = open(data->map->path_east, O_RDONLY);

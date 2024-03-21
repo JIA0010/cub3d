@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_floodfill.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/19 16:15:53 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:15:11 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ static bool	check(t_data *data, bool *flag, size_t x, size_t z)
 {
 	if (x == 0 || z == 0
 		|| data->map->map[x + 1] == NULL
-		|| data->map->map[x + 1][z] == '\0' || data->map->map[x - 1][z] == '\0'
-		|| data->map->map[x][z + 1] == '\0' || data->map->map[x][z - 1] == '\0'
+		|| data->map->map[x + 1][z] == '\0'
+		|| data->map->map[x - 1][z] == '\0'
+		|| data->map->map[x][z + 1] == '\0'
+		|| data->map->map[x][z - 1] == '\0'
 		|| data->map->map[x + 1][z] == ' ' || data->map->map[x - 1][z] == ' '
 		|| data->map->map[x][z + 1] == ' ' || data->map->map[x][z - 1] == ' ')
 	{

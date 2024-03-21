@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 10:43:44 by cjia              #+#    #+#             */
-/*   Updated: 2024/03/19 15:23:25 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:59:28 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int	main(int argc, char **argv)
 // __attribute__((destructor))
 // static void	destructor(void)
 // {
-// 	system("leaks -q cub3d");
+// 	system("leaks -q cub3D");
 // }

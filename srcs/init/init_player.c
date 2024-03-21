@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:08:20 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 15:52:05 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/19 16:16:10 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ bool	init_player(t_data *data)
 {
 	data->player_pos = malloc(sizeof(t_pos));
 	if (data->player_pos == NULL)
-		return (printf("init_player: malloc_error\n"), false);
+		return (printf("Error\ninit_player: malloc_error\n"), false);
 	return (true);
 }

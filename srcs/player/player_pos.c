@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:45:45 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 15:19:40 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/19 16:16:51 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_player_direction(t_data *data);
 bool	player_pos(t_data *data)
 {
 	if (set_player_pos(data) == false)
-		return (printf("No player\n"), false);
+		return (printf("Error\nNo player\n"), false);
 	set_player_direction(data);
 	return (true);
 }

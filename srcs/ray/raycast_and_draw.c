@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_and_draw.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: cjia <cjia@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:28:07 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/04 11:42:37 by yoshimurahi      ###   ########.fr       */
+/*   Updated: 2024/03/13 10:38:20 by cjia             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	identify_texture(t_ray *data)
 {
 	if (data->texture_pixels)
-	free_tab((void **)data->texture_pixels);
+		free_tab((void **)data->texture_pixels);
 	data->texture_pixels = ft_calloc(data->win_height + 1,
 			sizeof * data->texture_pixels);
 	if (!data->texture_pixels)
@@ -25,7 +25,7 @@ static void	identify_texture(t_ray *data)
 void	calloc_texture_pixels(t_ray *data)
 {
 	int	i;
-	
+
 	i = 0;
 	identify_texture(data);
 	while (i < data->win_height)
@@ -38,15 +38,13 @@ void	calloc_texture_pixels(t_ray *data)
 	}
 }
 
-
-
 static void	set_frame_image_pixel(t_ray *ray, t_img *image, int x, int y)
 {
 	if (ray->texture_pixels[y][x] > 0)
 		set_image_pixel(image, x, y, ray->texture_pixels[y][x]);
 	else if (y < ray->win_height / 2)
 		set_image_pixel(image, x, y, ray->hex_ceiling);
-	else if (y < ray->win_height -1)
+	else if (y < ray->win_height - 1)
 		set_image_pixel(image, x, y, ray->hex_floor);
 }
 

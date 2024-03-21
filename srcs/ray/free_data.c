@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:25:22 by yoshimurahi       #+#    #+#             */
-/*   Updated: 2024/03/19 15:10:23 by yhirai           ###   ########.fr       */
+/*   Created: 2024/03/13 10:41:39 by cjia              #+#    #+#             */
+/*   Updated: 2024/03/19 15:18:20 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
-#include "../includes/define_ray.h"
-#include "../includes/player.h"
+#include "../../includes/define_ray.h"
 
-int	key_hook_esc(t_data *data)
+int	free_data(t_ray *data)
 {
-	clean_exit(data->ray, 0);
-	return (0);
+	if (data->textures)
+		free_tab((void **)data->textures);
+	if (data->texture_pixels)
+		free_tab((void **)data->texture_pixels);
+	free(data->rgb_ceiling);
+	free(data->rgb_floor);
+	return (FAILURE);
+}
+
+void	free_tab(void **tab)
+{
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	if (tab)
+	{
+		free(tab);
+		tab = NULL;
+	}
 }

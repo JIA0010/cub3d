@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define_ray.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshimurahiro <yoshimurahiro@student.42    +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/10 18:57:06 by yoshimurahi      ###   ########.fr       */
+/*   Created: 2024/03/19 14:57:35 by yhirai            #+#    #+#             */
+/*   Updated: 2024/03/19 14:57:36 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
-# define ROTSPEED 0.02
+# define ROTSPEED 0.04
 
 //keycode
 # define X_ESC 65307
@@ -74,7 +74,6 @@ typedef struct s_img
 typedef struct s_ray
 {
 	t_data			*data;
-	//------------------------------------------ray_casting
 	double			camera_x;
 	double			dir_x;
 	double			dir_y;
@@ -92,7 +91,6 @@ typedef struct s_ray
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
-	//------------------------------------------mlx/map
 	int				win_height;
 	int				win_width;
 	void			*mlx;
@@ -100,7 +98,6 @@ typedef struct s_ray
 	int				map_height;
 	int				map_width;
 	char			**map;
-	//------------------------------------------player
 	char			dir;
 	double			pos_x;
 	double			pos_y;
@@ -112,7 +109,6 @@ typedef struct s_ray
 
 	int				move_x;
 	int				move_y;
-	//------------------------------------------texture_info
 	int				**texture_pixels;
 	int				**textures;
 	char			*north;
@@ -158,5 +154,7 @@ int					key_release_hook(int key, t_ray *data);
 int					key_event(int key, t_ray *data);
 int					rotate_move(t_ray *data);
 void				get_data_from_yhi(t_ray *data, t_data *data_yhi);
+bool				init_floor_ceiling(t_ray *data, t_data *data_yhi);
+int					rotate_player(t_ray *data, double rotdir);
 
 #endif

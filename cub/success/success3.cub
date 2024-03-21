@@ -1,7 +1,7 @@
-NO ./textures/umi.xpm
-SO ./textures/umi.xpm
-WE ./textures/umi.xpm
-EA ./textures/umi.xpm
+NO ./textures/1.xpm
+SO ./textures/2.xpm
+WE ./textures/3.xpm
+EA ./textures/4.xpm
 
 F 252,241,224
 C 100,190,239

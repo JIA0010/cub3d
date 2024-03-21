@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_floodfill.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:41:11 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/10 17:41:06 by hiraiyuina       ###   ########.fr       */
+/*   Updated: 2024/03/19 16:15:53 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool	error_floodfill(t_data *data)
 	flag = true;
 	floodfill(data, &flag, data->player_pos->x, data->player_pos->z);
 	if (flag == false)
-		return (printf("Map is not closed\n"), false);
+		return (printf("Error\nMap is not closed\n"), false);
 	fix_map(data);
 	return (true);
 }

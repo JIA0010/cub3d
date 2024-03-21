@@ -3,6 +3,7 @@
 		"parser.h": "c",
 		"init.h": "c",
 		"error.h": "c",
-		"define_ray.h": "c"
+		"define_ray.h": "c",
+		"cub3d.h": "c"
 	}
 }

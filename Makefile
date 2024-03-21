@@ -14,7 +14,8 @@ ERROR_FILES	= error_arg.c check_error_arg.c error_all.c error_map.c error_floodf
 PARSER_FILES= parser.c all.c path.c floor_rgb.c ceiling_rgb.c map.c map_utils.c
 PLAYER_FILES= player_pos.c move_player.c
 RAY_FILES	= start_game.c utils.c ray_casting.c init_ray.c raycast_and_draw.c \
-				texture.c init_player_dir.c get_wall_height.c start_dda.c draw_image_to_window.c rotate.c
+				texture.c init_player_dir.c get_wall_height.c start_dda.c draw_image_to_window.c rotate.c \
+				free_data.c init_img.c
 LIBFT_FILE	= libft.a
 OBJ_FILES	= $(SRC_FILES:%.c=%.o) $(INIT_FILES:%.c=%.o) $(ERROR_FILES:%.c=%.o) \
 				$(PARSER_FILES:%.c=%.o) $(PLAYER_FILES:%.c=%.o) $(RAY_FILES:%.c=%.o)
@@ -27,11 +28,11 @@ RAYS		= $(addprefix $(RAY_PATH), $(RAY_FILES))
 OBJS		= $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 LIBFT		= $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
 CFLAGS		= -Wall -Wextra -Werror
-MLX			= $(MLX_MMS)
+MLX			= $(MLX_OpenGL)
 MLX_OpenGL	= -lmlx -framework OpenGL -framework AppKit
 MLX_MMS		= -lm libmlx.dylib
 ifdef OPENGL
-	MLX		= $(MLX_OpenGL)
+	MLX		= $(MLX_MMS)
 endif
 ifdef DEBUG
 	CFLAGS	+= -fsanitize=address -fno-omit-frame-pointer -g
@@ -55,7 +56,7 @@ $(NAME):	$(OBJS)
 	@ $(MAKE) -C $(LIBFT_PATH)
 	@ cp $(LIBFT) $(NAME)
 	@ $(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
-	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
+	@ echo "$(CHECK) $(BLUE)finish Compiling $(NAME). $(RESET)"
 
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c $(INCLUDES)
 	@ mkdir -p $(OBJ_PATH)

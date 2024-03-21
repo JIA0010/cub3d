@@ -28,7 +28,7 @@ $(NAME):	$(OBJS)
 	@ echo ""
 	@ mkdir -p $(OBJ_PATH)
 	@ ar rc $(NAME) $(OBJS)
-	@ echo "$(CHECK) $(BLUE)finish Compiling minishell. $(RESET)"
+	@ echo "$(CHECK) $(BLUE)finish Compiling $(NAME). $(RESET)"
 
 $(OBJ_PATH)%.o:%.c
 	@ mkdir -p $(OBJ_PATH)

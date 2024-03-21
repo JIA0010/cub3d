@@ -6,7 +6,7 @@
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:45:25 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/07 16:21:13 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/19 14:54:05 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <limits.h>
-# include "mlx.h"
+# include <mlx.h>
 # include "../Libft/libft.h"
 // # include "define_ray.h"
 

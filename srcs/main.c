@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/03/12 15:25:02 by yhirai           ###   ########.fr       */
+/*   Created: 2024/03/13 10:43:44 by cjia              #+#    #+#             */
+/*   Updated: 2024/03/19 15:23:25 by yhirai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ int	main(int argc, char **argv)
 	return (ft_free(data), true);
 }
 
-
-__attribute__((destructor))
-static void	destructor(void)
-{
-	system("leaks -q cub3d");
-}
+// __attribute__((destructor))
+// static void	destructor(void)
+// {
+// 	system("leaks -q cub3d");
+// }

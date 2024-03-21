@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:00:09 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/19 16:16:38 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:16:33 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ bool	parser(t_data *data, char *file)
 	if (path(data) == false)
 		return (printf("Error\nparser/path: texture path error\n"), false);
 	if (floor_rgb(data) == false)
-		return (printf("Error\nparser/floor_rgb: floor_rgb error\n"), false);
+		return (printf("Error\nparser: floor_rgb error\n"), false);
 	if (ceiling_rgb(data) == false)
-		return (printf("Error\nparser/ceiling_rgb: ceiling_rgb error\n"), false);
+		return (printf("Error\nparser: ceiling_rgb error\n"), false);
 	if (map(data) == false)
 		return (printf("Error\nparser/map: invalid character\n"), false);
 	if (error_all(data) == false)

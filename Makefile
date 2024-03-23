@@ -105,6 +105,6 @@ debug:		fclean
 	@ make DEBUG=1
 
 42:			fclean
-	@ make MMS=1m
+	@ make MMS=1 DEBUG=1
 
 .PHONY:		all clean fclean re debug

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yhirai <yhirai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hiraiyuina <hiraiyuina@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:54:08 by yhirai            #+#    #+#             */
-/*   Updated: 2024/03/12 16:03:39 by yhirai           ###   ########.fr       */
+/*   Updated: 2024/03/23 13:46:22 by hiraiyuina       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ bool	map(t_data *data)
 		return (false);
 	data->map->map_width = map_x_len(line);
 	data->map->map_hight = map_z_len(line);
+	if (data->map->map_width >= 100 || data->map->map_hight >= 100)
+		return (false);
 	map_double_line(data, line, 0, 0);
 	if (error_map(data) == false)
 		return (false);
